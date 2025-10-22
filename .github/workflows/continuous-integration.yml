@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  # codecov:
+  #   name: codecov
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     DOCKER_BUILDKIT: true
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Execute linters and test suites
+  #       run: ./docker/cibuild
+  #     - name: Upload All coverage to Codecov
+  #       uses: codecov/codecov-action@v5
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         file: ./coverage.xml
+  #         fail_ci_if_error: false
+  python-matrix:
+    name: python-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.*" 
+
+      - name: Set up python
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install package
+        run: uv sync -p ${{ matrix.python-version }}
+
+      - name: Execute linters and test suites
+        run: |
+          uv run -p ${{ matrix.python-version }} pre-commit run --all-files
+          # todo: add pytest
