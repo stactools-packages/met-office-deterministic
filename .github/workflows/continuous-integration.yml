@@ -7,30 +7,12 @@ on:
   pull_request:
 
 jobs:
-  # codecov:
-  #   name: codecov
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     DOCKER_BUILDKIT: true
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Execute linters and test suites
-  #       run: ./docker/cibuild
-  #     - name: Upload All coverage to Codecov
-  #       uses: codecov/codecov-action@v5
-  #       with:
-  #         token: ${{ secrets.CODECOV_TOKEN }}
-  #         file: ./coverage.xml
-  #         fail_ci_if_error: false
   python-matrix:
     name: python-matrix
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.11", "3.12", "3.13", "3.14"]
-    defaults:
-      run:
-        shell: bash -l {0}
     steps:
       - uses: actions/checkout@v4
       - name: Set up uv
@@ -47,4 +29,4 @@ jobs:
       - name: Execute linters and test suites
         run: |
           uv run -p ${{ matrix.python-version }} pre-commit run --all-files
-          # todo: add pytest
+          uv run -p ${{ matrix.python-version }} pytest

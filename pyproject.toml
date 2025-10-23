@@ -34,12 +34,22 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/stactools"]
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
+
 [dependency-groups]
 dev = [
     "codespell==2.4.1",
-    "ipython>=9.6.0",
     "mypy==1.18.2",
     "pre-commit>=4.3.0",
+    "pystac[validation]>=1.14.1",
+    "pytest>=8.4.2",
     "ruff==0.14.1",
 ]
 
@@ -52,3 +62,6 @@ mypy_path = "src"
 
 [tool.ruff]
 lint.select = ["E", "F", "I"]
+exclude = [
+    "tests/fixtures/obstore.py",
+]

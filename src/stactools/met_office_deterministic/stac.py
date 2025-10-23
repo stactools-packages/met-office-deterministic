@@ -68,7 +68,6 @@ def _collect_assets(
 
             assets[item_id][variable] = Asset(
                 href=f"{protocol}://{bucket}/{result['path']}",
-                title=variable,
                 extra_fields=extra_fields,
             )
 
@@ -99,7 +98,7 @@ def _create_item_from_assets(
         bbox=[-180, -90, 180, 90],  # TODO: calculate extent for UK items
         geometry=Polygon.from_bounds(-180, -90, 180, 90).model_dump(exclude_none=True),
         properties={
-            "forecast:reference_time": reference_time.isoformat(),
+            "forecast:reference_datetime": reference_time.isoformat(),
             "forecast:horizon": parsed.group("forecast_horizon"),
         },
         stac_extensions=[
