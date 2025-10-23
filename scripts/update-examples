@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import shutil
+from datetime import datetime
+from pathlib import Path
+
+from stactools.met_office_deterministic.stac import (
+    create_item,
+)
+
+root = Path(__file__).parents[1]
+examples = root / "examples"
+
+items = [
+    create_item(
+        collection="global-deterministic-10km",
+        reference_time=datetime(2025, 10, 1, 0),
+        valid_time=datetime(2025, 10, 1, hour),
+    )
+    for hour in [0, 1, 2]
+]
+if examples.exists():
+    shutil.rmtree(examples)
+    examples.mkdir()
+
+for item in items:
+    item.save_object(dest_href=str(examples / f"{item.id}.json"))
