@@ -11,13 +11,17 @@ from stactools.met_office_deterministic.stac import (
 root = Path(__file__).parents[1]
 examples = root / "examples"
 
-item = create_item(
-    collection="global-deterministic-10km",
-    reference_time=datetime(2025, 10, 1, 0),
-    valid_time=datetime(2025, 10, 1, 0),
-)
+items = [
+    create_item(
+        collection="global-deterministic-10km",
+        reference_time=datetime(2025, 10, 1, 0),
+        valid_time=datetime(2025, 10, 1, hour),
+    )
+    for hour in [0, 1, 2]
+]
 if examples.exists():
     shutil.rmtree(examples)
     examples.mkdir()
 
-item.save_object(dest_href=str(examples / f"{item.id}.json"))
+for item in items:
+    item.save_object(dest_href=str(examples / f"{item.id}.json"))
