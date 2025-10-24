@@ -1,3 +1,4 @@
+import logging
 import re
 from collections import defaultdict
 from datetime import datetime
@@ -8,9 +9,7 @@ from geojson_pydantic import Polygon
 from obstore import store
 from pystac import Asset, Item
 
-PROTOCOL = "s3"
-BUCKET = "met-office-atmospheric-model-data"
-REGION = "eu-west-2"
+logger = logging.getLogger(__name__)
 
 # TODO: set up configs for other datasets
 PATH_PATTERN = r"^(?:(?P<protocol>[^:]+)://(?P<bucket>[^/]+)/)?(?P<collection>[^/]+)/(?P<reference_time>[^/]+)/(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<variable>.+?)(?:-(?P<duration>PT[\dHM]+))?\.nc$"
@@ -35,7 +34,7 @@ def _collect_assets(
         valid_time: Optional valid_time string to filter results
           (e.g., '20241022T0000Z')
     """
-    print(f"checking for keys in {protocol}://{bucket}/{key_prefix}")
+    logger.info(f"Checking for keys in {protocol}://{bucket}/{key_prefix}")
 
     assets: defaultdict[str, dict[str, Asset]] = defaultdict(dict[str, Asset])
 
@@ -49,7 +48,7 @@ def _collect_assets(
         for result in list_result:
             parsed = re.match(PATH_PATTERN, result["path"])
             if not parsed:
-                print(f"{result['path']} did not match the expected pattern")
+                logger.warning(f"{result['path']} did not match the expected pattern")
                 continue
 
             if valid_time and parsed.group("valid_time") != valid_time:
@@ -114,13 +113,15 @@ def create_item(
     collection: MetOfficeCollection,
     reference_time: datetime,
     valid_time: datetime,
-    protocol: str = PROTOCOL,
-    bucket: str = BUCKET,
-    region: str = REGION,
+    storage_protocol: str,
+    storage_bucket: str,
+    storage_region: str,
 ) -> Item:
     """Create a single item"""
     object_store = store.from_url(
-        f"{protocol}://{bucket}", region=region, skip_signature=True
+        f"{storage_protocol}://{storage_bucket}",
+        region=storage_region,
+        skip_signature=True,
     )
 
     key_prefix = "/".join(
@@ -132,7 +133,11 @@ def create_item(
 
     valid_time_str = valid_time.strftime("%Y%m%dT%H%MZ")
     assets_by_item = _collect_assets(
-        object_store, key_prefix, protocol, bucket, valid_time=valid_time_str
+        object_store,
+        key_prefix,
+        storage_protocol,
+        storage_bucket,
+        valid_time=valid_time_str,
     )
 
     if not assets_by_item:
@@ -148,14 +153,16 @@ def create_item(
 def create_items_for_reference_time(
     collection: MetOfficeCollection,
     reference_time: datetime,
-    protocol: str = PROTOCOL,
-    bucket: str = BUCKET,
-    region: str = REGION,
+    storage_protocol: str,
+    storage_bucket: str,
+    storage_region: str,
 ) -> list[Item]:
     """Create items for each forecasted timestep (valid_time) for a given reference
     time"""
     object_store = store.from_url(
-        f"{protocol}://{bucket}", region=region, skip_signature=True
+        f"{storage_protocol}://{storage_bucket}",
+        region=storage_region,
+        skip_signature=True,
     )
 
     key_prefix = "/".join(
@@ -165,7 +172,9 @@ def create_items_for_reference_time(
         ]
     )
 
-    assets_by_item = _collect_assets(object_store, key_prefix, protocol, bucket)
+    assets_by_item = _collect_assets(
+        object_store, key_prefix, storage_protocol, storage_bucket
+    )
 
     return [
         _create_item_from_assets(item_id, assets, reference_time)

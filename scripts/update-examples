@@ -4,6 +4,11 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
+from stactools.met_office_deterministic.provider import (
+    STORAGE_BUCKET,
+    STORAGE_PROTOCOL,
+    STORAGE_REGION,
+)
 from stactools.met_office_deterministic.stac import (
     create_item,
 )
@@ -16,6 +21,9 @@ items = [
         collection="global-deterministic-10km",
         reference_time=datetime(2025, 10, 1, 0),
         valid_time=datetime(2025, 10, 1, hour),
+        storage_protocol=STORAGE_PROTOCOL,
+        storage_bucket=STORAGE_BUCKET,
+        storage_region=STORAGE_REGION,
     )
     for hour in [0, 1, 2]
 ]
