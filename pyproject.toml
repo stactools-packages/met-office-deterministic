@@ -1,7 +1,7 @@
 [project]
 name = "stactools-met-office-deterministic"
 version = "0.1.0"
-description = "Python package for generating STAC metadata for the Met Office Deterministic Numerical Weather Prediction model"
+description = "Generate STAC metadata for the model outputs from the Met Office Deterministic Numerical Weather Prediction model"
 readme = "README.md"
 authors = [
     { name = "hrodmn", email = "henry@developmentseed.org" }
@@ -24,8 +24,11 @@ dependencies = [
     "geojson-pydantic>=2.1.0",
     "obstore>=0.8.2",
     "pystac>=1.14.1",
+    "typer>=0.20.0",
 ]
 
+[project.scripts]
+met-office-stac = "stactools.met_office_deterministic.cli:app"
 
 [build-system]
 requires = ["hatchling"]
