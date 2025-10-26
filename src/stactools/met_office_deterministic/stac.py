@@ -4,9 +4,17 @@ from datetime import datetime
 from typing import Literal
 
 import obstore
-from geojson_pydantic import Polygon
 from obstore import store
-from pystac import Asset, Item
+from pystac import (
+    Asset,
+    Collection,
+    Extent,
+    Item,
+    ItemAssetDefinition,
+    MediaType,
+    SpatialExtent,
+    TemporalExtent,
+)
 
 from stactools.met_office_deterministic import constants
 
@@ -27,7 +35,9 @@ MetOfficeCollection = Literal[
 ]
 
 
-def _get_collection_variables(collection: MetOfficeCollection) -> list[str]:
+def _get_collection_variables(
+    collection: MetOfficeCollection,
+) -> dict[str, dict[str, str]]:
     """Get the list of valid variables for a given collection.
 
     Args:
@@ -57,7 +67,7 @@ def _get_collection_variables(collection: MetOfficeCollection) -> list[str]:
 def _collect_assets(
     object_store: store.ObjectStore,
     key_prefix: str,
-    variables: list[str],
+    variables: dict[str, dict[str, str]],
     protocol: str,
     bucket: str,
     valid_time: str | None = None,
@@ -76,7 +86,6 @@ def _collect_assets(
     print(f"checking for keys in {protocol}://{bucket}/{key_prefix}")
 
     assets: defaultdict[str, dict[str, Asset]] = defaultdict(dict[str, Asset])
-    variables_set = set(variables)
 
     stream = obstore.list(
         object_store,
@@ -97,7 +106,7 @@ def _collect_assets(
             variable: str = parsed.group("variable")
 
             # Filter by collection-specific variables
-            if variable not in variables_set:
+            if variable not in variables:
                 continue
 
             item_id = f"{parsed.group('reference_time')}-{parsed.group('valid_time')}"
@@ -113,6 +122,10 @@ def _collect_assets(
             assets[item_id][variable] = Asset(
                 href=f"{protocol}://{bucket}/{result['path']}",
                 extra_fields=extra_fields,
+                description=variables[variable]["description"],
+                title=variable.replace("_", " "),
+                roles=["data"],
+                media_type=MediaType.NETCDF,
             )
 
     if not assets:
@@ -127,6 +140,7 @@ def _collect_assets(
 
 def _create_item_from_assets(
     item_id: str,
+    collection: MetOfficeCollection,
     assets: dict[str, Asset],
     reference_time: datetime,
 ) -> Item:
@@ -139,8 +153,10 @@ def _create_item_from_assets(
     item = Item(
         id=item_id,
         datetime=datetime.strptime(parsed.group("valid_time"), "%Y%m%dT%H%MZ"),
-        bbox=[-180, -90, 180, 90],  # TODO: calculate extent for UK items
-        geometry=Polygon.from_bounds(-180, -90, 180, 90).model_dump(exclude_none=True),
+        bbox=constants.GLOBAL_BBOX if "global" in collection else constants.UK_BBOX,
+        geometry=constants.GLOBAL_GEOMETRY
+        if "global" in collection
+        else constants.UK_GEOMETRY,
         properties={
             "forecast:reference_datetime": reference_time.isoformat(),
             "forecast:horizon": parsed.group("forecast_horizon"),
@@ -191,7 +207,7 @@ def create_item(
         raise ValueError(f"Expected single item but found {len(assets_by_item)}")
 
     item_id, assets = next(iter(assets_by_item.items()))
-    return _create_item_from_assets(item_id, assets, reference_time)
+    return _create_item_from_assets(item_id, collection, assets, reference_time)
 
 
 def create_items_for_reference_time(
@@ -224,6 +240,33 @@ def create_items_for_reference_time(
     )
 
     return [
-        _create_item_from_assets(item_id, assets, reference_time)
+        _create_item_from_assets(item_id, collection, assets, reference_time)
         for item_id, assets in assets_by_item.items()
     ]
+
+
+def create_collection(id: MetOfficeCollection) -> Collection:
+    collection = Collection(
+        id=id,
+        description="",
+        extent=Extent(
+            spatial=SpatialExtent(
+                bboxes=[constants.GLOBAL_BBOX if "global" in id else constants.UK_BBOX]
+            ),
+            temporal=TemporalExtent(intervals=[[None, None]]),
+        ),
+    )
+
+    collection.item_assets = {
+        asset_key: ItemAssetDefinition.create(
+            title=asset_key.replace("_", " "),
+            description=asset_info["description"],
+            media_type=MediaType.NETCDF,
+            roles=["data"],
+        )
+        for asset_key, asset_info in _get_collection_variables(id).items()
+    }
+
+    # todo: add datacube
+
+    return collection

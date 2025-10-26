@@ -1,0 +1,83 @@
+{
+  "type": "Collection",
+  "id": "met-office-uk-deterministic-2km-height",
+  "stac_version": "1.1.0",
+  "description": "",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0000Z/20251001T0000Z-20251001T0000Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0100Z/20251001T0000Z-20251001T0100Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0200Z/20251001T0000Z-20251001T0200Z.json",
+      "type": "application/geo+json"
+    }
+  ],
+  "item_assets": {
+    "cloud_amount_on_height_levels": {
+      "title": "cloud amount on height levels",
+      "description": "Fraction of horizontal grid square occupied by cloud on height levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_height_levels": {
+      "title": "temperature on height levels",
+      "description": "Air temperature on height levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_height_levels": {
+      "title": "wind direction on height levels",
+      "description": "Wind direction on height levels. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_height_levels": {
+      "title": "wind speed on height levels",
+      "description": "Wind speed on height levels. The speed is the magnitude of velocity.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -24.53378493833058,
+          44.50650694725796,
+          15.303254906837337,
+          63.01353038140843
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "license": "other"
+}

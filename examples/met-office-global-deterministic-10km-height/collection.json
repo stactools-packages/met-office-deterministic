@@ -1,0 +1,59 @@
+{
+  "type": "Collection",
+  "id": "met-office-global-deterministic-10km-height",
+  "stac_version": "1.1.0",
+  "description": "",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0000Z/20251001T0000Z-20251001T0000Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0100Z/20251001T0000Z-20251001T0100Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0200Z/20251001T0000Z-20251001T0200Z.json",
+      "type": "application/geo+json"
+    }
+  ],
+  "item_assets": {
+    "cloud_amount_on_height_levels": {
+      "title": "cloud amount on height levels",
+      "description": "Fraction of horizontal grid square occupied by cloud on height levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.0,
+          -90.0,
+          180.0,
+          90.0
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "license": "other"
+}

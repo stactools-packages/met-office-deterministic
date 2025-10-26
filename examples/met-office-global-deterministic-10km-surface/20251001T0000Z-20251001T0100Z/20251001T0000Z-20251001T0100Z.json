@@ -1,0 +1,537 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20251001T0000Z-20251001T0100Z",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90.0,
+    180.0,
+    90.0
+  ],
+  "properties": {
+    "forecast:reference_datetime": "2025-10-01T00:00:00",
+    "forecast:horizon": "PT0001H00M",
+    "datetime": "2025-10-01T01:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "CAPE_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CAPE_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "title": "CAPE mixed layer lowest 500m",
+      "description": "Convective Available Potential Energy (CAPE) calculated for a parcel with the thermodynamic properties of the density-weighted mean of the lowest 500 m above ground level.",
+      "forecast:variable": "CAPE_mixed_layer_lowest_500m",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CAPE_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "title": "CAPE most unstable below 500hPa",
+      "description": "CAPE (Convective Available Potential Energy) calculated for the most unstable parcel where the most unstable parcel is defined as the parcel with the highest fixed level CAPE launched from any level (including screen-level = 1.5m) within 500hPa of the surface pressure.",
+      "forecast:variable": "CAPE_most_unstable_below_500hPa",
+      "updated": "2025-10-01T05:45:26+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CAPE_surface.nc",
+      "type": "application/netcdf",
+      "title": "CAPE surface",
+      "description": "Value of CAPE (Convection Available Potential Energy) calculated for a surface based parcel, where a surface based parcel is defined as a parcel initiated with thermodynamic properties at screen level height (1.5m) i.e. the parcel is launched from screen level.",
+      "forecast:variable": "CAPE_surface",
+      "updated": "2025-10-01T05:45:26+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CIN_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "title": "CIN mixed layer lowest 500m",
+      "description": "Any additional energy required to lift a mixed-layer parcel to its level of free convection. Where a mixed layer parcel is defined as a parcel with thermodynamic properties of the density weighted mean of the lowest 500 m above ground level (AGL).",
+      "forecast:variable": "CIN_mixed_layer_lowest_500m",
+      "updated": "2025-10-01T05:45:26+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CIN_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "title": "CIN most unstable below 500hPa",
+      "description": "Any additional energy required to lift the most unstable parcel to its level of free convection. Where most unstable parcel is defined as the parcel with the highest fixed-level CAPE launched from any level (including screen-level) within 500 hPa of the surface pressure.",
+      "forecast:variable": "CIN_most_unstable_below_500hPa",
+      "updated": "2025-10-01T05:45:26+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-CIN_surface.nc",
+      "type": "application/netcdf",
+      "title": "CIN surface",
+      "description": "Any additional energy required to lift a surface-based parcel (i.e. a parcel launched from screen-level (1.5m)) to its level of free convection.",
+      "forecast:variable": "CIN_surface",
+      "updated": "2025-10-01T05:45:26+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_below_1000ft_ASL": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_below_1000ft_ASL.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount below 1000ft ASL",
+      "description": "Fraction of horizontal grid square occupied by cloud cover below 1,000 feet above sea level.",
+      "forecast:variable": "cloud_amount_below_1000ft_ASL",
+      "updated": "2025-10-01T05:45:27+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_high_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_high_cloud.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount of high cloud",
+      "description": "Fraction of horizontal grid square occupied by cloud in the high-level cloud height range; from 5,574m (~18,000ft) to 13,608m (~44,500ft).",
+      "forecast:variable": "cloud_amount_of_high_cloud",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_low_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_low_cloud.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount of low cloud",
+      "description": "Fraction on horizontal grid square occupied by cloud in the low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).",
+      "forecast:variable": "cloud_amount_of_low_cloud",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_medium_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_medium_cloud.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount of medium cloud",
+      "description": "A fraction of horizontal grid square occupied by cloud in the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m (~18,000ft).",
+      "forecast:variable": "cloud_amount_of_medium_cloud",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_total_cloud.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount of total cloud",
+      "description": "Fraction of horizontal grid square occupied by cloud as diagnosed by the model cloud scheme. This is for the whole atmosphere column as seen from the surface or the top of the atmosphere.",
+      "forecast:variable": "cloud_amount_of_total_cloud",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_convective_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_total_convective_cloud.nc",
+      "type": "application/netcdf",
+      "title": "cloud amount of total convective cloud",
+      "description": "Fraction of horizontal grid squares occupied by convective cloud as diagnosed by the model convection scheme. This is for the whole atmosphere column as seen from the surface or the top of the atmosphere.",
+      "forecast:variable": "cloud_amount_of_total_convective_cloud",
+      "updated": "2025-10-01T05:45:25+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "fog_fraction_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-fog_fraction_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "fog fraction at screen level",
+      "description": "Fog means a visibility of 1000 m or lower. The reduction in visibility is caused by water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
+      "forecast:variable": "fog_fraction_at_screen_level",
+      "updated": "2025-10-01T05:45:27+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-latent_heat_flux_at_surface_mean-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "latent heat flux at surface mean",
+      "description": "Exchange of heat between the surface and the air on account of evaporation (including sublimation). In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics. Upwards is positive; negative is downward.",
+      "forecast:variable": "latent_heat_flux_at_surface_mean",
+      "updated": "2025-10-01T05:45:32+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-precipitation_accumulation-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "precipitation accumulation",
+      "description": "Implied depth of the layer of liquid water which has been deposited on the surface. This includes rain, snow and hail with the ice phase precipitation being considered as a liquid water equivalent (lwe) value. It includes the contribution from the model convection scheme if this is invoked (true for Global models but not the UK models) as well as that from the model precipitation scheme.",
+      "forecast:variable": "precipitation_accumulation",
+      "updated": "2025-10-01T05:45:32+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-precipitation_rate.nc",
+      "type": "application/netcdf",
+      "title": "precipitation rate",
+      "description": "Instantaneous rate at which liquid water (as a depth) is being deposited on the surface.",
+      "forecast:variable": "precipitation_rate",
+      "updated": "2025-10-01T05:45:38+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_mean_sea_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-pressure_at_mean_sea_level.nc",
+      "type": "application/netcdf",
+      "title": "pressure at mean sea level",
+      "description": "Air pressure at mean sea level which is close to the geoid in sea areas. Air pressure at sea level is the quantity often abbreviated as MSLP or PMSL.",
+      "forecast:variable": "pressure_at_mean_sea_level",
+      "updated": "2025-10-01T05:45:38+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-pressure_at_tropopause.nc",
+      "type": "application/netcdf",
+      "title": "pressure at tropopause",
+      "description": "Air pressure at tropopause.",
+      "forecast:variable": "pressure_at_tropopause",
+      "updated": "2025-10-01T05:45:39+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_longwave_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_longwave_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "radiation flux in longwave downward at surface",
+      "description": "Longwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "forecast:variable": "radiation_flux_in_longwave_downward_at_surface",
+      "updated": "2025-10-01T05:45:39+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_direct_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "radiation flux in shortwave direct downward at surface",
+      "description": "Shortwave radiation at the surface from above directed at the ground. \"Direct\" means that the radiation has followed a direct path from the sun and is alternatively known as \"direct insolation\". In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "forecast:variable": "radiation_flux_in_shortwave_direct_downward_at_surface",
+      "updated": "2025-10-01T05:45:40+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_total_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_shortwave_total_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "radiation flux in shortwave total downward at surface",
+      "description": "Total shortwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "forecast:variable": "radiation_flux_in_shortwave_total_downward_at_surface",
+      "updated": "2025-10-01T05:45:40+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-rainfall_accumulation-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "rainfall accumulation",
+      "description": "Implied depth of the rain produced by the model precipitation scheme which has been deposited on the surface. For the Global models (which run a convection scheme) the \"rainfall accumulation from convection\" must be added to this to get the total rainfall accumulation.",
+      "forecast:variable": "rainfall_accumulation",
+      "updated": "2025-10-01T05:45:40+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-rainfall_rate.nc",
+      "type": "application/netcdf",
+      "title": "rainfall rate",
+      "description": "Instantaneous rate at which rain (as a depth) which has been produced by the model precipitation scheme is being deposited on the surface. For the Global models (which run a convection scheme) the \"rainfall rate from convection\" must be added to this to get the total rainfall rate.",
+      "forecast:variable": "rainfall_rate",
+      "updated": "2025-10-01T05:45:40+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-rainfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "title": "rainfall rate from convection",
+      "description": "Instantaneous rate at which rain, produced by the model convection scheme, is being deposited on the surface.",
+      "forecast:variable": "rainfall_rate_from_convection",
+      "updated": "2025-10-01T05:45:41+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-rainfall_rate_from_convection_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "rainfall rate from convection max",
+      "description": "Maximum instantaneous rate at which rain, produced by the model convection scheme, is being deposited on the surface.",
+      "forecast:variable": "rainfall_rate_from_convection_max",
+      "updated": "2025-10-01T05:45:41+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-relative_humidity_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "relative humidity at screen level",
+      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) at screen level (1.5m above the surface.)",
+      "forecast:variable": "relative_humidity_at_screen_level",
+      "updated": "2025-10-01T05:45:41+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "snow_depth_water_equivalent": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-snow_depth_water_equivalent.nc",
+      "type": "application/netcdf",
+      "title": "snow depth water equivalent",
+      "description": "Liquid water equivalent (LWE) depth of the snow lying on the surface (ground). Typically, water is 10 times as dense as snow so multiplying by 10 gives an approximate depth of the snow, although wet snow can be significantly denser and powder snow much less dense.",
+      "forecast:variable": "snow_depth_water_equivalent",
+      "updated": "2025-10-01T05:45:49+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-snowfall_rate.nc",
+      "type": "application/netcdf",
+      "title": "snowfall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) which has been produced by the model precipitation scheme is being deposited on the surface. For the Global models which run a convection scheme) the \"snowfall rate from convection\" must be added to this to get the total snowfall rate.",
+      "forecast:variable": "snowfall_rate",
+      "updated": "2025-10-01T05:45:49+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-snowfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "title": "snowfall rate from convection",
+      "description": "Rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "forecast:variable": "snowfall_rate_from_convection",
+      "updated": "2025-10-01T05:45:49+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-snowfall_rate_from_convection_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "snowfall rate from convection max",
+      "description": "Maximum instantaneous rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "forecast:variable": "snowfall_rate_from_convection_max",
+      "updated": "2025-10-01T05:45:49+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-snowfall_rate_from_convection_mean-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "snowfall rate from convection mean",
+      "description": "Mean rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "forecast:variable": "snowfall_rate_from_convection_mean",
+      "updated": "2025-10-01T05:45:49+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "temperature at screen level",
+      "description": "Air temperature at screen level (1.5m).",
+      "forecast:variable": "temperature_at_screen_level",
+      "updated": "2025-10-01T05:45:50+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_screen_level_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "temperature at screen level max",
+      "description": "Maximum instantaneous air temperature at screen level (1.5m).",
+      "forecast:variable": "temperature_at_screen_level_max",
+      "updated": "2025-10-01T05:45:50+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_screen_level_min-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "temperature at screen level min",
+      "description": "Minimum instantaneous air temperature at screen level (1.5m).",
+      "forecast:variable": "temperature_at_screen_level_min",
+      "updated": "2025-10-01T05:45:50+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "temperature at surface",
+      "description": "Temperature at the surface interface between the air and the ground.",
+      "forecast:variable": "temperature_at_surface",
+      "updated": "2025-10-01T05:45:44+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_tropopause.nc",
+      "type": "application/netcdf",
+      "title": "temperature at tropopause",
+      "description": "Temperature at tropopause.",
+      "forecast:variable": "temperature_at_tropopause",
+      "updated": "2025-10-01T05:45:44+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_of_dew_point_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_of_dew_point_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "temperature of dew point at screen level",
+      "description": "Dew point temperature (temperature at which a parcel of air reaches saturation upon being cooled at constant pressure and specific humidity) at screen level.",
+      "forecast:variable": "temperature_of_dew_point_at_screen_level",
+      "updated": "2025-10-01T05:45:44+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "visibility_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-visibility_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "visibility at screen level",
+      "description": "Distance at which a known object can be seen horizontally from screen level (1.5m).",
+      "forecast:variable": "visibility_at_screen_level",
+      "updated": "2025-10-01T05:45:50+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_direction_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "wind direction at 10m",
+      "description": "Mean wind direction is equivalent to the mean direction observed over the 10 minutes preceding the validity time. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing. 10m wind is the considered surface wind.",
+      "forecast:variable": "wind_direction_at_10m",
+      "updated": "2025-10-01T05:45:50+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_gust_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "wind gust at 10m",
+      "description": "The gust speed is equivalent to the maximum 3 second mean wind speed observed over the 10 minutes preceding validity time. 10m wind is the considered surface wind.",
+      "forecast:variable": "wind_gust_at_10m",
+      "updated": "2025-10-01T05:45:59+00:00",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_gust_at_10m_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "wind gust at 10m max",
+      "description": "Maximum diagnosed instantaneous wind gust at 10m. This can be considered as the extreme wind speed that might be experienced in this period.",
+      "forecast:variable": "wind_gust_at_10m_max",
+      "updated": "2025-10-01T05:45:59+00:00",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_speed_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "wind speed at 10m",
+      "description": "Mean wind speed is equivalent to the mean speed observed over the 10 minutes preceding the validity time. 10m wind is the considered surface wind.",
+      "forecast:variable": "wind_speed_at_10m",
+      "updated": "2025-10-01T05:45:41+00:00",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-10km-surface"
+}

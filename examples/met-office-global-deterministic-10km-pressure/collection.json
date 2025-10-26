@@ -1,0 +1,107 @@
+{
+  "type": "Collection",
+  "id": "met-office-global-deterministic-10km-pressure",
+  "stac_version": "1.1.0",
+  "description": "",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0000Z/20251001T0000Z-20251001T0000Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0100Z/20251001T0000Z-20251001T0100Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0200Z/20251001T0000Z-20251001T0200Z.json",
+      "type": "application/geo+json"
+    }
+  ],
+  "item_assets": {
+    "height_ASL_on_pressure_levels": {
+      "title": "height ASL on pressure levels",
+      "description": "Height above mean sea level or altitude of the pressure levels. This is considered approximately equivalent to geopotential height. Geopotential is the sum of the specific gravitational potential energy relative to the geoid and the specific centripetal potential energy. Geopotential height is the geopotential divided by the standard acceleration due to gravity.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_on_pressure_levels": {
+      "title": "relative humidity on pressure levels",
+      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) on pressure levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_pressure_levels": {
+      "title": "temperature on pressure levels",
+      "description": "Air temperature on pressure levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wet_bulb_potential_temperature_on_pressure_levels": {
+      "title": "wet bulb potential temperature on pressure levels",
+      "description": "Wet bulb potential temperature (temperature that a parcel of air at any level would have if starting at the wet bulb temperature, it was brought at a saturated adiabatic lapse rate, to the standard pressure of 1000hPa) on pressure levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_pressure_levels": {
+      "title": "wind direction on pressure levels",
+      "description": "Wind on a pressure level is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_pressure_levels": {
+      "title": "wind speed on pressure levels",
+      "description": "Wind on a pressure level is defined as a two-dimensional (horizontal) air velocity with no vertical component. The speed is the magnitude of velocity.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_vertical_velocity_on_pressure_levels": {
+      "title": "wind vertical velocity on pressure levels",
+      "description": "Speed of the vertical component of the air motion at a pressure level. Upwards is positive and downwards is negative.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.0,
+          -90.0,
+          180.0,
+          90.0
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "license": "other"
+}
