@@ -2,7 +2,8 @@
   "type": "Feature",
   "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
   ],
   "id": "20251001T0000Z-20251001T0200Z",
   "geometry": {
@@ -281,6 +282,41 @@
   "properties": {
     "forecast:reference_datetime": "2025-10-01T00:00:00",
     "forecast:horizon": "PT0002H00M",
+    "proj:code": null,
+    "proj:wkt2": "PROJCRS[\"unnamed\",\n    BASEGEOGCRS[\"unknown\",\n        DATUM[\"unnamed\",\n            ELLIPSOID[\"Spheroid\",6378137,298.257222101004,\n                LENGTHUNIT[\"metre\",1,\n                    ID[\"EPSG\",9001]]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433,\n                ID[\"EPSG\",9122]]]],\n    CONVERSION[\"unnamed\",\n        METHOD[\"Lambert Azimuthal Equal Area\",\n            ID[\"EPSG\",9820]],\n        PARAMETER[\"Latitude of natural origin\",54.9,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8801]],\n        PARAMETER[\"Longitude of natural origin\",-2.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8802]],\n        PARAMETER[\"False easting\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"easting\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]],\n        AXIS[\"northing\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]]]\n",
+    "proj:geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -1159000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            -1037000.0
+          ]
+        ]
+      ]
+    },
+    "proj:bbox": [
+      -1159000.0,
+      -1037000.0,
+      925000.0,
+      903000.0
+    ],
     "datetime": "2025-10-01T02:00:00Z"
   },
   "links": [
@@ -305,7 +341,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0200Z-PT0002H00M-cloud_amount_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "cloud amount on height levels",
-      "description": "Fraction of horizontal grid square occupied by cloud on height levels.",
+      "description": "Fraction of horizontal grid square occupied by cloud on \n        height levels.",
       "forecast:variable": "cloud_amount_on_height_levels",
       "updated": "2025-10-01T03:15:29+00:00",
       "roles": [
@@ -327,7 +363,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0200Z-PT0002H00M-wind_direction_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "wind direction on height levels",
-      "description": "Wind direction on height levels. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
+      "description": "Wind direction on height levels. In meteorological reports \n        the direction of the wind vector is given as the direction from which it is \n        blowing.",
       "forecast:variable": "wind_direction_on_height_levels",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -338,7 +374,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0200Z-PT0002H00M-wind_speed_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "wind speed on height levels",
-      "description": "Wind speed on height levels. The speed is the magnitude of velocity.",
+      "description": "Wind speed on height levels. The speed is the magnitude of \n        velocity.",
       "forecast:variable": "wind_speed_on_height_levels",
       "updated": "2025-10-01T03:15:24+00:00",
       "roles": [

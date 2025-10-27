@@ -11,12 +11,40 @@ from pystac import (
     Extent,
     Item,
     ItemAssetDefinition,
+    Link,
     MediaType,
+    Provider,
+    ProviderRole,
     SpatialExtent,
     TemporalExtent,
 )
 
-from stactools.met_office_deterministic import constants
+from stactools.met_office_deterministic.constants import (
+    GLOBAL_ABOUT_PDF,
+    GLOBAL_BBOX,
+    GLOBAL_DESCRIPTION,
+    GLOBAL_GEOMETRY,
+    HOST_PROVIDERS,
+    UK_ABOUT_PDF,
+    UK_BBOX,
+    UK_DESCRIPTION,
+    UK_GEOMETRY,
+    UK_PROJECTED_BBOX,
+    UK_PROJECTED_CRS_WKT2,
+    UK_PROJECTED_GEOMETRY,
+    global_height_variables,
+    global_pressure_variables,
+    global_surface_variables,
+    uk_height_variables,
+    uk_pressure_variables,
+    uk_surface_variables,
+)
+
+
+def _format_multiline_string(string: str) -> str:
+    """Format a multi-line string for use in metadata fields"""
+    return re.sub(r" +", " ", re.sub(r"(?<!\n)\n(?!\n)", " ", string))
+
 
 PROTOCOL = "s3"
 BUCKET = "met-office-atmospheric-model-data"
@@ -48,18 +76,18 @@ def _get_collection_variables(
     """
     if collection.startswith("met-office-global"):
         if collection.endswith("-pressure"):
-            return constants.global_pressure_variables
+            return global_pressure_variables
         elif collection.endswith("-height"):
-            return constants.global_height_variables
+            return global_height_variables
         elif collection.endswith("-surface"):
-            return constants.global_surface_variables
+            return global_surface_variables
     elif collection.startswith("met-office-uk"):
         if collection.endswith("-pressure"):
-            return constants.uk_pressure_variables
+            return uk_pressure_variables
         elif collection.endswith("-height"):
-            return constants.uk_height_variables
+            return uk_height_variables
         elif collection.endswith("-surface"):
-            return constants.uk_surface_variables
+            return uk_surface_variables
 
     raise ValueError(f"Unknown collection: {collection}")
 
@@ -143,6 +171,7 @@ def _create_item_from_assets(
     collection: MetOfficeCollection,
     assets: dict[str, Asset],
     reference_time: datetime,
+    add_collection: bool = False,
 ) -> Item:
     """Create a STAC Item from a collection of assets."""
     example_asset_href = list(assets.values())[0].href
@@ -153,10 +182,8 @@ def _create_item_from_assets(
     item = Item(
         id=item_id,
         datetime=datetime.strptime(parsed.group("valid_time"), "%Y%m%dT%H%MZ"),
-        bbox=constants.GLOBAL_BBOX if "global" in collection else constants.UK_BBOX,
-        geometry=constants.GLOBAL_GEOMETRY
-        if "global" in collection
-        else constants.UK_GEOMETRY,
+        bbox=GLOBAL_BBOX if "global" in collection else UK_BBOX,
+        geometry=GLOBAL_GEOMETRY if "global" in collection else UK_GEOMETRY,
         properties={
             "forecast:reference_datetime": reference_time.isoformat(),
             "forecast:horizon": parsed.group("forecast_horizon"),
@@ -165,7 +192,16 @@ def _create_item_from_assets(
             "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
         ],
         assets=assets,
+        collection=collection if add_collection else None,
     )
+
+    if "uk" in collection:
+        item.ext.add("proj")
+        item.ext.proj.apply(
+            geometry=UK_PROJECTED_GEOMETRY,
+            bbox=UK_PROJECTED_BBOX,
+            wkt2=UK_PROJECTED_CRS_WKT2,
+        )
 
     return item
 
@@ -177,6 +213,7 @@ def create_item(
     protocol: str = PROTOCOL,
     bucket: str = BUCKET,
     region: str = REGION,
+    add_collection: bool = False,
 ) -> Item:
     """Create a single item"""
     object_store = store.from_url(
@@ -207,7 +244,9 @@ def create_item(
         raise ValueError(f"Expected single item but found {len(assets_by_item)}")
 
     item_id, assets = next(iter(assets_by_item.items()))
-    return _create_item_from_assets(item_id, collection, assets, reference_time)
+    return _create_item_from_assets(
+        item_id, collection, assets, reference_time, add_collection
+    )
 
 
 def create_items_for_reference_time(
@@ -216,6 +255,7 @@ def create_items_for_reference_time(
     protocol: str = PROTOCOL,
     bucket: str = BUCKET,
     region: str = REGION,
+    add_collection: bool = False,
 ) -> list[Item]:
     """Create items for each forecasted timestep (valid_time) for a given reference
     time"""
@@ -240,22 +280,42 @@ def create_items_for_reference_time(
     )
 
     return [
-        _create_item_from_assets(item_id, collection, assets, reference_time)
+        _create_item_from_assets(
+            item_id, collection, assets, reference_time, add_collection
+        )
         for item_id, assets in assets_by_item.items()
     ]
 
 
-def create_collection(id: MetOfficeCollection) -> Collection:
+def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Collection:
     collection = Collection(
         id=id,
-        description="",
+        description=_format_multiline_string(
+            UK_DESCRIPTION if "uk" in id else GLOBAL_DESCRIPTION
+        ),
         extent=Extent(
-            spatial=SpatialExtent(
-                bboxes=[constants.GLOBAL_BBOX if "global" in id else constants.UK_BBOX]
-            ),
+            spatial=SpatialExtent(bboxes=[GLOBAL_BBOX if "global" in id else UK_BBOX]),
             temporal=TemporalExtent(intervals=[[None, None]]),
         ),
+        license="CC-BY-SA-4.0",
+        providers=[
+            Provider(
+                name="Met Office",
+                url="https://www.metoffice.gov.uk/",
+                roles=[
+                    ProviderRole.LICENSOR,
+                    ProviderRole.PROCESSOR,
+                    ProviderRole.PRODUCER,
+                ],
+            ),
+            HOST_PROVIDERS[protocol],  # this won't work for https links yet
+        ],
+        stac_extensions=[
+            "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
+        ],
     )
+
+    variables = _get_collection_variables(id)
 
     collection.item_assets = {
         asset_key: ItemAssetDefinition.create(
@@ -264,9 +324,16 @@ def create_collection(id: MetOfficeCollection) -> Collection:
             media_type=MediaType.NETCDF,
             roles=["data"],
         )
-        for asset_key, asset_info in _get_collection_variables(id).items()
+        for asset_key, asset_info in variables.items()
     }
 
-    # todo: add datacube
+    # todo: add datacube extension
 
+    collection.add_link(
+        Link(
+            rel="about",
+            media_type=MediaType.PDF,
+            target=UK_ABOUT_PDF if "uk" in id else GLOBAL_ABOUT_PDF,
+        )
+    )
     return collection

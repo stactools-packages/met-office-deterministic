@@ -2,7 +2,8 @@
   "type": "Feature",
   "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
   ],
   "id": "20251001T0000Z-20251001T0100Z",
   "geometry": {
@@ -281,6 +282,41 @@
   "properties": {
     "forecast:reference_datetime": "2025-10-01T00:00:00",
     "forecast:horizon": "PT0001H00M",
+    "proj:code": null,
+    "proj:wkt2": "PROJCRS[\"unnamed\",\n    BASEGEOGCRS[\"unknown\",\n        DATUM[\"unnamed\",\n            ELLIPSOID[\"Spheroid\",6378137,298.257222101004,\n                LENGTHUNIT[\"metre\",1,\n                    ID[\"EPSG\",9001]]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433,\n                ID[\"EPSG\",9122]]]],\n    CONVERSION[\"unnamed\",\n        METHOD[\"Lambert Azimuthal Equal Area\",\n            ID[\"EPSG\",9820]],\n        PARAMETER[\"Latitude of natural origin\",54.9,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8801]],\n        PARAMETER[\"Longitude of natural origin\",-2.5,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8802]],\n        PARAMETER[\"False easting\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"easting\",east,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]],\n        AXIS[\"northing\",north,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1,\n                ID[\"EPSG\",9001]]]]\n",
+    "proj:geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -1159000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            -1037000.0
+          ]
+        ]
+      ]
+    },
+    "proj:bbox": [
+      -1159000.0,
+      -1037000.0,
+      925000.0,
+      903000.0
+    ],
     "datetime": "2025-10-01T01:00:00Z"
   },
   "links": [
@@ -305,7 +341,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_below_1000ft_ASL.nc",
       "type": "application/netcdf",
       "title": "cloud amount below 1000ft ASL",
-      "description": "Fraction of horizontal grid square occupied by cloud cover below 1,000 feet above sea level.",
+      "description": "Fraction of horizontal grid square occupied by cloud cover\n        below 1,000 feet above sea level.",
       "forecast:variable": "cloud_amount_below_1000ft_ASL",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -316,7 +352,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_high_cloud.nc",
       "type": "application/netcdf",
       "title": "cloud amount of high cloud",
-      "description": "Fraction of horizontal grid square occupied by cloud in the high-level cloud height range; from 5,574m (~18,000ft) to 13,608m (~44,500ft).",
+      "description": "Fraction of horizontal grid square occupied by cloud in the\n        high-level cloud height range; from 5,574m (~18,000ft) to 13,608m\n        (~44,500ft).",
       "forecast:variable": "cloud_amount_of_high_cloud",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -327,7 +363,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_low_cloud.nc",
       "type": "application/netcdf",
       "title": "cloud amount of low cloud",
-      "description": "Fraction on horizontal grid square occupied by cloud in the low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).",
+      "description": "Fraction on horizontal grid square occupied by cloud in the\n        low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).",
       "forecast:variable": "cloud_amount_of_low_cloud",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -338,7 +374,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_medium_cloud.nc",
       "type": "application/netcdf",
       "title": "cloud amount of medium cloud",
-      "description": "A fraction of horizontal grid square occupied by cloud in the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m (~18,000ft).",
+      "description": "A fraction of horizontal grid square occupied by cloud in\n        the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m\n        (~18,000ft).",
       "forecast:variable": "cloud_amount_of_medium_cloud",
       "updated": "2025-10-01T03:15:22+00:00",
       "roles": [
@@ -349,7 +385,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-cloud_amount_of_total_cloud.nc",
       "type": "application/netcdf",
       "title": "cloud amount of total cloud",
-      "description": "Fraction of horizontal grid square occupied by cloud as diagnosed by the model cloud scheme. This is for the whole atmosphere column as seen from the surface or the top of the atmosphere.",
+      "description": "Fraction of horizontal grid square occupied by cloud as\n        diagnosed by the model cloud scheme. This is for the whole atmosphere\n        column as seen from the surface or the top of the atmosphere.",
       "forecast:variable": "cloud_amount_of_total_cloud",
       "updated": "2025-10-01T03:15:22+00:00",
       "roles": [
@@ -360,7 +396,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-fog_fraction_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "fog fraction at screen level",
-      "description": "Fog means a visibility of 1000 m or lower. The reduction in visibility is caused by water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
+      "description": "Fog means a visibility of 1000 m or lower. The reduction\n        in visibility is caused by water droplets or minute ice crystals forming\n        close to the surface. This quantity represents the fraction of horizontal\n        grid square occupied by fog. An alternative interpretation is that this\n        represents the fractional probability of fog being present at any location\n        in the grid square.",
       "forecast:variable": "fog_fraction_at_screen_level",
       "updated": "2025-10-01T03:15:22+00:00",
       "roles": [
@@ -371,7 +407,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-hail_fall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "hail fall accumulation",
-      "description": "Implied depth of hail (as liquid water equivalent) which has been deposited on the surface.",
+      "description": "Implied depth of hail (as liquid water equivalent) which has\n        been deposited on the surface.",
       "forecast:variable": "hail_fall_accumulation",
       "updated": "2025-10-01T03:15:23+00:00",
       "forecast:duration": "PT01H",
@@ -383,7 +419,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-hail_fall_rate.nc",
       "type": "application/netcdf",
       "title": "hail fall rate",
-      "description": "Instantaneous rate at which hail (as liquid water equivalent) is being deposited on the surface.",
+      "description": "Instantaneous rate at which hail (as liquid water equivalent)\n        is being deposited on the surface.",
       "forecast:variable": "hail_fall_rate",
       "updated": "2025-10-01T03:15:23+00:00",
       "roles": [
@@ -394,7 +430,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas.nc",
       "type": "application/netcdf",
       "title": "height AGL at cloud base where cloud cover 2p5 oktas",
-      "description": "Height above ground level at cloud base where cloud cover is 2.5 oktas (approximately 31% coverage).",
+      "description": "Height above ground level at cloud base where cloud cover is\n        2.5 oktas (approximately 31% coverage).",
       "forecast:variable": "height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas",
       "updated": "2025-10-01T03:15:23+00:00",
       "roles": [
@@ -405,7 +441,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-height_AGL_at_freezing_level.nc",
       "type": "application/netcdf",
       "title": "height AGL at freezing level",
-      "description": "Height above ground level at the 0\u00b0C isotherm (freezing level).",
+      "description": "Height above ground level at the 0\u00b0C isotherm (freezing\n        level).",
       "forecast:variable": "height_AGL_at_freezing_level",
       "updated": "2025-10-01T03:15:23+00:00",
       "roles": [
@@ -416,7 +452,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-height_AGL_at_wet_bulb_freezing_level.nc",
       "type": "application/netcdf",
       "title": "height AGL at wet bulb freezing level",
-      "description": "Height above ground level at the wet bulb freezing level.",
+      "description": "Height above ground level at the wet bulb freezing\n        level.",
       "forecast:variable": "height_AGL_at_wet_bulb_freezing_level",
       "updated": "2025-10-01T03:15:23+00:00",
       "roles": [
@@ -450,7 +486,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-precipitation_rate.nc",
       "type": "application/netcdf",
       "title": "precipitation rate",
-      "description": "Instantaneous rate at which liquid water (as a depth) is being deposited on the surface.",
+      "description": "Instantaneous rate at which liquid water (as a depth) is\n        being deposited on the surface.",
       "forecast:variable": "precipitation_rate",
       "updated": "2025-10-01T03:15:26+00:00",
       "roles": [
@@ -461,7 +497,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-pressure_at_mean_sea_level.nc",
       "type": "application/netcdf",
       "title": "pressure at mean sea level",
-      "description": "Air pressure at mean sea level which is close to the geoid in sea areas. Air pressure at sea level is the quantity often abbreviated as MSLP or PMSL.",
+      "description": "Air pressure at mean sea level which is close to the geoid\n        in sea areas. Air pressure at sea level is the quantity often abbreviated\n        as MSLP or PMSL.",
       "forecast:variable": "pressure_at_mean_sea_level",
       "updated": "2025-10-01T03:15:26+00:00",
       "roles": [
@@ -483,7 +519,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_longwave_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "radiation flux in longwave downward at surface",
-      "description": "Longwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Longwave radiation at the surface from above directed at\n        the ground. In accordance with common usage in geophysical disciplines\n        \"flux\" implies per unit area called \"flux density\" in physics.",
       "forecast:variable": "radiation_flux_in_longwave_downward_at_surface",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -494,7 +530,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_shortwave_diffuse_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "radiation flux in shortwave diffuse downward at surface",
-      "description": "Diffuse shortwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Diffuse shortwave radiation at the surface from above\n        directed at the ground. In accordance with common usage in geophysical\n        disciplines \"flux\" implies per unit area called \"flux density\" in\n        physics.",
       "forecast:variable": "radiation_flux_in_shortwave_diffuse_downward_at_surface",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -505,7 +541,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "radiation flux in shortwave direct downward at surface",
-      "description": "Shortwave radiation at the surface from above directed at the ground. \"Direct\" means that the radiation has followed a direct path from the sun and is alternatively known as \"direct insolation\". In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Shortwave radiation at the surface from above directed at\n        the ground. \"Direct\" means that the radiation has followed a direct path\n        from the sun and is alternatively known as \"direct insolation\". In\n        accordance with common usage in geophysical disciplines \"flux\" implies\n        per unit area called \"flux density\" in physics.",
       "forecast:variable": "radiation_flux_in_shortwave_direct_downward_at_surface",
       "updated": "2025-10-01T03:15:27+00:00",
       "roles": [
@@ -516,7 +552,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-radiation_flux_in_uv_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "radiation flux in uv downward at surface",
-      "description": "Ultraviolet radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines flux implies per unit area called \"flux density\" in physics.",
+      "description": "Ultraviolet radiation at the surface from above directed\n        at the ground. In accordance with common usage in geophysical disciplines\n        flux implies per unit area called \"flux density\" in physics.",
       "forecast:variable": "radiation_flux_in_uv_downward_at_surface",
       "updated": "2025-10-01T03:15:25+00:00",
       "roles": [
@@ -527,7 +563,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-relative_humidity_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "relative humidity at screen level",
-      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) at screen level (1.5m above the surface.)",
+      "description": "Fractional relative humidity (ratio of the partial pressure\n        of water vapour to the equilibrium vapour pressure of water) at screen level\n        (1.5m above the surface.)",
       "forecast:variable": "relative_humidity_at_screen_level",
       "updated": "2025-10-01T03:15:26+00:00",
       "roles": [
@@ -538,7 +574,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-sensible_heat_flux_at_surface.nc",
       "type": "application/netcdf",
       "title": "sensible heat flux at surface",
-      "description": "Exchange of heat between the surface and the air by motion of air; also called \"turbulent\" heat flux. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics. Upwards is positive; negative is downward.",
+      "description": "Exchange of heat between the surface and the air by motion\n        of air; also called \"turbulent\" heat flux. In accordance with common usage\n        in geophysical disciplines \"flux\" implies per unit area called \"flux density\"\n        in physics. Upwards is positive; negative is downward.",
       "forecast:variable": "sensible_heat_flux_at_surface",
       "updated": "2025-10-01T03:15:28+00:00",
       "roles": [
@@ -549,7 +585,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-snow_depth_water_equivalent.nc",
       "type": "application/netcdf",
       "title": "snow depth water equivalent",
-      "description": "Liquid water equivalent (LWE) depth of the snow lying on the surface (ground). Typically, water is 10 times as dense as snow so multiplying by 10 gives an approximate depth of the snow, although wet snow can be significantly denser and powder snow much less dense.",
+      "description": "Liquid water equivalent (LWE) depth of the snow lying on\n        the surface (ground). Typically, water is 10 times as dense as snow so\n        multiplying by 10 gives an approximate depth of the snow, although wet snow\n        can be significantly denser and powder snow much less dense.",
       "forecast:variable": "snow_depth_water_equivalent",
       "updated": "2025-10-01T03:15:28+00:00",
       "roles": [
@@ -560,7 +596,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-snowfall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "snowfall accumulation",
-      "description": "Implied depth of snow (as liquid water equivalent) which has been deposited on the surface.",
+      "description": "Implied depth of snow (as liquid water equivalent) which has\n        been deposited on the surface.",
       "forecast:variable": "snowfall_accumulation",
       "updated": "2025-10-01T03:15:28+00:00",
       "forecast:duration": "PT01H",
@@ -607,7 +643,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_at_surface.nc",
       "type": "application/netcdf",
       "title": "temperature at surface",
-      "description": "Temperature at the surface interface between the air and the ground.",
+      "description": "Temperature at the surface interface between the air and the \n        ground.",
       "forecast:variable": "temperature_at_surface",
       "updated": "2025-10-01T03:15:22+00:00",
       "roles": [
@@ -618,7 +654,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-temperature_of_dew_point_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "temperature of dew point at screen level",
-      "description": "Dew point temperature (temperature at which a parcel of air reaches saturation upon being cooled at constant pressure and specific humidity) at screen level.",
+      "description": "Dew point temperature (temperature at which a parcel of air\n        reaches saturation upon being cooled at constant pressure and specific\n        humidity) at screen level.",
       "forecast:variable": "temperature_of_dew_point_at_screen_level",
       "updated": "2025-10-01T03:15:22+00:00",
       "roles": [
@@ -629,7 +665,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-visibility_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "visibility at screen level",
-      "description": "Distance at which a known object can be seen horizontally from screen level (1.5m).",
+      "description": "Distance at which a known object can be seen horizontally\n        from screen level (1.5m).",
       "forecast:variable": "visibility_at_screen_level",
       "updated": "2025-10-01T03:15:24+00:00",
       "roles": [
@@ -640,7 +676,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_direction_at_10m.nc",
       "type": "application/netcdf",
       "title": "wind direction at 10m",
-      "description": "Mean wind direction is equivalent to the mean direction observed over the 10 minutes preceding the validity time. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing. 10m wind is the considered surface wind.",
+      "description": "Mean wind direction is equivalent to the mean direction\n        observed over the 10 minutes preceding the validity time. In meteorological\n        reports the direction of the wind vector is given as the direction from\n        which it is blowing. 10m wind is the considered surface wind.",
       "forecast:variable": "wind_direction_at_10m",
       "updated": "2025-10-01T03:15:24+00:00",
       "roles": [
@@ -651,7 +687,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_gust_at_10m.nc",
       "type": "application/netcdf",
       "title": "wind gust at 10m",
-      "description": "The gust speed is equivalent to the maximum 3 second mean wind speed observed over the 10 minutes preceding validity time. 10m wind is the considered surface wind.",
+      "description": "The gust speed is equivalent to the maximum 3 second mean\n        wind speed observed over the 10 minutes preceding validity time. 10m wind\n        is the considered surface wind.",
       "forecast:variable": "wind_gust_at_10m",
       "updated": "2025-10-01T03:15:23+00:00",
       "roles": [
@@ -662,7 +698,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_gust_at_10m_max-PT01H.nc",
       "type": "application/netcdf",
       "title": "wind gust at 10m max",
-      "description": "Maximum diagnosed instantaneous wind gust at 10m. This can be considered as the extreme wind speed that might be experienced in this period.",
+      "description": "Maximum diagnosed instantaneous wind gust at 10m. This can\n        be considered as the extreme wind speed that might be experienced in this\n        period.",
       "forecast:variable": "wind_gust_at_10m_max",
       "updated": "2025-10-01T03:15:23+00:00",
       "forecast:duration": "PT01H",
@@ -674,7 +710,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20251001T0000Z/20251001T0100Z-PT0001H00M-wind_speed_at_10m.nc",
       "type": "application/netcdf",
       "title": "wind speed at 10m",
-      "description": "Mean wind speed is equivalent to the mean speed observed over the 10 minutes preceding the validity time. 10m wind is the considered surface wind.",
+      "description": "Mean wind speed is equivalent to the mean speed observed\n        over the 10 minutes preceding the validity time. 10m wind is the considered\n        surface wind.",
       "forecast:variable": "wind_speed_at_10m",
       "updated": "2025-10-01T03:15:24+00:00",
       "roles": [

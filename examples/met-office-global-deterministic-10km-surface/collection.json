@@ -2,12 +2,17 @@
   "type": "Collection",
   "id": "met-office-global-deterministic-10km-surface",
   "stac_version": "1.1.0",
-  "description": "",
+  "description": " The flagship Numerical Weather Prediction model developed and used at the Met Office, is the Unified Model, the same model is used for both weather and climate prediction. For weather forecasting the Met Office runs several configurations of the Unified Model as part of its operational Numerical Weather Prediction suite. \n\nThe Global deterministic model is a global configuration of the Met Office Unified Models providing the most accurate short range deterministic forecast by any national meteorological service covering a six-day period. It can produce selected hourly data covering the first 48 hours at surface level and at standard pressure levels twice a day. The model\u2019s initial state is kept close to the real atmosphere using hybrid 4D-Var data assimilation. Uncovering 2 years\u2019 worth of historical data, updated regularly with a 4-hour time delay. Formatted via NetCDF. \n\n### Update Frequency Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 00:00, 12:00. Shortened runs (up to 66 hours): 06:00, 18:00. ",
   "links": [
     {
       "rel": "root",
       "href": "./collection.json",
       "type": "application/json"
+    },
+    {
+      "rel": "about",
+      "href": "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/global-nwp-asdi-datasheet.pdf",
+      "type": "application/pdf"
     },
     {
       "rel": "item",
@@ -25,10 +30,13 @@
       "type": "application/geo+json"
     }
   ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/datacube/v2.3.0/schema.json"
+  ],
   "item_assets": {
     "cloud_amount_below_1000ft_ASL": {
       "title": "cloud amount below 1000ft ASL",
-      "description": "Fraction of horizontal grid square occupied by cloud cover below 1,000 feet above sea level.",
+      "description": "Fraction of horizontal grid square occupied by cloud cover\n        below 1,000 feet above sea level.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -36,7 +44,7 @@
     },
     "cloud_amount_of_high_cloud": {
       "title": "cloud amount of high cloud",
-      "description": "Fraction of horizontal grid square occupied by cloud in the high-level cloud height range; from 5,574m (~18,000ft) to 13,608m (~44,500ft).",
+      "description": "Fraction of horizontal grid square occupied by cloud in the\n        high-level cloud height range; from 5,574m (~18,000ft) to 13,608m\n        (~44,500ft).",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -44,7 +52,7 @@
     },
     "cloud_amount_of_low_cloud": {
       "title": "cloud amount of low cloud",
-      "description": "Fraction on horizontal grid square occupied by cloud in the low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).",
+      "description": "Fraction on horizontal grid square occupied by cloud in the\n        low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -52,7 +60,7 @@
     },
     "cloud_amount_of_medium_cloud": {
       "title": "cloud amount of medium cloud",
-      "description": "A fraction of horizontal grid square occupied by cloud in the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m (~18,000ft).",
+      "description": "A fraction of horizontal grid square occupied by cloud in\n        the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m\n        (~18,000ft).",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -60,7 +68,7 @@
     },
     "cloud_amount_of_total_cloud": {
       "title": "cloud amount of total cloud",
-      "description": "Fraction of horizontal grid square occupied by cloud as diagnosed by the model cloud scheme. This is for the whole atmosphere column as seen from the surface or the top of the atmosphere.",
+      "description": "Fraction of horizontal grid square occupied by cloud as\n        diagnosed by the model cloud scheme. This is for the whole atmosphere\n        column as seen from the surface or the top of the atmosphere.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -68,7 +76,7 @@
     },
     "fog_fraction_at_screen_level": {
       "title": "fog fraction at screen level",
-      "description": "Fog means a visibility of 1000 m or lower. The reduction in visibility is caused by water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
+      "description": "Fog means a visibility of 1000 m or lower. The reduction\n        in visibility is caused by water droplets or minute ice crystals forming\n        close to the surface. This quantity represents the fraction of horizontal\n        grid square occupied by fog. An alternative interpretation is that this\n        represents the fractional probability of fog being present at any location\n        in the grid square.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -76,7 +84,7 @@
     },
     "precipitation_rate": {
       "title": "precipitation rate",
-      "description": "Instantaneous rate at which liquid water (as a depth) is being deposited on the surface.",
+      "description": "Instantaneous rate at which liquid water (as a depth) is\n        being deposited on the surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -84,7 +92,7 @@
     },
     "pressure_at_mean_sea_level": {
       "title": "pressure at mean sea level",
-      "description": "Air pressure at mean sea level which is close to the geoid in sea areas. Air pressure at sea level is the quantity often abbreviated as MSLP or PMSL.",
+      "description": "Air pressure at mean sea level which is close to the geoid\n        in sea areas. Air pressure at sea level is the quantity often abbreviated\n        as MSLP or PMSL.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -92,7 +100,7 @@
     },
     "radiation_flux_in_longwave_downward_at_surface": {
       "title": "radiation flux in longwave downward at surface",
-      "description": "Longwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Longwave radiation at the surface from above directed at\n        the ground. In accordance with common usage in geophysical disciplines\n        \"flux\" implies per unit area called \"flux density\" in physics.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -100,7 +108,7 @@
     },
     "radiation_flux_in_shortwave_direct_downward_at_surface": {
       "title": "radiation flux in shortwave direct downward at surface",
-      "description": "Shortwave radiation at the surface from above directed at the ground. \"Direct\" means that the radiation has followed a direct path from the sun and is alternatively known as \"direct insolation\". In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Shortwave radiation at the surface from above directed at\n        the ground. \"Direct\" means that the radiation has followed a direct path\n        from the sun and is alternatively known as \"direct insolation\". In\n        accordance with common usage in geophysical disciplines \"flux\" implies\n        per unit area called \"flux density\" in physics.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -108,7 +116,7 @@
     },
     "radiation_flux_in_uv_downward_at_surface": {
       "title": "radiation flux in uv downward at surface",
-      "description": "Ultraviolet radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines flux implies per unit area called \"flux density\" in physics.",
+      "description": "Ultraviolet radiation at the surface from above directed\n        at the ground. In accordance with common usage in geophysical disciplines\n        flux implies per unit area called \"flux density\" in physics.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -116,7 +124,7 @@
     },
     "relative_humidity_at_screen_level": {
       "title": "relative humidity at screen level",
-      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) at screen level (1.5m above the surface.)",
+      "description": "Fractional relative humidity (ratio of the partial pressure\n        of water vapour to the equilibrium vapour pressure of water) at screen level\n        (1.5m above the surface.)",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -124,7 +132,7 @@
     },
     "snow_depth_water_equivalent": {
       "title": "snow depth water equivalent",
-      "description": "Liquid water equivalent (LWE) depth of the snow lying on the surface (ground). Typically, water is 10 times as dense as snow so multiplying by 10 gives an approximate depth of the snow, although wet snow can be significantly denser and powder snow much less dense.",
+      "description": "Liquid water equivalent (LWE) depth of the snow lying on\n        the surface (ground). Typically, water is 10 times as dense as snow so\n        multiplying by 10 gives an approximate depth of the snow, although wet snow\n        can be significantly denser and powder snow much less dense.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -156,7 +164,7 @@
     },
     "temperature_at_surface": {
       "title": "temperature at surface",
-      "description": "Temperature at the surface interface between the air and the ground.",
+      "description": "Temperature at the surface interface between the air and the \n        ground.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -164,7 +172,7 @@
     },
     "temperature_of_dew_point_at_screen_level": {
       "title": "temperature of dew point at screen level",
-      "description": "Dew point temperature (temperature at which a parcel of air reaches saturation upon being cooled at constant pressure and specific humidity) at screen level.",
+      "description": "Dew point temperature (temperature at which a parcel of air\n        reaches saturation upon being cooled at constant pressure and specific\n        humidity) at screen level.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -172,7 +180,7 @@
     },
     "visibility_at_screen_level": {
       "title": "visibility at screen level",
-      "description": "Distance at which a known object can be seen horizontally from screen level (1.5m).",
+      "description": "Distance at which a known object can be seen horizontally\n        from screen level (1.5m).",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -180,7 +188,7 @@
     },
     "wind_direction_at_10m": {
       "title": "wind direction at 10m",
-      "description": "Mean wind direction is equivalent to the mean direction observed over the 10 minutes preceding the validity time. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing. 10m wind is the considered surface wind.",
+      "description": "Mean wind direction is equivalent to the mean direction\n        observed over the 10 minutes preceding the validity time. In meteorological\n        reports the direction of the wind vector is given as the direction from\n        which it is blowing. 10m wind is the considered surface wind.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -188,7 +196,7 @@
     },
     "wind_gust_at_10m": {
       "title": "wind gust at 10m",
-      "description": "The gust speed is equivalent to the maximum 3 second mean wind speed observed over the 10 minutes preceding validity time. 10m wind is the considered surface wind.",
+      "description": "The gust speed is equivalent to the maximum 3 second mean\n        wind speed observed over the 10 minutes preceding validity time. 10m wind\n        is the considered surface wind.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -196,7 +204,7 @@
     },
     "wind_gust_at_10m_max": {
       "title": "wind gust at 10m max",
-      "description": "Maximum diagnosed instantaneous wind gust at 10m. This can be considered as the extreme wind speed that might be experienced in this period.",
+      "description": "Maximum diagnosed instantaneous wind gust at 10m. This can\n        be considered as the extreme wind speed that might be experienced in this\n        period.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -204,7 +212,7 @@
     },
     "wind_speed_at_10m": {
       "title": "wind speed at 10m",
-      "description": "Mean wind speed is equivalent to the mean speed observed over the 10 minutes preceding the validity time. 10m wind is the considered surface wind.",
+      "description": "Mean wind speed is equivalent to the mean speed observed\n        over the 10 minutes preceding the validity time. 10m wind is the considered\n        surface wind.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -228,7 +236,7 @@
     },
     "rainfall_rate_from_convection": {
       "title": "rainfall rate from convection",
-      "description": "Instantaneous rate at which rain, produced by the model convection scheme, is being deposited on the surface.",
+      "description": "Instantaneous rate at which rain, produced by the model\n        convection scheme, is being deposited on the surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -236,7 +244,7 @@
     },
     "snowfall_rate_from_convection": {
       "title": "snowfall rate from convection",
-      "description": "Rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "description": "Rate at which liquid water equivalent (LWE) snow, produced\n        by the model convection scheme, is being deposited on the surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -244,7 +252,7 @@
     },
     "rainfall_rate_from_convection_max": {
       "title": "rainfall rate from convection max",
-      "description": "Maximum instantaneous rate at which rain, produced by the model convection scheme, is being deposited on the surface.",
+      "description": "Maximum instantaneous rate at which rain, produced by the\n        model convection scheme, is being deposited on the surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -252,7 +260,7 @@
     },
     "snowfall_rate_from_convection_max": {
       "title": "snowfall rate from convection max",
-      "description": "Maximum instantaneous rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "description": "Maximum instantaneous rate at which liquid water equivalent\n        (LWE) snow, produced by the model convection scheme, is being deposited on\n        the surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -260,7 +268,7 @@
     },
     "snowfall_rate_from_convection_mean": {
       "title": "snowfall rate from convection mean",
-      "description": "Mean rate at which liquid water equivalent (LWE) snow, produced by the model convection scheme, is being deposited on the surface.",
+      "description": "Mean rate at which liquid water equivalent (LWE) snow,\n        produced by the model convection scheme, is being deposited on the\n        surface.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -268,7 +276,7 @@
     },
     "CAPE_most_unstable_below_500hPa": {
       "title": "CAPE most unstable below 500hPa",
-      "description": "CAPE (Convective Available Potential Energy) calculated for the most unstable parcel where the most unstable parcel is defined as the parcel with the highest fixed level CAPE launched from any level (including screen-level = 1.5m) within 500hPa of the surface pressure.",
+      "description": "CAPE (Convective Available Potential Energy) calculated for\n        the most unstable parcel where the most unstable parcel is defined as the\n        parcel with the highest fixed level CAPE launched from any level (including\n        screen-level = 1.5m) within 500hPa of the surface pressure.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -276,7 +284,7 @@
     },
     "CAPE_surface": {
       "title": "CAPE surface",
-      "description": "Value of CAPE (Convection Available Potential Energy) calculated for a surface based parcel, where a surface based parcel is defined as a parcel initiated with thermodynamic properties at screen level height (1.5m) i.e. the parcel is launched from screen level.",
+      "description": "Value of CAPE (Convection Available Potential Energy)\n        calculated for a surface based parcel, where a surface based parcel is\n        defined as a parcel initiated with thermodynamic properties at screen level\n        height (1.5m) i.e. the parcel is launched from screen level.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -284,7 +292,7 @@
     },
     "CAPE_mixed_layer_lowest_500m": {
       "title": "CAPE mixed layer lowest 500m",
-      "description": "Convective Available Potential Energy (CAPE) calculated for a parcel with the thermodynamic properties of the density-weighted mean of the lowest 500 m above ground level.",
+      "description": "Convective Available Potential Energy (CAPE) calculated for\n        a parcel with the thermodynamic properties of the density-weighted mean of\n        the lowest 500 m above ground level.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -292,7 +300,7 @@
     },
     "CIN_most_unstable_below_500hPa": {
       "title": "CIN most unstable below 500hPa",
-      "description": "Any additional energy required to lift the most unstable parcel to its level of free convection. Where most unstable parcel is defined as the parcel with the highest fixed-level CAPE launched from any level (including screen-level) within 500 hPa of the surface pressure.",
+      "description": "Any additional energy required to lift the most unstable\n        parcel to its level of free convection. Where most unstable parcel is\n        defined as the parcel with the highest fixed-level CAPE launched from any\n        level (including screen-level) within 500 hPa of the surface pressure.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -300,7 +308,7 @@
     },
     "CIN_surface": {
       "title": "CIN surface",
-      "description": "Any additional energy required to lift a surface-based parcel (i.e. a parcel launched from screen-level (1.5m)) to its level of free convection.",
+      "description": "Any additional energy required to lift a surface-based\n        parcel (i.e. a parcel launched from screen-level (1.5m)) to its level of\n        free convection.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -308,7 +316,7 @@
     },
     "CIN_mixed_layer_lowest_500m": {
       "title": "CIN mixed layer lowest 500m",
-      "description": "Any additional energy required to lift a mixed-layer parcel to its level of free convection. Where a mixed layer parcel is defined as a parcel with thermodynamic properties of the density weighted mean of the lowest 500 m above ground level (AGL).",
+      "description": "Any additional energy required to lift a mixed-layer parcel\n        to its level of free convection. Where a mixed layer parcel is defined as a\n        parcel with thermodynamic properties of the density weighted mean of the\n        lowest 500 m above ground level (AGL).",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -316,7 +324,7 @@
     },
     "cloud_amount_of_total_convective_cloud": {
       "title": "cloud amount of total convective cloud",
-      "description": "Fraction of horizontal grid squares occupied by convective cloud as diagnosed by the model convection scheme. This is for the whole atmosphere column as seen from the surface or the top of the atmosphere.",
+      "description": "Fraction of horizontal grid squares occupied by convective\n        cloud as diagnosed by the model convection scheme. This is for the whole\n        atmosphere column as seen from the surface or the top of the atmosphere.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -324,7 +332,7 @@
     },
     "latent_heat_flux_at_surface_mean": {
       "title": "latent heat flux at surface mean",
-      "description": "Exchange of heat between the surface and the air on account of evaporation (including sublimation). In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics. Upwards is positive; negative is downward.",
+      "description": "Exchange of heat between the surface and the air on account\n        of evaporation (including sublimation). In accordance with common usage in\n        geophysical disciplines \"flux\" implies per unit area called \"flux density\"\n        in physics. Upwards is positive; negative is downward.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -332,7 +340,7 @@
     },
     "precipitation_accumulation": {
       "title": "precipitation accumulation",
-      "description": "Implied depth of the layer of liquid water which has been deposited on the surface. This includes rain, snow and hail with the ice phase precipitation being considered as a liquid water equivalent (lwe) value. It includes the contribution from the model convection scheme if this is invoked (true for Global models but not the UK models) as well as that from the model precipitation scheme.",
+      "description": "Implied depth of the layer of liquid water which has been\n        deposited on the surface. This includes rain, snow and hail with the ice\n        phase precipitation being considered as a liquid water equivalent (lwe)\n        value. It includes the contribution from the model convection scheme if this\n        is invoked (true for Global models but not the UK models) as well as that\n        from the model precipitation scheme.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -340,7 +348,7 @@
     },
     "radiation_flux_in_shortwave_total_downward_at_surface": {
       "title": "radiation flux in shortwave total downward at surface",
-      "description": "Total shortwave radiation at the surface from above directed at the ground. In accordance with common usage in geophysical disciplines \"flux\" implies per unit area called \"flux density\" in physics.",
+      "description": "Total shortwave radiation at the surface from above directed\n        at the ground. In accordance with common usage in geophysical disciplines\n        \"flux\" implies per unit area called \"flux density\" in physics.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -348,7 +356,7 @@
     },
     "rainfall_accumulation": {
       "title": "rainfall accumulation",
-      "description": "Implied depth of the rain produced by the model precipitation scheme which has been deposited on the surface. For the Global models (which run a convection scheme) the \"rainfall accumulation from convection\" must be added to this to get the total rainfall accumulation.",
+      "description": "Implied depth of the rain produced by the model precipitation\n        scheme which has been deposited on the surface. For the Global models (which\n        run a convection scheme) the \"rainfall accumulation from convection\" must be\n        added to this to get the total rainfall accumulation.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -356,7 +364,7 @@
     },
     "rainfall_rate": {
       "title": "rainfall rate",
-      "description": "Instantaneous rate at which rain (as a depth) which has been produced by the model precipitation scheme is being deposited on the surface. For the Global models (which run a convection scheme) the \"rainfall rate from convection\" must be added to this to get the total rainfall rate.",
+      "description": "Instantaneous rate at which rain (as a depth) which has been\n        produced by the model precipitation scheme is being deposited on the surface.\n        For the Global models (which run a convection scheme) the \"rainfall rate from\n        convection\" must be added to this to get the total rainfall rate.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -364,7 +372,7 @@
     },
     "snowfall_rate": {
       "title": "snowfall rate",
-      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) which has been produced by the model precipitation scheme is being deposited on the surface. For the Global models which run a convection scheme) the \"snowfall rate from convection\" must be added to this to get the total snowfall rate.",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE)\n        snow (as a depth) which has been produced by the model precipitation scheme\n        is being deposited on the surface. For the Global models which run a\n        convection scheme) the \"snowfall rate from convection\" must be added to this\n        to get the total snowfall rate.",
       "type": "application/netcdf",
       "roles": [
         "data"
@@ -391,5 +399,22 @@
       ]
     }
   },
-  "license": "other"
+  "license": "CC-BY-SA-4.0",
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "licensor",
+        "processor",
+        "producer"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    },
+    {
+      "name": "AWS",
+      "roles": [
+        "host"
+      ]
+    }
+  ]
 }

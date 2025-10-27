@@ -65,7 +65,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-cloud_amount_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "cloud amount on height levels",
-      "description": "Fraction of horizontal grid square occupied by cloud on height levels.",
+      "description": "Fraction of horizontal grid square occupied by cloud on \n        height levels.",
       "forecast:variable": "cloud_amount_on_height_levels",
       "updated": "2025-10-01T05:45:34+00:00",
       "roles": [

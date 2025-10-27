@@ -51,6 +51,8 @@ Each variable dictionary contains:
 
 # Shared variable metadata (common to both Global and UK models)
 
+from pystac import Provider, ProviderRole
+
 _shared_pressure_variables = {
     "height_ASL_on_pressure_levels": {
         "description": """Height above mean sea level or altitude of the pressure 
@@ -497,7 +499,7 @@ GLOBAL_GEOMETRY = {
     ],
 }
 
-UK_PROJECTED_BBOX = (-1159000.0, -1037000.0, 925000.0, 903000.0)
+UK_PROJECTED_BBOX = [-1159000.0, -1037000.0, 925000.0, 903000.0]
 
 UK_PROJECTED_GEOMETRY = {
     "type": "Polygon",
@@ -511,6 +513,40 @@ UK_PROJECTED_GEOMETRY = {
         ]
     ],
 }
+UK_PROJECTED_CRS_WKT2 = """PROJCRS["unnamed",
+    BASEGEOGCRS["unknown",
+        DATUM["unnamed",
+            ELLIPSOID["Spheroid",6378137,298.257222101004,
+                LENGTHUNIT["metre",1,
+                    ID["EPSG",9001]]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433,
+                ID["EPSG",9122]]]],
+    CONVERSION["unnamed",
+        METHOD["Lambert Azimuthal Equal Area",
+            ID["EPSG",9820]],
+        PARAMETER["Latitude of natural origin",54.9,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",-2.5,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["False easting",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1,
+                ID["EPSG",9001]]],
+        AXIS["northing",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1,
+                ID["EPSG",9001]]]]
+"""
 UK_BBOX = [-24.53378493833058, 44.50650694725796, 15.303254906837337, 63.01353038140843]
 UK_GEOMETRY = {
     "type": "Polygon",
@@ -583,4 +619,51 @@ UK_GEOMETRY = {
             [-24.53378493833058, 61.324488948957956],
         ]
     ],
+}
+
+GLOBAL_DESCRIPTION = """
+The flagship Numerical Weather Prediction model developed and used at the Met Office, 
+is the Unified Model, the same model is used for both weather and climate prediction. 
+For weather forecasting the Met Office runs several configurations of the Unified Model 
+as part of its operational Numerical Weather Prediction suite. 
+
+The Global deterministic  model is a global configuration of the Met Office Unified 
+Models providing the most accurate short range deterministic forecast by any national 
+meteorological service covering a six-day period. It can produce selected hourly data 
+covering the first 48 hours at surface level and at standard pressure levels twice a 
+day. The model’s initial state is kept close to the real atmosphere using hybrid 4D-Var 
+data assimilation. Uncovering 2 years’ worth of historical data, updated regularly with 
+a 4-hour time delay. Formatted via NetCDF. 
+
+### Update Frequency
+Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
+hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 
+00:00, 12:00. Shortened runs (up to 66 hours): 06:00, 18:00.
+"""
+
+UK_DESCRIPTION = """The flagship Numerical Weather Prediction (NWP) model developed and 
+used at the Met Office, is the Unified Model, the same model is used for both weather 
+and climate prediction. For weather forecasting the Met Office runs several 
+configurations of the Unified Model as part of its operational Numerical Weather 
+Prediction suite.
+Uncovering 2 years’ worth of historical data, updated regularly with a 4-hour time 
+delay.
+
+The UK deterministic model is a post processed regional downscaled configuration of the 
+Unified Model, covering the UK and Ireland, with a resolution of approximately 0.018 
+degrees. The United Kingdom domain is a 1,096km x 1,408km (2km resolution grid). 
+Formatted via NetCDF.
+
+### Update Frequency
+Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
+hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 00:00, 
+12:00. Shortened runs (up to 66 hours): 06:00, 18:00.
+"""
+
+GLOBAL_ABOUT_PDF = "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/global-nwp-asdi-datasheet.pdf"
+UK_ABOUT_PDF = "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/uk-nwp-asdi-datasheet.pdf"
+
+HOST_PROVIDERS = {
+    "s3": Provider(name="AWS", roles=[ProviderRole.HOST]),
+    "az": Provider(name="Microsoft", roles=[ProviderRole.HOST]),
 }
