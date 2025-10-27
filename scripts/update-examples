@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import cast
 
-from pystac import CatalogType
+from pystac import Catalog, CatalogType
 
 from stactools.met_office_deterministic.stac import (
     MetOfficeCollection,
@@ -20,6 +20,9 @@ if examples.exists():
     shutil.rmtree(examples)
     examples.mkdir()
 
+catalog = Catalog(
+    "met-office-deterministic", description="Met Office Deterministic prediction models"
+)
 for collection_id in [
     "met-office-global-deterministic-10km-surface",
     "met-office-global-deterministic-10km-height",
@@ -28,8 +31,8 @@ for collection_id in [
     "met-office-uk-deterministic-2km-height",
     "met-office-uk-deterministic-2km-pressure",
 ]:
-    collection_dir = examples / collection_id
-    collection_dir.mkdir()
+    # collection_dir = examples / collection_id
+    # collection_dir.mkdir()
     collection = create_collection(cast(MetOfficeCollection, collection_id))
     items = [
         create_item(
@@ -40,5 +43,7 @@ for collection_id in [
         for hour in [0, 1, 2]
     ]
     collection.add_items(items)
-    collection.normalize_hrefs(str(collection_dir))
-    collection.save(CatalogType.SELF_CONTAINED)
+    catalog.add_child(collection)
+
+catalog.normalize_hrefs(str(examples))
+catalog.save(CatalogType.SELF_CONTAINED)

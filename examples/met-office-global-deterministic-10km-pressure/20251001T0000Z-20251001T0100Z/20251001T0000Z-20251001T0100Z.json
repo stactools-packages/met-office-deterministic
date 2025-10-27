@@ -46,7 +46,7 @@
   "links": [
     {
       "rel": "root",
-      "href": "../collection.json",
+      "href": "../../catalog.json",
       "type": "application/json"
     },
     {
