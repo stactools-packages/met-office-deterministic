@@ -636,6 +636,7 @@ data assimilation. Uncovering 2 years’ worth of historical data, updated regul
 a 4-hour time delay. Formatted via NetCDF. 
 
 ### Update Frequency
+
 Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
 hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 
 00:00, 12:00. Shortened runs (up to 66 hours): 06:00, 18:00.
@@ -655,6 +656,7 @@ degrees. The United Kingdom domain is a 1,096km x 1,408km (2km resolution grid).
 Formatted via NetCDF.
 
 ### Update Frequency
+
 Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
 hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 00:00, 
 12:00. Shortened runs (up to 66 hours): 06:00, 18:00.

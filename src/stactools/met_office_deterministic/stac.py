@@ -311,7 +311,7 @@ def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Coll
             HOST_PROVIDERS[protocol],  # this won't work for https links yet
         ],
         stac_extensions=[
-            "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
+            # "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
         ],
     )
 
@@ -320,7 +320,7 @@ def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Coll
     collection.item_assets = {
         asset_key: ItemAssetDefinition.create(
             title=asset_key.replace("_", " "),
-            description=asset_info["description"],
+            description=_format_multiline_string(asset_info["description"]),
             media_type=MediaType.NETCDF,
             roles=["data"],
         )
