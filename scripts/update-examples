@@ -31,8 +31,6 @@ for collection_id in [
     "met-office-uk-deterministic-2km-height",
     "met-office-uk-deterministic-2km-pressure",
 ]:
-    # collection_dir = examples / collection_id
-    # collection_dir.mkdir()
     collection = create_collection(cast(MetOfficeCollection, collection_id))
     items = [
         create_item(

@@ -24,20 +24,20 @@ from stactools.met_office_deterministic.constants import (
     GLOBAL_BBOX,
     GLOBAL_DESCRIPTION,
     GLOBAL_GEOMETRY,
+    GLOBAL_HEIGHT_VARIABLES,
+    GLOBAL_PRESSURE_VARIABLES,
+    GLOBAL_SURFACE_VARIABLES,
     HOST_PROVIDERS,
     UK_ABOUT_PDF,
     UK_BBOX,
     UK_DESCRIPTION,
     UK_GEOMETRY,
+    UK_HEIGHT_VARIABLES,
+    UK_PRESSURE_VARIABLES,
     UK_PROJECTED_BBOX,
     UK_PROJECTED_CRS_WKT2,
     UK_PROJECTED_GEOMETRY,
-    global_height_variables,
-    global_pressure_variables,
-    global_surface_variables,
-    uk_height_variables,
-    uk_pressure_variables,
-    uk_surface_variables,
+    UK_SURFACE_VARIABLES,
 )
 
 
@@ -76,18 +76,18 @@ def _get_collection_variables(
     """
     if collection.startswith("met-office-global"):
         if collection.endswith("-pressure"):
-            return global_pressure_variables
+            return GLOBAL_PRESSURE_VARIABLES
         elif collection.endswith("-height"):
-            return global_height_variables
+            return GLOBAL_HEIGHT_VARIABLES
         elif collection.endswith("-surface"):
-            return global_surface_variables
+            return GLOBAL_SURFACE_VARIABLES
     elif collection.startswith("met-office-uk"):
         if collection.endswith("-pressure"):
-            return uk_pressure_variables
+            return UK_PRESSURE_VARIABLES
         elif collection.endswith("-height"):
-            return uk_height_variables
+            return UK_HEIGHT_VARIABLES
         elif collection.endswith("-surface"):
-            return uk_surface_variables
+            return UK_SURFACE_VARIABLES
 
     raise ValueError(f"Unknown collection: {collection}")
 
@@ -150,7 +150,9 @@ def _collect_assets(
             assets[item_id][variable] = Asset(
                 href=f"{protocol}://{bucket}/{result['path']}",
                 extra_fields=extra_fields,
-                description=variables[variable]["description"],
+                description=_format_multiline_string(
+                    variables[variable]["description"]
+                ),
                 title=variable.replace("_", " "),
                 roles=["data"],
                 media_type=MediaType.NETCDF,

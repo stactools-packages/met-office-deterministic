@@ -65,7 +65,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-height_ASL_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "height ASL on pressure levels",
-      "description": "Height above mean sea level or altitude of the pressure \n        levels. This is considered approximately equivalent to geopotential height.\n        Geopotential is the sum of the specific gravitational potential energy\n        relative to the geoid and the specific centripetal potential energy.\n        Geopotential height is the geopotential divided by the standard\n        acceleration due to gravity.",
+      "description": "Height above mean sea level or altitude of the pressure levels. This is considered approximately equivalent to geopotential height. Geopotential is the sum of the specific gravitational potential energy relative to the geoid and the specific centripetal potential energy. Geopotential height is the geopotential divided by the standard acceleration due to gravity.",
       "forecast:variable": "height_ASL_on_pressure_levels",
       "updated": "2025-10-01T05:45:36+00:00",
       "roles": [
@@ -76,7 +76,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-relative_humidity_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "relative humidity on pressure levels",
-      "description": "Fractional relative humidity (ratio of the partial pressure\n        of water vapour to the equilibrium vapour pressure of water) on pressure\n        levels.",
+      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) on pressure levels.",
       "forecast:variable": "relative_humidity_on_pressure_levels",
       "updated": "2025-10-01T05:45:39+00:00",
       "roles": [
@@ -98,7 +98,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-wet_bulb_potential_temperature_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "wet bulb potential temperature on pressure levels",
-      "description": "Wet bulb potential temperature (temperature that a parcel\n        of air at any level would have if starting at the wet bulb temperature,\n        it was brought at a saturated adiabatic lapse rate, to the standard\n        pressure of 1000hPa) on pressure levels.",
+      "description": "Wet bulb potential temperature (temperature that a parcel of air at any level would have if starting at the wet bulb temperature, it was brought at a saturated adiabatic lapse rate, to the standard pressure of 1000hPa) on pressure levels.",
       "forecast:variable": "wet_bulb_potential_temperature_on_pressure_levels",
       "updated": "2025-10-01T05:45:56+00:00",
       "roles": [
@@ -109,7 +109,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-wind_direction_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "wind direction on pressure levels",
-      "description": "Wind on a pressure level is defined as a two-dimensional\n        (horizontal) air velocity vector with no vertical component. In\n        meteorological reports the direction of the wind vector is given as\n        the direction from which it is blowing.",
+      "description": "Wind on a pressure level is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
       "forecast:variable": "wind_direction_on_pressure_levels",
       "updated": "2025-10-01T05:45:56+00:00",
       "roles": [
@@ -120,7 +120,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-wind_speed_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "wind speed on pressure levels",
-      "description": "Wind on a pressure level is defined as a two-dimensional\n        (horizontal) air velocity with no vertical component. The speed is the\n        magnitude of velocity.",
+      "description": "Wind on a pressure level is defined as a two-dimensional (horizontal) air velocity with no vertical component. The speed is the magnitude of velocity.",
       "forecast:variable": "wind_speed_on_pressure_levels",
       "updated": "2025-10-01T05:45:44+00:00",
       "roles": [
@@ -131,7 +131,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20251001T0000Z/20251001T0200Z-PT0002H00M-wind_vertical_velocity_on_pressure_levels.nc",
       "type": "application/netcdf",
       "title": "wind vertical velocity on pressure levels",
-      "description": "Speed of the vertical component of the air motion at a\n        pressure level. Upwards is positive and downwards is negative.",
+      "description": "Speed of the vertical component of the air motion at a pressure level. Upwards is positive and downwards is negative.",
       "forecast:variable": "wind_vertical_velocity_on_pressure_levels",
       "updated": "2025-10-01T05:45:51+00:00",
       "roles": [
