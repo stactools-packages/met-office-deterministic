@@ -1,3 +1,4 @@
+import logging
 import re
 from collections import defaultdict
 from datetime import datetime
@@ -28,6 +29,7 @@ from stactools.met_office_deterministic.constants import (
     GLOBAL_PRESSURE_VARIABLES,
     GLOBAL_SURFACE_VARIABLES,
     HOST_PROVIDERS,
+    STORAGE_CONFIGS,
     UK_ABOUT_PDF,
     UK_BBOX,
     UK_DESCRIPTION,
@@ -40,18 +42,20 @@ from stactools.met_office_deterministic.constants import (
     UK_SURFACE_VARIABLES,
 )
 
+logger = logging.getLogger(__name__)
+
 
 def _format_multiline_string(string: str) -> str:
     """Format a multi-line string for use in metadata fields"""
     return re.sub(r" +", " ", re.sub(r"(?<!\n)\n(?!\n)", " ", string))
 
 
-PROTOCOL = "s3"
+SCHEME = "s3"
 BUCKET = "met-office-atmospheric-model-data"
 REGION = "eu-west-2"
 
 # TODO: set up configs for other datasets
-PATH_PATTERN = r"^(?:(?P<protocol>[^:]+)://(?P<bucket>[^/]+)/)?(?P<collection>[^/]+)/(?P<reference_time>[^/]+)/(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<variable>.+?)(?:-(?P<duration>PT[\dHM]+))?\.nc$"
+PATH_PATTERN = r"^(?:(?P<scheme>[^:]+)://(?P<bucket>[^/]+)/)?(?P<collection>[^/]+)/(?P<reference_time>[^/]+)/(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<variable>.+?)(?:-(?P<duration>PT[\dHM]+))?\.nc$"
 
 MetOfficeCollection = Literal[
     "met-office-global-deterministic-10km-surface",
@@ -96,7 +100,7 @@ def _collect_assets(
     object_store: store.ObjectStore,
     key_prefix: str,
     variables: dict[str, dict[str, str]],
-    protocol: str,
+    scheme: str,
     bucket: str,
     valid_time: str | None = None,
 ) -> defaultdict[str, dict[str, Asset]]:
@@ -106,12 +110,12 @@ def _collect_assets(
         object_store: The object store to query
         key_prefix: Prefix for filtering keys
         variables: List of valid variable names to include
-        protocol: Storage protocol (e.g., 's3')
+        scheme: Storage scheme (e.g., 's3')
         bucket: Storage bucket name
         valid_time: Optional valid_time string to filter results
           (e.g., '20241022T0000Z')
     """
-    print(f"checking for keys in {protocol}://{bucket}/{key_prefix}")
+    logger.info(f"checking for keys in {scheme}://{bucket}/{key_prefix}")
 
     assets: defaultdict[str, dict[str, Asset]] = defaultdict(dict[str, Asset])
 
@@ -125,7 +129,7 @@ def _collect_assets(
         for result in list_result:
             parsed = re.match(PATH_PATTERN, result["path"])
             if not parsed:
-                print(f"{result['path']} did not match the expected pattern")
+                logger.warning(f"{result['path']} did not match the expected pattern")
                 continue
 
             if valid_time and parsed.group("valid_time") != valid_time:
@@ -148,7 +152,7 @@ def _collect_assets(
                 extra_fields["forecast:duration"] = duration
 
             assets[item_id][variable] = Asset(
-                href=f"{protocol}://{bucket}/{result['path']}",
+                href=f"{scheme}://{bucket}/{result['path']}",
                 extra_fields=extra_fields,
                 description=_format_multiline_string(
                     variables[variable]["description"]
@@ -212,14 +216,14 @@ def create_item(
     collection: MetOfficeCollection,
     reference_time: datetime,
     valid_time: datetime,
-    protocol: str = PROTOCOL,
+    scheme: str = SCHEME,
     bucket: str = BUCKET,
     region: str = REGION,
     add_collection: bool = False,
 ) -> Item:
     """Create a single item"""
     object_store = store.from_url(
-        f"{protocol}://{bucket}", region=region, skip_signature=True
+        f"{scheme}://{bucket}", region=region, skip_signature=True
     )
 
     base_collection = collection.replace("met-office-", "", 1)
@@ -236,7 +240,7 @@ def create_item(
     variables = _get_collection_variables(collection)
     valid_time_str = valid_time.strftime("%Y%m%dT%H%MZ")
     assets_by_item = _collect_assets(
-        object_store, key_prefix, variables, protocol, bucket, valid_time=valid_time_str
+        object_store, key_prefix, variables, scheme, bucket, valid_time=valid_time_str
     )
 
     if not assets_by_item:
@@ -254,7 +258,7 @@ def create_item(
 def create_items_for_reference_time(
     collection: MetOfficeCollection,
     reference_time: datetime,
-    protocol: str = PROTOCOL,
+    scheme: str = SCHEME,
     bucket: str = BUCKET,
     region: str = REGION,
     add_collection: bool = False,
@@ -262,7 +266,7 @@ def create_items_for_reference_time(
     """Create items for each forecasted timestep (valid_time) for a given reference
     time"""
     object_store = store.from_url(
-        f"{protocol}://{bucket}", region=region, skip_signature=True
+        f"{scheme}://{bucket}", region=region, skip_signature=True
     )
 
     base_collection = collection.replace("met-office-", "", 1)
@@ -278,7 +282,7 @@ def create_items_for_reference_time(
 
     variables = _get_collection_variables(collection)
     assets_by_item = _collect_assets(
-        object_store, key_prefix, variables, protocol, bucket
+        object_store, key_prefix, variables, scheme, bucket
     )
 
     return [
@@ -289,7 +293,7 @@ def create_items_for_reference_time(
     ]
 
 
-def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Collection:
+def create_collection(id: MetOfficeCollection, scheme: str = SCHEME) -> Collection:
     collection = Collection(
         id=id,
         description=_format_multiline_string(
@@ -310,7 +314,7 @@ def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Coll
                     ProviderRole.PRODUCER,
                 ],
             ),
-            HOST_PROVIDERS[protocol],  # this won't work for https links yet
+            HOST_PROVIDERS[scheme],  # this won't work for https links yet
         ],
         stac_extensions=[
             # "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
@@ -328,6 +332,10 @@ def create_collection(id: MetOfficeCollection, protocol: str = PROTOCOL) -> Coll
         )
         for asset_key, asset_info in variables.items()
     }
+
+    if storage_config := STORAGE_CONFIGS.get(scheme):
+        collection.ext.add("storage")
+        collection.extra_fields.update(storage_config)
 
     # todo: add datacube extension
 

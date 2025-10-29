@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import cast
 
 from pystac import Catalog, CatalogType
+from tqdm import tqdm
 
 from stactools.met_office_deterministic.stac import (
     MetOfficeCollection,
@@ -23,14 +24,16 @@ if examples.exists():
 catalog = Catalog(
     "met-office-deterministic", description="Met Office Deterministic prediction models"
 )
-for collection_id in [
-    "met-office-global-deterministic-10km-surface",
-    "met-office-global-deterministic-10km-height",
-    "met-office-global-deterministic-10km-pressure",
-    "met-office-uk-deterministic-2km-surface",
-    "met-office-uk-deterministic-2km-height",
-    "met-office-uk-deterministic-2km-pressure",
-]:
+for collection_id in tqdm(
+    [
+        "met-office-global-deterministic-10km-surface",
+        "met-office-global-deterministic-10km-height",
+        "met-office-global-deterministic-10km-pressure",
+        "met-office-uk-deterministic-2km-surface",
+        "met-office-uk-deterministic-2km-height",
+        "met-office-uk-deterministic-2km-pressure",
+    ]
+):
     collection = create_collection(cast(MetOfficeCollection, collection_id))
     items = [
         create_item(
