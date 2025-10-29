@@ -1,0 +1,110 @@
+{
+  "type": "Collection",
+  "id": "met-office-uk-deterministic-2km-height",
+  "stac_version": "1.1.0",
+  "description": "The flagship Numerical Weather Prediction (NWP) model developed and used at the Met Office, is the Unified Model, the same model is used for both weather and climate prediction. For weather forecasting the Met Office runs several configurations of the Unified Model as part of its operational Numerical Weather Prediction suite. Uncovering 2 years\u2019 worth of historical data, updated regularly with a 4-hour time delay.\n\nThe UK deterministic model is a post processed regional downscaled configuration of the Unified Model, covering the UK and Ireland, with a resolution of approximately 0.018 degrees. The United Kingdom domain is a 1,096km x 1,408km (2km resolution grid). Formatted via NetCDF.\n\n### Update Frequency\n\nAvailable time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 00:00, 12:00. Shortened runs (up to 66 hours): 06:00, 18:00. ",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "about",
+      "href": "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/uk-nwp-asdi-datasheet.pdf",
+      "type": "application/pdf"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0000Z/20251001T0000Z-20251001T0000Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0100Z/20251001T0000Z-20251001T0100Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20251001T0000Z-20251001T0200Z/20251001T0000Z-20251001T0200Z.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "item_assets": {
+    "cloud_amount_on_height_levels": {
+      "title": "cloud amount on height levels",
+      "description": "Fraction of horizontal grid square occupied by cloud on height levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_height_levels": {
+      "title": "temperature on height levels",
+      "description": "Air temperature on height levels.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_height_levels": {
+      "title": "wind direction on height levels",
+      "description": "Wind direction on height levels. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_height_levels": {
+      "title": "wind speed on height levels",
+      "description": "Wind speed on height levels. The speed is the magnitude of velocity.",
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -24.53378,
+          44.50651,
+          15.30325,
+          63.01353
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-SA-4.0",
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "licensor",
+        "processor",
+        "producer"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    },
+    {
+      "name": "AWS",
+      "roles": [
+        "host"
+      ]
+    }
+  ]
+}

@@ -3,25 +3,45 @@
 import shutil
 from datetime import datetime
 from pathlib import Path
+from typing import cast
+
+from pystac import Catalog, CatalogType
 
 from stactools.met_office_deterministic.stac import (
+    MetOfficeCollection,
+    create_collection,
     create_item,
 )
 
 root = Path(__file__).parents[1]
 examples = root / "examples"
 
-items = [
-    create_item(
-        collection="global-deterministic-10km",
-        reference_time=datetime(2025, 10, 1, 0),
-        valid_time=datetime(2025, 10, 1, hour),
-    )
-    for hour in [0, 1, 2]
-]
 if examples.exists():
     shutil.rmtree(examples)
     examples.mkdir()
 
-for item in items:
-    item.save_object(dest_href=str(examples / f"{item.id}.json"))
+catalog = Catalog(
+    "met-office-deterministic", description="Met Office Deterministic prediction models"
+)
+for collection_id in [
+    "met-office-global-deterministic-10km-surface",
+    "met-office-global-deterministic-10km-height",
+    "met-office-global-deterministic-10km-pressure",
+    "met-office-uk-deterministic-2km-surface",
+    "met-office-uk-deterministic-2km-height",
+    "met-office-uk-deterministic-2km-pressure",
+]:
+    collection = create_collection(cast(MetOfficeCollection, collection_id))
+    items = [
+        create_item(
+            collection=cast(MetOfficeCollection, collection_id),
+            reference_time=datetime(2025, 10, 1, 0),
+            valid_time=datetime(2025, 10, 1, hour),
+        )
+        for hour in [0, 1, 2]
+    ]
+    collection.add_items(items)
+    catalog.add_child(collection)
+
+catalog.normalize_hrefs(str(examples))
+catalog.save(CatalogType.SELF_CONTAINED)

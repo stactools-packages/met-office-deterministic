@@ -1,0 +1,43 @@
+{
+  "type": "Catalog",
+  "id": "met-office-deterministic",
+  "stac_version": "1.1.0",
+  "description": "Met Office Deterministic prediction models",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-global-deterministic-10km-surface/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-global-deterministic-10km-height/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-global-deterministic-10km-pressure/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-2km-surface/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-2km-height/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-2km-pressure/collection.json",
+      "type": "application/json"
+    }
+  ]
+}
