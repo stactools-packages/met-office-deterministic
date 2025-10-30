@@ -35,6 +35,9 @@
       "type": "application/json"
     }
   ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/storage/v1.0.0/schema.json"
+  ],
   "item_assets": {
     "cloud_amount_below_1000ft_ASL": {
       "title": "cloud amount below 1000ft ASL",
@@ -379,6 +382,20 @@
       "roles": [
         "data"
       ]
+    }
+  },
+  "storage:schemes": {
+    "aws": {
+      "type": "aws-s3",
+      "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+      "bucket": "met-office-atmospheric-model-data",
+      "region": "eu-west-2",
+      "requester_pays": false
+    }
+  },
+  "auth:schemes": {
+    "aws": {
+      "type": "s3"
     }
   },
   "extent": {
