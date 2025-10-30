@@ -668,3 +668,18 @@ HOST_PROVIDERS = {
     "s3": Provider(name="AWS", roles=[ProviderRole.HOST]),
     "az": Provider(name="Microsoft", roles=[ProviderRole.HOST]),
 }
+
+STORAGE_CONFIGS = {
+    "s3": {
+        "storage:schemes": {
+            "aws": {
+                "type": "aws-s3",
+                "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+                "bucket": "met-office-atmospheric-model-data",
+                "region": "eu-west-2",
+                "requester_pays": False,
+            }
+        },
+        "auth:schemes": {"aws": {"type": "s3"}},
+    }
+}
