@@ -1,6 +1,8 @@
+from pathlib import Path
+
 import pytest
 
 
 @pytest.fixture
-def hrefs() -> list[str]:
-    raise NotImplementedError
+def fixtures() -> Path:
+    return Path(__file__).parent / "fixtures"
