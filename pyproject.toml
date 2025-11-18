@@ -24,6 +24,7 @@ dependencies = [
     "geojson-pydantic>=2.1.0",
     "obstore>=0.8.2",
     "pystac>=1.14.1",
+    "shapely>=2.1.2",
 ]
 
 

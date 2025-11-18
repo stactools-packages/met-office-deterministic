@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import datetime
 from enum import StrEnum
+from typing import Any
 
+import shapely.geometry
 from pystac import Extent, SpatialExtent, TemporalExtent
 
 
@@ -11,16 +13,23 @@ class Model(StrEnum):
     uk = "uk"
 
     @property
-    def extent(self) -> Extent:
+    def bbox(self) -> tuple[float, float, float, float]:
         match self:
             case Model.global_:
-                bbox = [-180.0, -90, 180, 90]
+                return (-180.0, -90, 180, 90)
             case Model.uk:
-                bbox = [-24.53378, 44.50651, 15.30325, 63.01353]
+                return (-24.53378, 44.50651, 15.30325, 63.01353)
             case _:
                 raise ValueError(f"Unexpected model: {self}")
+
+    @property
+    def geometry(self) -> dict[str, Any]:
+        return shapely.geometry.mapping(shapely.geometry.box(*self.bbox))
+
+    @property
+    def extent(self) -> Extent:
         return Extent(
-            spatial=SpatialExtent(bboxes=[bbox]),
+            spatial=SpatialExtent(bboxes=[list(self.bbox)]),
             temporal=TemporalExtent(intervals=[[datetime.datetime(2023, 1, 1), None]]),
         )
 

@@ -1,6 +1,9 @@
-from pystac import Collection
+from collections import defaultdict
+
+from pystac import Asset, Collection, Item, MediaType
 
 from .constants import DESCRIPTIONS, Model, Theme
+from .href import Href
 
 
 def create_collection(model: Model, theme: Theme) -> Collection:
@@ -10,4 +13,50 @@ def create_collection(model: Model, theme: Theme) -> Collection:
         id=f"met-office-{model}-deterministic-{theme}",
         description=DESCRIPTIONS[model][theme],
         extent=model.extent,
+    )
+
+
+def create_items(raw_hrefs: list[str]) -> list[Item]:
+    """Creates one or more STAC items for the given hrefs."""
+    hrefs = defaultdict(list)
+    for raw_href in raw_hrefs:
+        href = Href.parse(raw_href)
+        hrefs[href.item_id].append(href)
+    return [_create_item(item_id, hrefs) for item_id, hrefs in hrefs.items()]
+
+
+def _create_item(item_id: str, hrefs: list[Href]) -> Item:
+    assert hrefs
+    href = hrefs[0]
+    item = Item(
+        id=item_id,
+        datetime=href.datetime,
+        bbox=list(href.model.bbox),
+        geometry=href.model.geometry,
+        stac_extensions=[
+            "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+        ],
+        properties={
+            "forecast:reference_datetime": href.reference_datetime,
+            "forecast:horizon": href.forecast_horizon,
+        },
+        assets=dict(_create_asset(href) for href in hrefs),
+    )
+    return item
+
+
+def _create_asset(href: Href) -> tuple[str, Asset]:
+    extra_fields = {
+        "forecast:variable": href.variable,
+    }
+    if href.duration:
+        extra_fields["forecast:duration"] = href.duration
+    return (
+        href.parameter,
+        Asset(
+            href=href.href,
+            media_type=MediaType.NETCDF,
+            roles=["data"],
+            extra_fields=extra_fields,
+        ),
     )
