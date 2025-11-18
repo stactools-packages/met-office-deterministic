@@ -1,0 +1,100 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250614T0830Z-PT0008H30M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          15.30325,
+          44.50651
+        ],
+        [
+          15.30325,
+          63.01353
+        ],
+        [
+          -24.53378,
+          63.01353
+        ],
+        [
+          -24.53378,
+          44.50651
+        ],
+        [
+          15.30325,
+          44.50651
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -24.53378,
+    44.50651,
+    15.30325,
+    63.01353
+  ],
+  "properties": {
+    "forecast:reference_datetime": "20250614T0000Z",
+    "forecast:horizon": "PT0008H30M",
+    "met_office_deterministic:model": "uk",
+    "met_office_deterministic:theme": "near-surface",
+    "datetime": "2025-06-14T08:30:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "hail_fall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0830Z-PT0008H30M-hail_fall_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_graupel_and_hail_fall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_rate": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0830Z-PT0008H30M-precipitation_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_precipitation_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0830Z-PT0008H30M-rainfall_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "rainfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0830Z-PT0008H30M-snowfall_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_snowfall_rate",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-uk-deterministic-near-surface"
+}

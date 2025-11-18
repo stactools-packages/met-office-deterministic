@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "Python package for generating STAC metadata for the Met Office Deterministic Numerical Weather Prediction model"
 readme = "README.md"
 authors = [
-    { name = "hrodmn", email = "henry@developmentseed.org" }
+    { name = "Henry Rodman", email = "henry@developmentseed.org" },
+    { name = "Pete Gadomski", email = "pete.gadomski@gmail.com" },
 ]
 keywords = ["stactools", "pystac", "catalog", "STAC"]
 license = { text = "MIT" }
@@ -21,12 +22,20 @@ classifiers = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "geojson-pydantic>=2.1.0",
-    "obstore>=0.8.2",
     "pystac>=1.14.1",
     "shapely>=2.1.2",
 ]
 
+[dependency-groups]
+dev = [
+    "codespell>=2.4.1",
+    "mypy>=1.18.2",
+    "obstore>=0.8.2",
+    "pre-commit>=4.3.0",
+    "pystac[validation]>=1.14.1",
+    "pytest>=8.4.2",
+    "ruff>=0.14.1",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -44,28 +53,6 @@ include = [
     "/pyproject.toml",
 ]
 
-[dependency-groups]
-dev = [
-    "codespell==2.4.1",
-    "dask>=2025.10.0",
-    "fsspec>=2025.9.0",
-    "h5netcdf>=1.7.3",
-    "imageio>=2.37.0",
-    "ipywidgets>=8.1.7",
-    "jupyterlab>=4.4.10",
-    "matplotlib>=3.10.7",
-    "mypy>=1.18.2",
-    "pre-commit>=4.3.0",
-    "pyproj>=3.7.2",
-    "pystac[validation]>=1.14.1",
-    "pytest>=8.4.2",
-    "ruff>=0.14.1",
-    "rustac>=0.8.4",
-    "s3fs>=2025.9.0",
-    "tqdm>=4.67.1",
-    "xarray>=2025.10.1",
-]
-
 [tool.mypy]
 explicit_package_bases = true
 namespace_packages = true
@@ -75,9 +62,3 @@ mypy_path = "src"
 
 [tool.ruff]
 lint.select = ["E", "F", "I"]
-exclude = [
-    "tests/fixtures/obstore.py",
-]
-
-[tool.codespell]
-skip = '*.ipynb'

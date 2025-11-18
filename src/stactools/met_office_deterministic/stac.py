@@ -16,11 +16,14 @@ def create_collection(model: Model, theme: Theme) -> Collection:
     )
 
 
-def create_items(raw_hrefs: list[str]) -> list[Item]:
+def create_items(source_hrefs: list[str | Href]) -> list[Item]:
     """Creates one or more STAC items for the given hrefs."""
     hrefs = defaultdict(list)
-    for raw_href in raw_hrefs:
-        href = Href.parse(raw_href)
+    for source_href in source_hrefs:
+        if isinstance(source_href, Href):
+            href = source_href
+        else:
+            href = Href.parse(source_href)
         hrefs[href.item_id].append(href)
     return [_create_item(item_id, hrefs) for item_id, hrefs in hrefs.items()]
 
@@ -39,6 +42,8 @@ def _create_item(item_id: str, hrefs: list[Href]) -> Item:
         properties={
             "forecast:reference_datetime": href.reference_datetime,
             "forecast:horizon": href.forecast_horizon,
+            "met_office_deterministic:model": href.model,
+            "met_office_deterministic:theme": href.theme,
         },
         assets=dict(_create_asset(href) for href in hrefs),
     )

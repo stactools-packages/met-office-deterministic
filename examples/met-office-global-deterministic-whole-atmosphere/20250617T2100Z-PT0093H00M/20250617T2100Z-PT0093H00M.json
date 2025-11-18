@@ -1,0 +1,485 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250617T2100Z-PT0093H00M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "properties": {
+    "forecast:reference_datetime": "20250614T0000Z",
+    "forecast:horizon": "PT0093H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "whole-atmosphere",
+    "datetime": "2025-06-17T21:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "CAPE_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CAPE_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_available_potential_energy",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CAPE_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_available_potential_energy",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CAPE_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_available_potential_energy_wrt_surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CIN_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_inhibition",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CIN_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_inhibition",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-CIN_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "atmosphere_convective_inhibition_wrt_surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_below_1000ft_ASL": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_below_1000ft_ASL.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "cloud_area_fraction_assuming_only_consider_surface_to_1000_feet_asl",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_high_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_of_high_cloud.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "high_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_low_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_of_low_cloud.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "low_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_medium_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_of_medium_cloud.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "medium_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_of_total_cloud.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_convective_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_of_total_convective_cloud.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "convective_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-cloud_amount_on_height_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
+      "roles": [
+        "data"
+      ]
+    },
+    "fog_fraction_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-fog_fraction_at_screen_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "fog_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "height_ASL_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-height_ASL_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "geopotential_height",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-latent_heat_flux_at_surface_mean-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_upward_latent_heat_flux",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-precipitation_accumulation-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_thickness_of_precipitation_amount",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-precipitation_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_precipitation_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_mean_sea_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-pressure_at_mean_sea_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_pressure_at_sea_level",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-pressure_at_tropopause.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "tropopause_air_pressure",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_longwave_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-radiation_flux_in_longwave_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_downwelling_longwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_direct_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_direct_downwelling_shortwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_total_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-radiation_flux_in_shortwave_total_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_downwelling_shortwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_uv_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-radiation_flux_in_uv_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_downwelling_ultraviolet_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-rainfall_accumulation-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "thickness_of_rainfall_amount",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-rainfall_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "rainfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-rainfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "convective_rainfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-rainfall_rate_from_convection_max-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "convective_rainfall_rate",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-relative_humidity_at_screen_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "relative_humidity",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-relative_humidity_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "relative_humidity",
+      "roles": [
+        "data"
+      ]
+    },
+    "snow_depth_water_equivalent": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-snow_depth_water_equivalent.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_thickness_of_surface_snow_amount",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-snowfall_rate.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_snowfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-snowfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-snowfall_rate_from_convection_max-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-snowfall_rate_from_convection_mean-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_at_screen_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_at_screen_level_max-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_at_screen_level_min-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_at_surface.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "surface_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_at_tropopause.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "tropopause_air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_of_dew_point_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_of_dew_point_at_screen_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "dew_point_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-temperature_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "visibility_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-visibility_at_screen_level.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "visibility_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "wet_bulb_potential_temperature_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wet_bulb_potential_temperature_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wet_bulb_potential_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_direction_at_10m.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_from_direction",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_direction_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_from_direction",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_gust_at_10m.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed_of_gust",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max-PT03H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_gust_at_10m_max-PT03H.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed_of_gust",
+      "forecast:duration": "PT03H",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_speed_at_10m.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_speed_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_vertical_velocity_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250617T2100Z-PT0093H00M-wind_vertical_velocity_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "upward_air_velocity",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-whole-atmosphere"
+}

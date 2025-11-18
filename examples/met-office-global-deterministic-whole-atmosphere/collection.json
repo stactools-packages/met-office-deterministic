@@ -1,0 +1,209 @@
+{
+  "type": "Collection",
+  "id": "met-office-global-deterministic-whole-atmosphere",
+  "stac_version": "1.1.0",
+  "description": "The Met Office Global Deterministic Whole Atmosphere dataset provides a composite of weather parameters generated for the entire atmospheric column.",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0900Z-PT0057H00M/20250616T0900Z-PT0057H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1200Z-PT0060H00M/20250616T1200Z-PT0060H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1500Z-PT0063H00M/20250616T1500Z-PT0063H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1800Z-PT0066H00M/20250616T1800Z-PT0066H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T2100Z-PT0069H00M/20250616T2100Z-PT0069H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0000Z-PT0072H00M/20250617T0000Z-PT0072H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0300Z-PT0075H00M/20250617T0300Z-PT0075H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0600Z-PT0078H00M/20250617T0600Z-PT0078H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0900Z-PT0081H00M/20250617T0900Z-PT0081H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1200Z-PT0084H00M/20250617T1200Z-PT0084H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1500Z-PT0087H00M/20250617T1500Z-PT0087H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1800Z-PT0090H00M/20250617T1800Z-PT0090H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T2100Z-PT0093H00M/20250617T2100Z-PT0093H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0000Z-PT0096H00M/20250618T0000Z-PT0096H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0300Z-PT0099H00M/20250618T0300Z-PT0099H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0600Z-PT0102H00M/20250618T0600Z-PT0102H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0900Z-PT0105H00M/20250618T0900Z-PT0105H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1200Z-PT0108H00M/20250618T1200Z-PT0108H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1500Z-PT0111H00M/20250618T1500Z-PT0111H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1800Z-PT0114H00M/20250618T1800Z-PT0114H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T2100Z-PT0117H00M/20250618T2100Z-PT0117H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0000Z-PT0120H00M/20250619T0000Z-PT0120H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0300Z-PT0123H00M/20250619T0300Z-PT0123H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0600Z-PT0126H00M/20250619T0600Z-PT0126H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0900Z-PT0129H00M/20250619T0900Z-PT0129H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1200Z-PT0132H00M/20250619T1200Z-PT0132H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1500Z-PT0135H00M/20250619T1500Z-PT0135H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1800Z-PT0138H00M/20250619T1800Z-PT0138H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T2100Z-PT0141H00M/20250619T2100Z-PT0141H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T0000Z-PT0144H00M/20250620T0000Z-PT0144H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T0600Z-PT0150H00M/20250620T0600Z-PT0150H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T1200Z-PT0156H00M/20250620T1200Z-PT0156H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T1800Z-PT0162H00M/20250620T1800Z-PT0162H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250621T0000Z-PT0168H00M/20250621T0000Z-PT0168H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.0,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2023-01-01T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "other"
+}

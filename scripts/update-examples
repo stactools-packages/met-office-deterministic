@@ -1,49 +1,56 @@
 #!/usr/bin/env python
 
+"""Update the examples in this repo.
+
+Make sure your environment is configured to access the AWS bucket.
+"""
+
 import shutil
-from datetime import datetime
 from pathlib import Path
-from typing import cast
 
-from pystac import Catalog, CatalogType
-from tqdm import tqdm
+from obstore.store import S3Store
+from pystac import Catalog, CatalogType, Collection
 
-from stactools.met_office_deterministic.stac import (
-    MetOfficeCollection,
-    create_collection,
-    create_item,
-)
+from stactools.met_office_deterministic import stac
+from stactools.met_office_deterministic.href import Href
 
 root = Path(__file__).parents[1]
 examples = root / "examples"
+bucket = "met-office-atmospheric-model-data"
 
 if examples.exists():
     shutil.rmtree(examples)
     examples.mkdir()
 
 catalog = Catalog(
-    "met-office-deterministic", description="Met Office Deterministic prediction models"
+    "met-office-deterministic",
+    description="Met Office Deterministic atmospheric model data",
 )
-for collection_id in tqdm(
-    [
-        "met-office-global-deterministic-10km-surface",
-        "met-office-global-deterministic-10km-height",
-        "met-office-global-deterministic-10km-pressure",
-        "met-office-uk-deterministic-2km-surface",
-        "met-office-uk-deterministic-2km-height",
-        "met-office-uk-deterministic-2km-pressure",
-    ]
-):
-    collection = create_collection(cast(MetOfficeCollection, collection_id))
-    items = [
-        create_item(
-            collection=cast(MetOfficeCollection, collection_id),
-            reference_time=datetime(2025, 10, 1, 0),
-            valid_time=datetime(2025, 10, 1, hour),
-        )
-        for hour in [0, 1, 2]
-    ]
-    collection.add_items(items)
+
+store = S3Store(bucket, config={"region": "eu-west-2"})
+object_metas = list()
+for list_result in store.list("uk-deterministic-2km/20250614T0000Z/"):
+    object_metas.extend(list_result)
+for list_result in store.list("global-deterministic-10km/20250614T0000Z/"):
+    object_metas.extend(list_result)
+
+collections: dict[tuple[str, str], Collection] = dict()
+hrefs = list()
+for object_meta in object_metas:
+    href = Href.parse(f"s3://{bucket}/{object_meta['path']}")
+    hrefs.append(href)
+    key = (href.model, href.theme)
+    if key not in collections:
+        collections[key] = stac.create_collection(href.model, href.theme)
+
+for item in stac.create_items(hrefs):
+    key = (
+        item.properties["met_office_deterministic:model"],
+        item.properties["met_office_deterministic:theme"],
+    )
+    collections[key].add_item(item)
+
+for collection in collections.values():
     catalog.add_child(collection)
 
 catalog.normalize_hrefs(str(examples))
