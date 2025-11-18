@@ -33,6 +33,9 @@ class Model(StrEnum):
             temporal=TemporalExtent(intervals=[[datetime.datetime(2023, 1, 1), None]]),
         )
 
+    def get_collection_id(self, theme: Theme) -> str:
+        return f"met-office-{self}-deterministic-{theme}"
+
 
 class Theme(StrEnum):
     height = "height"

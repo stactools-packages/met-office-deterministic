@@ -12,43 +12,47 @@ from obstore.store import S3Store
 from pystac import Catalog, CatalogType, Collection
 
 from stactools.met_office_deterministic import stac
+from stactools.met_office_deterministic.constants import Model
 from stactools.met_office_deterministic.href import Href
 
 root = Path(__file__).parents[1]
 examples = root / "examples"
 bucket = "met-office-atmospheric-model-data"
+prefixes = [
+    "global-deterministic-10km/20250614T0000Z/",
+    "uk-deterministic-2km/20250614T0000Z/",
+]
 
 if examples.exists():
     shutil.rmtree(examples)
     examples.mkdir()
 
-catalog = Catalog(
-    "met-office-deterministic",
-    description="Met Office Deterministic atmospheric model data",
-)
 
 store = S3Store(bucket, config={"region": "eu-west-2"})
 object_metas = list()
-for list_result in store.list("uk-deterministic-2km/20250614T0000Z/"):
-    object_metas.extend(list_result)
-for list_result in store.list("global-deterministic-10km/20250614T0000Z/"):
-    object_metas.extend(list_result)
+for prefix in prefixes:
+    for list_result in store.list(prefix):
+        object_metas.extend(list_result)
 
-collections: dict[tuple[str, str], Collection] = dict()
+collections: dict[str, Collection] = dict()
 hrefs = list()
 for object_meta in object_metas:
     href = Href.parse(f"s3://{bucket}/{object_meta['path']}")
     hrefs.append(href)
-    key = (href.model, href.theme)
-    if key not in collections:
-        collections[key] = stac.create_collection(href.model, href.theme)
+    if href.collection_id not in collections:
+        collections[href.collection_id] = stac.create_collection(href.model, href.theme)
 
 for item in stac.create_items(hrefs):
-    key = (
-        item.properties["met_office_deterministic:model"],
-        item.properties["met_office_deterministic:theme"],
-    )
-    collections[key].add_item(item)
+    item.validate()
+    model = Model(item.properties["met_office_deterministic:model"])
+    collections[
+        model.get_collection_id(item.properties["met_office_deterministic:theme"])
+    ].add_item(item)
+
+catalog = Catalog(
+    "met-office-deterministic",
+    description="Met Office Deterministic atmospheric model data",
+)
 
 for collection in collections.values():
     catalog.add_child(collection)

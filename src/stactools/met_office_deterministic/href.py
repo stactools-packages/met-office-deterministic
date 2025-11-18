@@ -47,6 +47,10 @@ class Href:
         )
 
     @property
+    def collection_id(self) -> str:
+        return self.model.get_collection_id(self.theme)
+
+    @property
     def item_id(self) -> str:
         return f"{self.valid_time}-{self.forecast_horizon}"
 

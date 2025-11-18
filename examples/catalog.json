@@ -11,26 +11,6 @@
     },
     {
       "rel": "child",
-      "href": "./met-office-uk-deterministic-whole-atmosphere/collection.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "child",
-      "href": "./met-office-uk-deterministic-height/collection.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "child",
-      "href": "./met-office-uk-deterministic-near-surface/collection.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "child",
-      "href": "./met-office-uk-deterministic-pressure-level/collection.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "child",
       "href": "./met-office-global-deterministic-whole-atmosphere/collection.json",
       "type": "application/json"
     },
@@ -47,6 +27,26 @@
     {
       "rel": "child",
       "href": "./met-office-global-deterministic-pressure-level/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-whole-atmosphere/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-height/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-near-surface/collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-pressure-level/collection.json",
       "type": "application/json"
     }
   ]

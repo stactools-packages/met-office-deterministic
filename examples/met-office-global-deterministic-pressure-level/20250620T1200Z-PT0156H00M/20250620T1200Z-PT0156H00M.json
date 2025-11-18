@@ -1,0 +1,124 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250620T1200Z-PT0156H00M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "properties": {
+    "forecast:reference_datetime": "20250614T0000Z",
+    "forecast:horizon": "PT0156H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "pressure-level",
+    "datetime": "2025-06-20T12:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "height_ASL_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-height_ASL_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "geopotential_height",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-relative_humidity_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "relative_humidity",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-temperature_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "wet_bulb_potential_temperature_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-wet_bulb_potential_temperature_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wet_bulb_potential_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-wind_direction_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_from_direction",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-wind_speed_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_vertical_velocity_on_pressure_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T1200Z-PT0156H00M-wind_vertical_velocity_on_pressure_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "upward_air_velocity",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-pressure-level"
+}

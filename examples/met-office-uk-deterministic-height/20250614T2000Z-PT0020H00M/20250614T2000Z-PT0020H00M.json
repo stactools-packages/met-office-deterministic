@@ -1,0 +1,100 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250614T2000Z-PT0020H00M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          15.30325,
+          44.50651
+        ],
+        [
+          15.30325,
+          63.01353
+        ],
+        [
+          -24.53378,
+          63.01353
+        ],
+        [
+          -24.53378,
+          44.50651
+        ],
+        [
+          15.30325,
+          44.50651
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -24.53378,
+    44.50651,
+    15.30325,
+    63.01353
+  ],
+  "properties": {
+    "forecast:reference_datetime": "20250614T0000Z",
+    "forecast:horizon": "PT0020H00M",
+    "met_office_deterministic:model": "uk",
+    "met_office_deterministic:theme": "height",
+    "datetime": "2025-06-14T20:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "cloud_amount_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T2000Z-PT0020H00M-cloud_amount_on_height_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T2000Z-PT0020H00M-temperature_on_height_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T2000Z-PT0020H00M-wind_direction_on_height_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_from_direction",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T2000Z-PT0020H00M-wind_speed_on_height_levels.nc",
+      "type": "application/netcdf",
+      "forecast:variable": "wind_speed",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-uk-deterministic-height"
+}

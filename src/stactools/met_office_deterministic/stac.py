@@ -1,4 +1,5 @@
 from collections import defaultdict
+from typing import Sequence
 
 from pystac import Asset, Collection, Item, MediaType
 
@@ -10,22 +11,26 @@ def create_collection(model: Model, theme: Theme) -> Collection:
     # Note: in the original spec document, each collection id had a "-data"
     # suffix. That's removed here, as it doesn't add any meaning.
     return Collection(
-        id=f"met-office-{model}-deterministic-{theme}",
+        id=model.get_collection_id(theme),
         description=DESCRIPTIONS[model][theme],
         extent=model.extent,
     )
 
 
-def create_items(source_hrefs: list[str | Href]) -> list[Item]:
+def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
     """Creates one or more STAC items for the given hrefs."""
-    hrefs = defaultdict(list)
+    hrefs = defaultdict(lambda: defaultdict(list))
     for source_href in source_hrefs:
         if isinstance(source_href, Href):
             href = source_href
         else:
             href = Href.parse(source_href)
-        hrefs[href.item_id].append(href)
-    return [_create_item(item_id, hrefs) for item_id, hrefs in hrefs.items()]
+        hrefs[href.collection_id][href.item_id].append(href)
+    items = list()
+    for items_hrefs in hrefs.values():
+        for item_id, item_hrefs in items_hrefs.items():
+            items.append(_create_item(item_id, item_hrefs))
+    return items
 
 
 def _create_item(item_id: str, hrefs: list[Href]) -> Item:
