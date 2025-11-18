@@ -5,9 +5,15 @@
   "description": "The Met Office UK Deterministic Height Level dataset provides a composite of weather parameters generated for specific atmospheric height levels.",
   "links": [
     {
-      "rel": "root",
-      "href": "../catalog.json",
-      "type": "application/json"
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "type": "text/html",
+      "title": "Creative Commons Attribution-ShareAlike 4.0"
+    },
+    {
+      "rel": "describedBy",
+      "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
+      "title": "Met Office Dataset Documentation"
     },
     {
       "rel": "item",
@@ -285,11 +291,47 @@
       "type": "application/geo+json"
     },
     {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json"
     }
   ],
+  "item_assets": {
+    "cloud_amount_on_height_levels": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount on height levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_height_levels": {
+      "media_type": "application/netcdf",
+      "title": "Temperature on height levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_height_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wind direction on height levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_height_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wind speed on height levels",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "title": "Met Office UK Deterministic Height Level",
   "extent": {
     "spatial": {
       "bbox": [
@@ -310,5 +352,21 @@
       ]
     }
   },
-  "license": "other"
+  "license": "other",
+  "keywords": [
+    "MetOffice",
+    "UK",
+    "Cloud"
+  ],
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "producer",
+        "licensor",
+        "processor"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    }
+  ]
 }

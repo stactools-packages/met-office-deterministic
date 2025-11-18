@@ -2,20 +2,56 @@ import datetime
 from collections import defaultdict
 from typing import Sequence
 
-from pystac import Asset, Collection, Item, MediaType
+from pystac import (
+    Asset,
+    Collection,
+    Item,
+    Link,
+    MediaType,
+    Provider,
+    ProviderRole,
+)
 
-from .constants import DESCRIPTIONS, Model, Theme
+from .constants import DESCRIPTIONS, ITEM_ASSETS, KEYWORDS, TITLES, Model, Theme
 from .href import Href
 
 
 def create_collection(model: Model, theme: Theme) -> Collection:
-    # Note: in the original spec document, each collection id had a "-data"
-    # suffix. That's removed here, as it doesn't add any meaning.
-    return Collection(
+    collection = Collection(
         id=model.get_collection_id(theme),
         description=DESCRIPTIONS[model][theme],
+        title=TITLES[model][theme],
+        keywords=["MetOffice"] + KEYWORDS[model][theme],
+        providers=[
+            Provider(
+                url="https://www.metoffice.gov.uk/",
+                name="Met Office",
+                roles=[
+                    ProviderRole.PRODUCER,
+                    ProviderRole.LICENSOR,
+                    ProviderRole.PROCESSOR,
+                ],
+            ),
+        ],
         extent=model.extent,
     )
+    collection.links = [
+        Link(
+            rel="license",
+            target="https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+            media_type="text/html",
+            title="Creative Commons Attribution-ShareAlike 4.0",
+        ),
+        # Link( rel="cite-as", target="", title="British Crown copyright
+        # 2023-2025, the Met Office, is licensed under CC BY-SA", ),
+        Link(
+            rel="describedBy",
+            target="https://www.metoffice.gov.uk/services/data/external-data-channels",
+            title="Met Office Dataset Documentation",
+        ),
+    ]
+    collection.item_assets = ITEM_ASSETS[model][theme]  # pyright: ignore[reportAttributeAccessIssue]
+    return collection
 
 
 def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
@@ -65,12 +101,9 @@ def _create_asset(href: Href) -> tuple[str, Asset]:
     }
     if href.duration:
         extra_fields["forecast:duration"] = href.duration
-    return (
-        href.parameter,
-        Asset(
-            href=href.href,
-            media_type=MediaType.NETCDF,
-            roles=["data"],
-            extra_fields=extra_fields,
-        ),
+    asset = ITEM_ASSETS[href.model][href.theme][href.parameter].create_asset(
+        href=href.href
     )
+    asset.media_type = MediaType.NETCDF  # no idea why create asset drops this
+    asset.extra_fields = extra_fields
+    return (href.parameter, asset)

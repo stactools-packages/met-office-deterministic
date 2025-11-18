@@ -12,42 +12,50 @@
     {
       "rel": "child",
       "href": "./met-office-global-deterministic-whole-atmosphere/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Whole Atmosphere"
     },
     {
       "rel": "child",
       "href": "./met-office-global-deterministic-height/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
     },
     {
       "rel": "child",
       "href": "./met-office-global-deterministic-near-surface/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
     },
     {
       "rel": "child",
       "href": "./met-office-global-deterministic-pressure-level/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Pressure Level"
     },
     {
       "rel": "child",
       "href": "./met-office-uk-deterministic-whole-atmosphere/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Whole Atmosphere"
     },
     {
       "rel": "child",
       "href": "./met-office-uk-deterministic-height/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Height Level"
     },
     {
       "rel": "child",
       "href": "./met-office-uk-deterministic-near-surface/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Near Surface"
     },
     {
       "rel": "child",
       "href": "./met-office-uk-deterministic-pressure-level/collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Pressure Level"
     }
   ]
 }

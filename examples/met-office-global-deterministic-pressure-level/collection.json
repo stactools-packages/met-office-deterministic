@@ -5,9 +5,15 @@
   "description": "The Met Office Global Deterministic Pressure Level dataset provides a composite of weather parameters generated for specific atmospheric pressure levels.",
   "links": [
     {
-      "rel": "root",
-      "href": "../catalog.json",
-      "type": "application/json"
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "type": "text/html",
+      "title": "Creative Commons Attribution-ShareAlike 4.0"
+    },
+    {
+      "rel": "describedBy",
+      "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
+      "title": "Met Office Dataset Documentation"
     },
     {
       "rel": "item",
@@ -455,11 +461,68 @@
       "type": "application/geo+json"
     },
     {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json"
     }
   ],
+  "item_assets": {
+    "height_ASL_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Height above sea level on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Relative humidity on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Temperature on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wet_bulb_potential_temperature_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wet bulb temperature on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wind direction on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wind speed on pressure levels",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_vertical_velocity_on_pressure_levels": {
+      "media_type": "application/netcdf",
+      "title": "Wind vertical velocity on pressure levels",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "title": "Met Office Global Deterministic Pressure Level",
   "extent": {
     "spatial": {
       "bbox": [
@@ -480,5 +543,21 @@
       ]
     }
   },
-  "license": "other"
+  "license": "other",
+  "keywords": [
+    "MetOffice",
+    "Global",
+    "Cloud"
+  ],
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "producer",
+        "licensor",
+        "processor"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    }
+  ]
 }

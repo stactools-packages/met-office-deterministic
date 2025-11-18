@@ -47,25 +47,28 @@
   },
   "links": [
     {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Height Level"
+    },
+    {
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json"
     },
     {
-      "rel": "collection",
-      "href": "../collection.json",
-      "type": "application/json"
-    },
-    {
       "rel": "parent",
       "href": "../collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Height Level"
     }
   ],
   "assets": {
     "cloud_amount_on_height_levels": {
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T1200Z-PT0012H00M-cloud_amount_on_height_levels.nc",
       "type": "application/netcdf",
+      "title": "Cloud amount on height levels",
       "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
       "roles": [
         "data"
@@ -74,6 +77,7 @@
     "temperature_on_height_levels": {
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T1200Z-PT0012H00M-temperature_on_height_levels.nc",
       "type": "application/netcdf",
+      "title": "Temperature on height levels",
       "forecast:variable": "air_temperature",
       "roles": [
         "data"
@@ -82,6 +86,7 @@
     "wind_direction_on_height_levels": {
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T1200Z-PT0012H00M-wind_direction_on_height_levels.nc",
       "type": "application/netcdf",
+      "title": "Wind direction on height levels",
       "forecast:variable": "wind_from_direction",
       "roles": [
         "data"
@@ -90,6 +95,7 @@
     "wind_speed_on_height_levels": {
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T1200Z-PT0012H00M-wind_speed_on_height_levels.nc",
       "type": "application/netcdf",
+      "title": "Wind speed on height levels",
       "forecast:variable": "wind_speed",
       "roles": [
         "data"

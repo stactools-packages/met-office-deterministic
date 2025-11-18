@@ -47,25 +47,28 @@
   },
   "links": [
     {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
+    },
+    {
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json"
     },
     {
-      "rel": "collection",
-      "href": "../collection.json",
-      "type": "application/json"
-    },
-    {
       "rel": "parent",
       "href": "../collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
     }
   ],
   "assets": {
     "cloud_amount_on_height_levels": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0200Z-PT0002H00M-cloud_amount_on_height_levels.nc",
       "type": "application/netcdf",
+      "title": "Cloud amount on height levels",
       "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
       "roles": [
         "data"

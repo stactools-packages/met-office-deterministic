@@ -47,25 +47,28 @@
   },
   "links": [
     {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
+    },
+    {
       "rel": "root",
       "href": "../../catalog.json",
       "type": "application/json"
     },
     {
-      "rel": "collection",
-      "href": "../collection.json",
-      "type": "application/json"
-    },
-    {
       "rel": "parent",
       "href": "../collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
     }
   ],
   "assets": {
     "fog_fraction_at_screen_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-fog_fraction_at_screen_level.nc",
       "type": "application/netcdf",
+      "title": "Fog fraction at screen level",
       "forecast:variable": "fog_area_fraction",
       "roles": [
         "data"
@@ -74,6 +77,7 @@
     "precipitation_rate": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-precipitation_rate.nc",
       "type": "application/netcdf",
+      "title": "Precipitation rate",
       "forecast:variable": "lwe_precipitation_rate",
       "roles": [
         "data"
@@ -82,6 +86,7 @@
     "pressure_at_mean_sea_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-pressure_at_mean_sea_level.nc",
       "type": "application/netcdf",
+      "title": "Pressure at mean sea level",
       "forecast:variable": "air_pressure_at_sea_level",
       "roles": [
         "data"
@@ -90,6 +95,7 @@
     "radiation_flux_in_longwave_downward_at_surface": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-radiation_flux_in_longwave_downward_at_surface.nc",
       "type": "application/netcdf",
+      "title": "Radiation flux in longwave downward at surface",
       "forecast:variable": "surface_downwelling_longwave_flux_in_air",
       "roles": [
         "data"
@@ -98,6 +104,7 @@
     "radiation_flux_in_shortwave_direct_downward_at_surface": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
       "type": "application/netcdf",
+      "title": "Radiation flux in shortwave direct downward at surface",
       "forecast:variable": "surface_direct_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -106,6 +113,7 @@
     "radiation_flux_in_shortwave_total_downward_at_surface": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-radiation_flux_in_shortwave_total_downward_at_surface.nc",
       "type": "application/netcdf",
+      "title": "Radiation flux in shortwave total downward at surface",
       "forecast:variable": "surface_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -114,6 +122,7 @@
     "radiation_flux_in_uv_downward_at_surface": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-radiation_flux_in_uv_downward_at_surface.nc",
       "type": "application/netcdf",
+      "title": "Radiation flux in uv downward at surface",
       "forecast:variable": "surface_downwelling_ultraviolet_flux_in_air",
       "roles": [
         "data"
@@ -122,6 +131,7 @@
     "rainfall_rate": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-rainfall_rate.nc",
       "type": "application/netcdf",
+      "title": "Rainfall rate",
       "forecast:variable": "rainfall_rate",
       "roles": [
         "data"
@@ -130,6 +140,7 @@
     "rainfall_rate_from_convection": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-rainfall_rate_from_convection.nc",
       "type": "application/netcdf",
+      "title": "Rainfall rate from convection",
       "forecast:variable": "convective_rainfall_rate",
       "roles": [
         "data"
@@ -138,6 +149,7 @@
     "relative_humidity_at_screen_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-relative_humidity_at_screen_level.nc",
       "type": "application/netcdf",
+      "title": "Relative humidity at screen level",
       "forecast:variable": "relative_humidity",
       "roles": [
         "data"
@@ -146,6 +158,7 @@
     "snow_depth_water_equivalent": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-snow_depth_water_equivalent.nc",
       "type": "application/netcdf",
+      "title": "Snow depth water equivalent",
       "forecast:variable": "lwe_thickness_of_surface_snow_amount",
       "roles": [
         "data"
@@ -154,6 +167,7 @@
     "snowfall_rate": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-snowfall_rate.nc",
       "type": "application/netcdf",
+      "title": "Snowfall rate",
       "forecast:variable": "lwe_snowfall_rate",
       "roles": [
         "data"
@@ -162,6 +176,7 @@
     "snowfall_rate_from_convection": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-snowfall_rate_from_convection.nc",
       "type": "application/netcdf",
+      "title": "Snowfall rate from convection",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "roles": [
         "data"
@@ -170,6 +185,7 @@
     "temperature_at_screen_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-temperature_at_screen_level.nc",
       "type": "application/netcdf",
+      "title": "Temperature at screen level",
       "forecast:variable": "air_temperature",
       "roles": [
         "data"
@@ -178,6 +194,7 @@
     "temperature_at_surface": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-temperature_at_surface.nc",
       "type": "application/netcdf",
+      "title": "Temperature at surface",
       "forecast:variable": "surface_temperature",
       "roles": [
         "data"
@@ -186,6 +203,7 @@
     "temperature_of_dew_point_at_screen_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-temperature_of_dew_point_at_screen_level.nc",
       "type": "application/netcdf",
+      "title": "Dew point temperature at screen level",
       "forecast:variable": "dew_point_temperature",
       "roles": [
         "data"
@@ -194,6 +212,7 @@
     "visibility_at_screen_level": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-visibility_at_screen_level.nc",
       "type": "application/netcdf",
+      "title": "Visibility at screen level",
       "forecast:variable": "visibility_in_air",
       "roles": [
         "data"
@@ -202,6 +221,7 @@
     "wind_direction_at_10m": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-wind_direction_at_10m.nc",
       "type": "application/netcdf",
+      "title": "Wind direction at 10m",
       "forecast:variable": "wind_from_direction",
       "roles": [
         "data"
@@ -210,6 +230,7 @@
     "wind_gust_at_10m": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-wind_gust_at_10m.nc",
       "type": "application/netcdf",
+      "title": "Wind gust at 10m",
       "forecast:variable": "wind_speed_of_gust",
       "roles": [
         "data"
@@ -218,6 +239,7 @@
     "wind_speed_at_10m": {
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0000Z-PT0000H00M-wind_speed_at_10m.nc",
       "type": "application/netcdf",
+      "title": "Wind speed at 10m",
       "forecast:variable": "wind_speed",
       "roles": [
         "data"

@@ -14,6 +14,7 @@ from stactools.met_office_deterministic.constants import Model, Theme
 @pytest.mark.parametrize("model", (Model.global_, Model.uk))
 def test_collection(model: Model, theme: Theme) -> None:
     collection = stac.create_collection(model, theme)
+    assert collection.title
     collection.validate()
 
 
@@ -23,8 +24,10 @@ def test_items(hrefs: list[str]) -> None:
         datetime.datetime.strptime(
             item.properties["forecast:reference_datetime"], "%Y-%m-%dT%H:%M:%SZ"
         )
-        item.validate()
 
-        for asset in item.assets.values():
+        for key, asset in item.assets.items():
             assert asset.roles == ["data"]
-            assert asset.media_type == MediaType.NETCDF
+            assert asset.media_type == MediaType.NETCDF, "No media type: " + key
+            assert asset.title
+
+        item.validate()

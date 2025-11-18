@@ -5,9 +5,15 @@
   "description": "The Met Office UK Deterministic Whole Atmosphere dataset provides a composite of weather parameters generated for the entire atmospheric column.",
   "links": [
     {
-      "rel": "root",
-      "href": "../catalog.json",
-      "type": "application/json"
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "type": "text/html",
+      "title": "Creative Commons Attribution-ShareAlike 4.0"
+    },
+    {
+      "rel": "describedBy",
+      "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
+      "title": "Met Office Dataset Documentation"
     },
     {
       "rel": "item",
@@ -285,11 +291,96 @@
       "type": "application/geo+json"
     },
     {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json"
     }
   ],
+  "item_assets": {
+    "CAPE_most_unstable_below_500hPa": {
+      "media_type": "application/netcdf",
+      "title": "Convective Available Potential Energy most unstable below 500hPa",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_surface": {
+      "media_type": "application/netcdf",
+      "title": "Convective Available Potential Energy with respect to surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_below_1000ft_ASL": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount below 1000ft Above Sea Level",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_high_cloud": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount of high cloud",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_low_cloud": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount of low cloud",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_medium_cloud": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount of medium cloud",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_cloud": {
+      "media_type": "application/netcdf",
+      "title": "Cloud amount of total cloud",
+      "roles": [
+        "data"
+      ]
+    },
+    "height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas": {
+      "media_type": "application/netcdf",
+      "title": "Height above ground level at cloud base where cloud cover 2p5 oktas",
+      "roles": [
+        "data"
+      ]
+    },
+    "height_AGL_at_freezing_level": {
+      "media_type": "application/netcdf",
+      "title": "Height above ground level at freezing level",
+      "roles": [
+        "data"
+      ]
+    },
+    "height_AGL_at_wet_bulb_freezing_level": {
+      "media_type": "application/netcdf",
+      "title": "Height above ground level at wet bulb freezing level",
+      "roles": [
+        "data"
+      ]
+    },
+    "lightning_flash_accumulation-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly number of lightning flashes per unit area",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "title": "Met Office UK Deterministic Whole Atmosphere",
   "extent": {
     "spatial": {
       "bbox": [
@@ -310,5 +401,21 @@
       ]
     }
   },
-  "license": "other"
+  "license": "other",
+  "keywords": [
+    "MetOffice",
+    "UK",
+    "Cloud"
+  ],
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "producer",
+        "licensor",
+        "processor"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    }
+  ]
 }
