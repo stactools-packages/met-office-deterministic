@@ -46,6 +46,9 @@ docs = [
     "xarray>=2025.11.0",
 ]
 
+[tool.codespell]
+skip = '*.ipynb'
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/stactools"]
 
