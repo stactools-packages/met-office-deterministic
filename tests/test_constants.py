@@ -114,4 +114,4 @@ from stactools.met_office_deterministic.constants import Theme
 )
 def test_parameter_to_theme(parameters: list[str], theme: Theme) -> None:
     for parameter in parameters:
-        assert Theme.for_parameter(parameter) == theme
+        assert Theme.from_parameter(parameter) == theme

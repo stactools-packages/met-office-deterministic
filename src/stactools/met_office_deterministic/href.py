@@ -34,7 +34,7 @@ class Href:
             case _:
                 raise ValueError(f"Invalid collection: {collection}")
         parameter = matched_dict["parameter"]
-        theme = Theme.for_parameter(parameter)
+        theme = Theme.from_parameter(parameter)
         return Href(
             href=href,
             model=model,

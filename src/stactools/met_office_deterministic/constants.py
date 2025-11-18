@@ -32,7 +32,7 @@ class Theme(StrEnum):
     whole_atmosphere = "whole-atmosphere"
 
     @classmethod
-    def for_parameter(cls, parameter: str) -> Theme:
+    def from_parameter(cls, parameter: str) -> Theme:
         match parameter:
             case (
                 "cloud_amount_on_height_levels"
