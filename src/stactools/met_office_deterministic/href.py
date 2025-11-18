@@ -89,7 +89,8 @@ class Href:
         """Extract the duration from the parameter if present.
 
         Returns:
-            The duration string (ISO 8601 format) if the parameter includes one, None otherwise.
+            The duration string (ISO 8601 format) if the parameter includes one,
+            None otherwise.
         """
         parts = self.parameter.split("-")
         if len(parts) == 2:
