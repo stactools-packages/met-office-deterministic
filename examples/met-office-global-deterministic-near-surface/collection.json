@@ -471,6 +471,24 @@
       "type": "application/json"
     }
   ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/storage/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json"
+  ],
+  "storage:schemes": {
+    "aws": {
+      "type": "aws-s3",
+      "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+      "bucket": "met-office-atmospheric-model-data",
+      "region": "eu-west-2",
+      "requester_pays": false
+    }
+  },
+  "auth:schemes": {
+    "aws": {
+      "type": "s3"
+    }
+  },
   "item_assets": {
     "fog_fraction_at_screen_level": {
       "media_type": "application/netcdf",
@@ -823,7 +841,7 @@
       ]
     }
   },
-  "license": "other",
+  "license": "CC-BY-SA-4.0",
   "keywords": [
     "MetOffice",
     "Global",

@@ -21,6 +21,7 @@ def create_collection(model: Model, theme: Theme) -> Collection:
         id=model.get_collection_id(theme),
         description=DESCRIPTIONS[model][theme],
         title=TITLES[model][theme],
+        license="CC-BY-SA-4.0",
         keywords=["MetOffice"] + KEYWORDS[model][theme],
         providers=[
             Provider(
@@ -34,6 +35,22 @@ def create_collection(model: Model, theme: Theme) -> Collection:
             ),
         ],
         extent=model.extent,
+        stac_extensions=[
+            "https://stac-extensions.github.io/storage/v1.0.0/schema.json",
+            "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        ],
+        extra_fields={
+            "storage:schemes": {
+                "aws": {
+                    "type": "aws-s3",
+                    "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+                    "bucket": "met-office-atmospheric-model-data",
+                    "region": "eu-west-2",
+                    "requester_pays": False,
+                }
+            },
+            "auth:schemes": {"aws": {"type": "s3"}},
+        },
     )
     collection.links = [
         Link(
@@ -50,7 +67,7 @@ def create_collection(model: Model, theme: Theme) -> Collection:
             title="Met Office Dataset Documentation",
         ),
     ]
-    collection.item_assets = ITEM_ASSETS[model][theme]
+    collection.item_assets = ITEM_ASSETS[model][theme]  # pyright: ignore[reportAttributeAccessIssue]
     return collection
 
 
