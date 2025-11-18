@@ -15,17 +15,8 @@ def test_collection(model: Model, theme: Theme) -> None:
     collection.validate()
 
 
-def test_global_items(global_hrefs: list[str]) -> None:
-    items = stac.create_items(global_hrefs)
-    for item in items:
-        for asset in item.assets.values():
-            assert asset.roles == ["data"]
-            assert asset.media_type == MediaType.NETCDF
-        item.validate()
-
-
-def test_uk_items(uk_hrefs: list[str]) -> None:
-    items = stac.create_items(uk_hrefs)
+def test_items(hrefs: list[str]) -> None:
+    items = stac.create_items(hrefs)
     for item in items:
         for asset in item.assets.values():
             assert asset.roles == ["data"]
