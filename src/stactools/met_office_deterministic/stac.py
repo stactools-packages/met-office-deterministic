@@ -17,6 +17,15 @@ from .href import Href
 
 
 def create_collection(model: Model, theme: Theme) -> Collection:
+    """Create a STAC collection for a model and theme combination.
+
+    Args:
+        model: The Met Office model (global or UK).
+        theme: The theme (height, pressure-level, near-surface, or whole-atmosphere).
+
+    Returns:
+        A STAC Collection object configured for the model and theme.
+    """
     collection = Collection(
         id=model.get_collection_id(theme),
         description=DESCRIPTIONS[model][theme],
@@ -90,6 +99,15 @@ def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
 
 
 def _create_item(item_id: str, hrefs: list[Href]) -> Item:
+    """Create a STAC item from a list of hrefs.
+
+    Args:
+        item_id: The ID for the item.
+        hrefs: A list of Href objects to include as assets in the item.
+
+    Returns:
+        A STAC Item object with assets for each href.
+    """
     assert hrefs
     href = hrefs[0]
     item = Item(
@@ -115,6 +133,14 @@ def _create_item(item_id: str, hrefs: list[Href]) -> Item:
 
 
 def _create_asset(href: Href) -> tuple[str, Asset]:
+    """Create a STAC asset from an href.
+
+    Args:
+        href: The Href object to convert to an asset.
+
+    Returns:
+        A tuple of (asset_key, Asset) where the key is the parameter name.
+    """
     extra_fields = {
         "forecast:variable": href.variable,
     }

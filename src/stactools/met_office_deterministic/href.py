@@ -23,6 +23,17 @@ class Href:
 
     @classmethod
     def parse(cls, href: str) -> Href:
+        """Parse a UK Met Office href into an Href object.
+
+        Args:
+            href: The href string to parse.
+
+        Returns:
+            An Href object containing parsed components.
+
+        Raises:
+            ValueError: If the href format is invalid or contains an unknown collection.
+        """
         matched = HREF_REGEX.match(href)
         if not matched:
             raise ValueError(f"Invalid UK Met Office href: {href}")
@@ -48,18 +59,38 @@ class Href:
 
     @property
     def collection_id(self) -> str:
+        """Get the STAC collection ID for this href.
+
+        Returns:
+            The collection ID string.
+        """
         return self.model.get_collection_id(self.theme)
 
     @property
     def item_id(self) -> str:
+        """Get the STAC item ID for this href.
+
+        Returns:
+            The item ID string combining valid time and forecast horizon.
+        """
         return f"{self.valid_time}-{self.forecast_horizon}"
 
     @property
     def datetime(self) -> datetime.datetime:
+        """Get the datetime from the valid time string.
+
+        Returns:
+            A datetime object parsed from the valid time.
+        """
         return datetime.datetime.strptime(self.valid_time, "%Y%m%dT%H%MZ")
 
     @property
     def duration(self) -> str | None:
+        """Extract the duration from the parameter if present.
+
+        Returns:
+            The duration string (ISO 8601 format) if the parameter includes one, None otherwise.
+        """
         parts = self.parameter.split("-")
         if len(parts) == 2:
             assert parts[1].startswith("PT")
@@ -226,4 +257,9 @@ class Href:
                 raise ValueError(f"Unknown parameter: {self.parameter}")
 
     def __str__(self) -> str:
+        """Return the href as a string.
+
+        Returns:
+            The href string.
+        """
         return self.href

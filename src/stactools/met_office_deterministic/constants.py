@@ -15,6 +15,14 @@ class Model(StrEnum):
 
     @property
     def bbox(self) -> tuple[float, float, float, float]:
+        """Get the bounding box for the model.
+
+        Returns:
+            A tuple of (min_lon, min_lat, max_lon, max_lat).
+
+        Raises:
+            ValueError: If the model is unexpected.
+        """
         match self:
             case Model.global_:
                 return (-180.0, -90, 180, 90)
@@ -25,6 +33,14 @@ class Model(StrEnum):
 
     @property
     def geometry(self) -> dict[str, Any]:
+        """Get the GeoJSON geometry for the model coverage area.
+
+        Returns:
+            A GeoJSON geometry dictionary.
+
+        Raises:
+            ValueError: If the model is unexpected.
+        """
         match self:
             case Model.global_:
                 return shapely.geometry.mapping(shapely.geometry.box(*self.bbox))
@@ -44,12 +60,25 @@ class Model(StrEnum):
 
     @property
     def extent(self) -> Extent:
+        """Get the STAC extent for the model.
+
+        Returns:
+            A STAC Extent object with spatial and temporal extents.
+        """
         return Extent(
             spatial=SpatialExtent(bboxes=[list(self.bbox)]),
             temporal=TemporalExtent(intervals=[[datetime.datetime(2023, 1, 1), None]]),
         )
 
     def get_collection_id(self, theme: Theme) -> str:
+        """Generate the collection ID for a model and theme combination.
+
+        Args:
+            theme: The theme to combine with this model.
+
+        Returns:
+            The collection ID string.
+        """
         return f"met-office-{self}-deterministic-{theme}"
 
 
@@ -61,6 +90,17 @@ class Theme(StrEnum):
 
     @classmethod
     def from_parameter(cls, parameter: str) -> Theme:
+        """Determine the theme from a parameter name.
+
+        Args:
+            parameter: The parameter name to classify.
+
+        Returns:
+            The Theme corresponding to the parameter.
+
+        Raises:
+            ValueError: If the parameter is unknown.
+        """
         match parameter:
             case (
                 "cloud_amount_on_height_levels"
