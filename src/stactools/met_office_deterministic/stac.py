@@ -50,13 +50,15 @@ def create_collection(model: Model, theme: Theme) -> Collection:
             title="Met Office Dataset Documentation",
         ),
     ]
-    collection.item_assets = ITEM_ASSETS[model][theme]  # pyright: ignore[reportAttributeAccessIssue]
+    collection.item_assets = ITEM_ASSETS[model][theme]
     return collection
 
 
 def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
     """Creates one or more STAC items for the given hrefs."""
-    hrefs = defaultdict(lambda: defaultdict(list))
+    hrefs: defaultdict[str, defaultdict[str, list[Href]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
     for source_href in source_hrefs:
         if isinstance(source_href, Href):
             href = source_href

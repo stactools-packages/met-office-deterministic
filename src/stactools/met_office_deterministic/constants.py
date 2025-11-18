@@ -290,14 +290,14 @@ ITEM_ASSETS = {
                     "roles": ["data"],
                 }
             ),
-            "radiation_flux_in_shortwave_direct_downward_at_surface": ItemAssetDefinition(
+            "radiation_flux_in_shortwave_direct_downward_at_surface": ItemAssetDefinition(  # noqa: E501
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave direct downward at surface",
                     "roles": ["data"],
                 }
             ),
-            "radiation_flux_in_shortwave_total_downward_at_surface": ItemAssetDefinition(
+            "radiation_flux_in_shortwave_total_downward_at_surface": ItemAssetDefinition(  # noqa: E501
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave total downward at surface",
@@ -605,21 +605,21 @@ ITEM_ASSETS = {
             "CAPE_mixed_layer_lowest_500m": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Convective Available Potential Energy mixed layer lowest 500m",
+                    "title": "Convective Available Potential Energy mixed layer lowest 500m",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
             "CAPE_most_unstable_below_500hPa": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Convective Available Potential Energy most unstable below 500hPa",
+                    "title": "Convective Available Potential Energy most unstable below 500hPa",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
             "CAPE_surface": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Convective Available Potential Energy with respect to surface",
+                    "title": "Convective Available Potential Energy with respect to surface",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
@@ -804,21 +804,21 @@ ITEM_ASSETS = {
                     "roles": ["data"],
                 }
             ),
-            "radiation_flux_in_shortwave_diffuse_downward_at_surface": ItemAssetDefinition(
+            "radiation_flux_in_shortwave_diffuse_downward_at_surface": ItemAssetDefinition(  # noqa: E501
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave diffuse downward at surface",
                     "roles": ["data"],
                 }
             ),
-            "radiation_flux_in_shortwave_direct_downward_at_surface": ItemAssetDefinition(
+            "radiation_flux_in_shortwave_direct_downward_at_surface": ItemAssetDefinition(  # noqa: E501
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave direct downward at surface",
                     "roles": ["data"],
                 }
             ),
-            "radiation_flux_in_shortwave_total_downward_at_surface": ItemAssetDefinition(
+            "radiation_flux_in_shortwave_total_downward_at_surface": ItemAssetDefinition(  # noqa: E501
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave total downward at surface",
@@ -1021,14 +1021,14 @@ ITEM_ASSETS = {
             "CAPE_most_unstable_below_500hPa": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Convective Available Potential Energy most unstable below 500hPa",
+                    "title": "Convective Available Potential Energy most unstable below 500hPa",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
             "CAPE_surface": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Convective Available Potential Energy with respect to surface",
+                    "title": "Convective Available Potential Energy with respect to surface",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
@@ -1070,7 +1070,7 @@ ITEM_ASSETS = {
             "height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas": ItemAssetDefinition(
                 {
                     "media_type": "application/netcdf",
-                    "title": "Height above ground level at cloud base where cloud cover 2p5 oktas",
+                    "title": "Height above ground level at cloud base where cloud cover 2p5 oktas",  # noqa: E501
                     "roles": ["data"],
                 }
             ),
