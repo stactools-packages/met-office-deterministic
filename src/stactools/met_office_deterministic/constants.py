@@ -6,6 +6,7 @@ from typing import Any
 
 import shapely.geometry
 from pystac import Extent, ItemAssetDefinition, SpatialExtent, TemporalExtent
+from shapely import Polygon
 
 
 class Model(StrEnum):
@@ -24,7 +25,22 @@ class Model(StrEnum):
 
     @property
     def geometry(self) -> dict[str, Any]:
-        return shapely.geometry.mapping(shapely.geometry.box(*self.bbox))
+        match self:
+            case Model.global_:
+                return shapely.geometry.mapping(shapely.geometry.box(*self.bbox))
+            case Model.uk:
+                return shapely.geometry.mapping(
+                    Polygon(
+                        shell=[
+                            (-24.51, 61.32),
+                            (15.28, 61.93),
+                            (-17.12, 44.52),
+                            (9.21, 44.90),
+                        ]
+                    )
+                )
+            case _:
+                raise ValueError(f"Unexpected model: {self}")
 
     @property
     def extent(self) -> Extent:
