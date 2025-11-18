@@ -1,685 +1,151 @@
-"""Constants for Met Office Deterministic models.
+from __future__ import annotations
 
-### Sources:
-- https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/uk-nwp-asdi-datasheet.pdf
-- https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/global-nwp-asdi-datasheet.pdf
+import datetime
+from enum import StrEnum
 
-This module defines variable metadata for Met Office Global and UK Deterministic models.
-Variables are organized to eliminate duplication while maintaining clear model-specific
-collections.
+from pystac import Extent, SpatialExtent, TemporalExtent
 
-Structure:
-    Shared Variables (common to both Global and UK models):
-        - _shared_pressure_variables: 6 variables
-        - _shared_height_variables: 1 variable (cloud_amount_on_height_levels)
-        - _shared_surface_variables: 30 variables
-          (including convection rainfall/snowfall rates)
 
-    Global-only Variables:
-        - _global_only_pressure_variables: 1 variable
-          (wind_vertical_velocity_on_pressure_levels)
-        - _global_only_surface_variables: 13 variables
-          (CAPE_mixed_layer, CIN_mixed_layer, CAPE_most_unstable/surface,
-          CIN_most_unstable/surface, convective cloud,
-          latent heat flux, precipitation/rainfall accumulation, rainfall/snowfall
-          rates, etc.)
+class Model(StrEnum):
+    global_ = "global"
+    uk = "uk"
 
-    UK-only Variables:
-        - _uk_only_height_variables: 3 variables (temperature, wind direction, wind
-          speed on height levels)
-        - _uk_only_surface_variables: 11 variables (hail, lightning, freezing levels,
-          landseamask, pressure_at_surface, sensible heat flux, snowfall_accumulation,
-          etc.)
+    @property
+    def extent(self) -> Extent:
+        match self:
+            case Model.global_:
+                bbox = [-180.0, -90, 180, 90]
+            case Model.uk:
+                bbox = [-24.53378, 44.50651, 15.30325, 63.01353]
+            case _:
+                raise ValueError(f"Unexpected model: {self}")
+        return Extent(
+            spatial=SpatialExtent(bboxes=[bbox]),
+            temporal=TemporalExtent(intervals=[[datetime.datetime(2023, 1, 1), None]]),
+        )
 
-Final Collections:
-    Global Model Variables:
-        - GLOBAL_PRESSURE_VARIABLES: 7 total (6 shared + 1 global-only)
-        - GLOBAL_HEIGHT_VARIABLES: 1 total (1 shared)
-        - GLOBAL_SURFACE_VARIABLES: 43 total (30 shared + 13 global-only)
-        - TOTAL: 51 variables
 
-    UK Model Variables:
-        - UK_PRESSURE_VARIABLES: 6 total (6 shared)
-        - UK_HEIGHT_VARIABLES: 4 total (1 shared + 3 UK-only)
-        - UK_SURFACE_VARIABLES: 41 total (30 shared + 11 UK-only)
-        - TOTAL: 51 variables
+class Theme(StrEnum):
+    height = "height"
+    pressure_level = "pressure-level"
+    near_surface = "near-surface"
+    whole_atmosphere = "whole-atmosphere"
 
-Each variable dictionary contains:
-    - description: Detailed explanation from Met Office documentation
-    - unit: Measurement unit (e.g., "K", "m s-1", "Pa", "J kg-1")
-"""
+    @classmethod
+    def for_parameter(cls, parameter: str) -> Theme:
+        match parameter:
+            case (
+                "cloud_amount_on_height_levels"
+                | "temperature_on_height_levels"
+                | "wind_direction_on_height_levels"
+                | "wind_speed_on_height_levels"
+            ):
+                return Theme.height
+            case (
+                "fog_fraction_at_screen_level"
+                | "visibility_at_screen_level"
+                | "pressure_at_mean_sea_level"
+                | "pressure_at_surface"
+                | "precipitation_rate"
+                | "precipitation_accumulation-PT01H"
+                | "precipitation_accumulation-PT03H"
+                | "precipitation_accumulation-PT06H"
+                | "rainfall_accumulation-PT01H"
+                | "rainfall_accumulation-PT03H"
+                | "rainfall_accumulation-PT06H"
+                | "rainfall_rate"
+                | "rainfall_rate_from_convection"
+                | "rainfall_rate_from_convection_max-PT01H"
+                | "rainfall_rate_from_convection_max-PT03H"
+                | "rainfall_rate_from_convection_max-PT06H"
+                | "radiation_flux_in_uv_downward_at_surface"
+                | "radiation_flux_in_longwave_downward_at_surface"
+                | "radiation_flux_in_shortwave_direct_downward_at_surface"
+                | "radiation_flux_in_shortwave_total_downward_at_surface"
+                | "radiation_flux_in_shortwave_diffuse_downward_at_surface"
+                | "snow_depth_water_equivalent"
+                | "snowfall_rate"
+                | "snowfall_accumulation-PT01H"
+                | "snowfall_accumulation-PT03H"
+                | "snowfall_rate_from_convection"
+                | "snowfall_rate_from_convection_mean-PT01H"
+                | "snowfall_rate_from_convection_mean-PT03H"
+                | "snowfall_rate_from_convection_mean-PT06H"
+                | "snowfall_rate_from_convection_max-PT01H"
+                | "snowfall_rate_from_convection_max-PT03H"
+                | "snowfall_rate_from_convection_max-PT06H"
+                | "hail_fall_rate"
+                | "hail_fall_accumulation-PT01H"
+                | "temperature_at_screen_level"
+                | "temperature_at_surface"
+                | "temperature_at_screen_level_max-PT01H"
+                | "temperature_at_screen_level_max-PT03H"
+                | "temperature_at_screen_level_max-PT06H"
+                | "temperature_at_screen_level_min-PT01H"
+                | "temperature_at_screen_level_min-PT03H"
+                | "temperature_at_screen_level_min-PT06H"
+                | "temperature_of_dew_point_at_screen_level"
+                | "wind_direction_at_10m"
+                | "wind_speed_at_10m"
+                | "wind_gust_at_10m"
+                | "wind_gust_at_10m_max-PT01H"
+                | "wind_gust_at_10m_max-PT03H"
+                | "wind_gust_at_10m_max-PT06H"
+                | "sensible_heat_flux_at_surface"
+                | "latent_heat_flux_at_surface_mean-PT01H"
+                | "latent_heat_flux_at_surface_mean-PT03H"
+                | "latent_heat_flux_at_surface_mean-PT06H"
+                | "relative_humidity_at_screen_level"
+                | "landsea_mask"
+            ):
+                return Theme.near_surface
+            case (
+                "height_ASL_on_pressure_levels"
+                | "temperature_on_pressure_levels"
+                | "wet_bulb_potential_temperature_on_pressure_levels"
+                | "wind_speed_on_pressure_levels"
+                | "wind_direction_on_pressure_levels"
+                | "wind_vertical_velocity_on_pressure_levels"
+                | "relative_humidity_on_pressure_levels"
+            ):
+                return Theme.pressure_level
 
-from pystac import Provider, ProviderRole
+            case (
+                "cloud_amount_of_total_cloud"
+                | "cloud_amount_of_high_cloud"
+                | "cloud_amount_of_medium_cloud"
+                | "cloud_amount_of_low_cloud"
+                | "cloud_amount_below_1000ft_ASL"
+                | "height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas"
+                | "cloud_amount_of_total_convective_cloud"
+                | "pressure_at_tropopause"
+                | "lightning_flash_accumulation-PT01H"
+                | "temperature_at_tropopause"
+                | "CAPE_most_unstable_below_500hPa"
+                | "CAPE_surface"
+                | "CAPE_mixed_layer_lowest_500m"
+                | "CIN_surface"
+                | "CIN_mixed_layer_lowest_500m"
+                | "CIN_most_unstable_below_500hPa"
+                | "height_AGL_at_wet_bulb_freezing_level"
+                | "height_AGL_at_freezing_level"
+            ):
+                return Theme.whole_atmosphere
+            case _:
+                raise ValueError(f"Unknown parameter: {parameter}")
 
-# variable metadata for variables shared by UK and Global collections
-_shared_pressure_variables = {
-    "height_ASL_on_pressure_levels": {
-        "description": """Height above mean sea level or altitude of the pressure 
-        levels. This is considered approximately equivalent to geopotential height.
-        Geopotential is the sum of the specific gravitational potential energy
-        relative to the geoid and the specific centripetal potential energy.
-        Geopotential height is the geopotential divided by the standard
-        acceleration due to gravity.""",
-        "unit": "m",
-    },
-    "relative_humidity_on_pressure_levels": {
-        "description": """Fractional relative humidity (ratio of the partial pressure
-        of water vapour to the equilibrium vapour pressure of water) on pressure
-        levels.""",
-        "unit": "1",
-    },
-    "temperature_on_pressure_levels": {
-        "description": "Air temperature on pressure levels.",
-        "unit": "K",
-    },
-    "wet_bulb_potential_temperature_on_pressure_levels": {
-        "description": """Wet bulb potential temperature (temperature that a parcel
-        of air at any level would have if starting at the wet bulb temperature,
-        it was brought at a saturated adiabatic lapse rate, to the standard
-        pressure of 1000hPa) on pressure levels.""",
-        "unit": "K",
-    },
-    "wind_direction_on_pressure_levels": {
-        "description": """Wind on a pressure level is defined as a two-dimensional
-        (horizontal) air velocity vector with no vertical component. In
-        meteorological reports the direction of the wind vector is given as
-        the direction from which it is blowing.""",
-        "unit": "degrees",
-    },
-    "wind_speed_on_pressure_levels": {
-        "description": """Wind on a pressure level is defined as a two-dimensional
-        (horizontal) air velocity with no vertical component. The speed is the
-        magnitude of velocity.""",
-        "unit": "m s-1",
-    },
-}
 
-_shared_height_variables = {
-    "cloud_amount_on_height_levels": {
-        "description": """Fraction of horizontal grid square occupied by cloud on 
-        height levels.""",
-        "unit": "1",
+DESCRIPTIONS = {
+    Model.global_: {
+        Theme.height: "The Met Office Global Deterministic Height Level dataset provides a composite of weather parameters generated for specific atmospheric height levels.",  # noqa: E501
+        Theme.pressure_level: "The Met Office Global Deterministic Pressure Level dataset provides a composite of weather parameters generated for specific atmospheric pressure levels.",  # noqa: E501
+        Theme.near_surface: "The Met Office Global Deterministic Near Surface dataset provides a composite of weather parameters generated for the near-surface atmospheric layer.",  # noqa: E501
+        Theme.whole_atmosphere: "The Met Office Global Deterministic Whole Atmosphere dataset provides a composite of weather parameters generated for the entire atmospheric column.",  # noqa: E501
     },
-}
-
-_shared_surface_variables = {
-    "cloud_amount_below_1000ft_ASL": {
-        "description": """Fraction of horizontal grid square occupied by cloud cover
-        below 1,000 feet above sea level.""",
-        "unit": "1",
+    Model.uk: {
+        Theme.height: "The Met Office UK Deterministic Height Level dataset provides a composite of weather parameters generated for specific atmospheric height levels.",  # noqa: E501
+        Theme.pressure_level: "The Met Office UK Deterministic Pressure Level dataset provides a composite of weather parameters generated for specific atmospheric pressure levels.",  # noqa: E501
+        Theme.near_surface: "The Met Office UK Deterministic Near Surface dataset provides a composite of weather parameters generated for the near-surface atmospheric layer.",  # noqa: E501
+        Theme.whole_atmosphere: "The Met Office UK Deterministic Whole Atmosphere dataset provides a composite of weather parameters generated for the entire atmospheric column.",  # noqa: E501
     },
-    "cloud_amount_of_high_cloud": {
-        "description": """Fraction of horizontal grid square occupied by cloud in the
-        high-level cloud height range; from 5,574m (~18,000ft) to 13,608m
-        (~44,500ft).""",
-        "unit": "1",
-    },
-    "cloud_amount_of_low_cloud": {
-        "description": """Fraction on horizontal grid square occupied by cloud in the
-        low-level cloud height range: from 111m (~350ft) to 1,949m (~6,500ft).""",
-        "unit": "1",
-    },
-    "cloud_amount_of_medium_cloud": {
-        "description": """A fraction of horizontal grid square occupied by cloud in
-        the mid-level cloud height range; from 1,949m (~6,500ft) to 5,574m
-        (~18,000ft).""",
-        "unit": "1",
-    },
-    "cloud_amount_of_total_cloud": {
-        "description": """Fraction of horizontal grid square occupied by cloud as
-        diagnosed by the model cloud scheme. This is for the whole atmosphere
-        column as seen from the surface or the top of the atmosphere.""",
-        "unit": "1",
-    },
-    "fog_fraction_at_screen_level": {
-        "description": """Fog means a visibility of 1000 m or lower. The reduction
-        in visibility is caused by water droplets or minute ice crystals forming
-        close to the surface. This quantity represents the fraction of horizontal
-        grid square occupied by fog. An alternative interpretation is that this
-        represents the fractional probability of fog being present at any location
-        in the grid square.""",
-        "unit": "1",
-    },
-    "precipitation_rate": {
-        "description": """Instantaneous rate at which liquid water (as a depth) is
-        being deposited on the surface.""",
-        "unit": "m s-1",
-    },
-    "pressure_at_mean_sea_level": {
-        "description": """Air pressure at mean sea level which is close to the geoid
-        in sea areas. Air pressure at sea level is the quantity often abbreviated
-        as MSLP or PMSL.""",
-        "unit": "Pa",
-    },
-    "radiation_flux_in_longwave_downward_at_surface": {
-        "description": """Longwave radiation at the surface from above directed at
-        the ground. In accordance with common usage in geophysical disciplines
-        "flux" implies per unit area called "flux density" in physics.""",
-        "unit": "W m-2",
-    },
-    "radiation_flux_in_shortwave_direct_downward_at_surface": {
-        "description": """Shortwave radiation at the surface from above directed at
-        the ground. "Direct" means that the radiation has followed a direct path
-        from the sun and is alternatively known as "direct insolation". In
-        accordance with common usage in geophysical disciplines "flux" implies
-        per unit area called "flux density" in physics.""",
-        "unit": "W m-2",
-    },
-    "radiation_flux_in_uv_downward_at_surface": {
-        "description": """Ultraviolet radiation at the surface from above directed
-        at the ground. In accordance with common usage in geophysical disciplines
-        flux implies per unit area called "flux density" in physics.""",
-        "unit": "W m-2",
-    },
-    "relative_humidity_at_screen_level": {
-        "description": """Fractional relative humidity (ratio of the partial pressure
-        of water vapour to the equilibrium vapour pressure of water) at screen level
-        (1.5m above the surface.)""",
-        "unit": "1",
-    },
-    "snow_depth_water_equivalent": {
-        "description": """Liquid water equivalent (LWE) depth of the snow lying on
-        the surface (ground). Typically, water is 10 times as dense as snow so
-        multiplying by 10 gives an approximate depth of the snow, although wet snow
-        can be significantly denser and powder snow much less dense.""",
-        "unit": "m",
-    },
-    "temperature_at_screen_level": {
-        "description": "Air temperature at screen level (1.5m).",
-        "unit": "K",
-    },
-    "temperature_at_screen_level_max": {
-        "description": "Maximum instantaneous air temperature at screen level (1.5m).",
-        "unit": "K",
-    },
-    "temperature_at_screen_level_min": {
-        "description": "Minimum instantaneous air temperature at screen level (1.5m).",
-        "unit": "K",
-    },
-    "temperature_at_surface": {
-        "description": """Temperature at the surface interface between the air and the 
-        ground.""",
-        "unit": "K",
-    },
-    "temperature_of_dew_point_at_screen_level": {
-        "description": """Dew point temperature (temperature at which a parcel of air
-        reaches saturation upon being cooled at constant pressure and specific
-        humidity) at screen level.""",
-        "unit": "K",
-    },
-    "visibility_at_screen_level": {
-        "description": """Distance at which a known object can be seen horizontally
-        from screen level (1.5m).""",
-        "unit": "m",
-    },
-    "wind_direction_at_10m": {
-        "description": """Mean wind direction is equivalent to the mean direction
-        observed over the 10 minutes preceding the validity time. In meteorological
-        reports the direction of the wind vector is given as the direction from
-        which it is blowing. 10m wind is the considered surface wind.""",
-        "unit": "degrees",
-    },
-    "wind_gust_at_10m": {
-        "description": """The gust speed is equivalent to the maximum 3 second mean
-        wind speed observed over the 10 minutes preceding validity time. 10m wind
-        is the considered surface wind.""",
-        "unit": "m s-1",
-    },
-    "wind_gust_at_10m_max": {
-        "description": """Maximum diagnosed instantaneous wind gust at 10m. This can
-        be considered as the extreme wind speed that might be experienced in this
-        period.""",
-        "unit": "m s-1",
-    },
-    "wind_speed_at_10m": {
-        "description": """Mean wind speed is equivalent to the mean speed observed
-        over the 10 minutes preceding the validity time. 10m wind is the considered
-        surface wind.""",
-        "unit": "m s-1",
-    },
-    "pressure_at_tropopause": {
-        "description": "Air pressure at tropopause.",
-        "unit": "Pa",
-    },
-    "temperature_at_tropopause": {
-        "description": "Temperature at tropopause.",
-        "unit": "K",
-    },
-    "rainfall_rate_from_convection": {
-        "description": """Instantaneous rate at which rain, produced by the model
-        convection scheme, is being deposited on the surface.""",
-        "unit": "m s-1",
-    },
-    "snowfall_rate_from_convection": {
-        "description": """Rate at which liquid water equivalent (LWE) snow, produced
-        by the model convection scheme, is being deposited on the surface.""",
-        "unit": "m s-1",
-    },
-    "rainfall_rate_from_convection_max": {
-        "description": """Maximum instantaneous rate at which rain, produced by the
-        model convection scheme, is being deposited on the surface.""",
-        "unit": "m s-1",
-    },
-    "snowfall_rate_from_convection_max": {
-        "description": """Maximum instantaneous rate at which liquid water equivalent
-        (LWE) snow, produced by the model convection scheme, is being deposited on
-        the surface.""",
-        "unit": "m s-1",
-    },
-    "snowfall_rate_from_convection_mean": {
-        "description": """Mean rate at which liquid water equivalent (LWE) snow,
-        produced by the model convection scheme, is being deposited on the
-        surface.""",
-        "unit": "m s-1",
-    },
-}
-
-# Global-only variable metadata
-
-_global_only_pressure_variables = {
-    "wind_vertical_velocity_on_pressure_levels": {
-        "description": """Speed of the vertical component of the air motion at a
-        pressure level. Upwards is positive and downwards is negative.""",
-        "unit": "m s-1",
-    },
-}
-
-_global_only_surface_variables = {
-    "CAPE_most_unstable_below_500hPa": {
-        "description": """CAPE (Convective Available Potential Energy) calculated for
-        the most unstable parcel where the most unstable parcel is defined as the
-        parcel with the highest fixed level CAPE launched from any level (including
-        screen-level = 1.5m) within 500hPa of the surface pressure.""",
-        "unit": "J kg-1",
-    },
-    "CAPE_surface": {
-        "description": """Value of CAPE (Convection Available Potential Energy)
-        calculated for a surface based parcel, where a surface based parcel is
-        defined as a parcel initiated with thermodynamic properties at screen level
-        height (1.5m) i.e. the parcel is launched from screen level.""",
-        "unit": "J kg-1",
-    },
-    "CAPE_mixed_layer_lowest_500m": {
-        "description": """Convective Available Potential Energy (CAPE) calculated for
-        a parcel with the thermodynamic properties of the density-weighted mean of
-        the lowest 500 m above ground level.""",
-        "unit": "J kg-1",
-    },
-    "CIN_most_unstable_below_500hPa": {
-        "description": """Any additional energy required to lift the most unstable
-        parcel to its level of free convection. Where most unstable parcel is
-        defined as the parcel with the highest fixed-level CAPE launched from any
-        level (including screen-level) within 500 hPa of the surface pressure.""",
-        "unit": "J kg-1",
-    },
-    "CIN_surface": {
-        "description": """Any additional energy required to lift a surface-based
-        parcel (i.e. a parcel launched from screen-level (1.5m)) to its level of
-        free convection.""",
-        "unit": "J kg-1",
-    },
-    "CIN_mixed_layer_lowest_500m": {
-        "description": """Any additional energy required to lift a mixed-layer parcel
-        to its level of free convection. Where a mixed layer parcel is defined as a
-        parcel with thermodynamic properties of the density weighted mean of the
-        lowest 500 m above ground level (AGL).""",
-        "unit": "J kg-1",
-    },
-    "cloud_amount_of_total_convective_cloud": {
-        "description": """Fraction of horizontal grid squares occupied by convective
-        cloud as diagnosed by the model convection scheme. This is for the whole
-        atmosphere column as seen from the surface or the top of the atmosphere.""",
-        "unit": "1",
-    },
-    "latent_heat_flux_at_surface_mean": {
-        "description": """Exchange of heat between the surface and the air on account
-        of evaporation (including sublimation). In accordance with common usage in
-        geophysical disciplines "flux" implies per unit area called "flux density"
-        in physics. Upwards is positive; negative is downward.""",
-        "unit": "W m-2",
-    },
-    "precipitation_accumulation": {
-        "description": """Implied depth of the layer of liquid water which has been
-        deposited on the surface. This includes rain, snow and hail with the ice
-        phase precipitation being considered as a liquid water equivalent (lwe)
-        value. It includes the contribution from the model convection scheme if this
-        is invoked (true for Global models but not the UK models) as well as that
-        from the model precipitation scheme.""",
-        "unit": "m",
-    },
-    "radiation_flux_in_shortwave_total_downward_at_surface": {
-        "description": """Total shortwave radiation at the surface from above directed
-        at the ground. In accordance with common usage in geophysical disciplines
-        "flux" implies per unit area called "flux density" in physics.""",
-        "unit": "W m-2",
-    },
-    "rainfall_accumulation": {
-        "description": """Implied depth of the rain produced by the model precipitation
-        scheme which has been deposited on the surface. For the Global models (which
-        run a convection scheme) the "rainfall accumulation from convection" must be
-        added to this to get the total rainfall accumulation.""",
-        "unit": "m",
-    },
-    "rainfall_rate": {
-        "description": """Instantaneous rate at which rain (as a depth) which has been
-        produced by the model precipitation scheme is being deposited on the surface.
-        For the Global models (which run a convection scheme) the "rainfall rate from
-        convection" must be added to this to get the total rainfall rate.""",
-        "unit": "m s-1",
-    },
-    "snowfall_rate": {
-        "description": """Instantaneous rate at which liquid water equivalent (LWE)
-        snow (as a depth) which has been produced by the model precipitation scheme
-        is being deposited on the surface. For the Global models which run a
-        convection scheme) the "snowfall rate from convection" must be added to this
-        to get the total snowfall rate.""",
-        "unit": "m s-1",
-    },
-}
-
-# UK-only variable metadata
-
-_uk_only_height_variables = {
-    "temperature_on_height_levels": {
-        "description": "Air temperature on height levels.",
-        "unit": "K",
-    },
-    "wind_direction_on_height_levels": {
-        "description": """Wind direction on height levels. In meteorological reports 
-        the direction of the wind vector is given as the direction from which it is 
-        blowing.""",
-        "unit": "degrees",
-    },
-    "wind_speed_on_height_levels": {
-        "description": """Wind speed on height levels. The speed is the magnitude of 
-        velocity.""",
-        "unit": "m s-1",
-    },
-}
-
-_uk_only_surface_variables = {
-    "hail_fall_accumulation": {
-        "description": """Implied depth of hail (as liquid water equivalent) which has
-        been deposited on the surface.""",
-        "unit": "m",
-    },
-    "hail_fall_rate": {
-        "description": """Instantaneous rate at which hail (as liquid water equivalent)
-        is being deposited on the surface.""",
-        "unit": "m s-1",
-    },
-    "height_AGL_at_cloud_base_where_cloud_cover_2p5_oktas": {
-        "description": """Height above ground level at cloud base where cloud cover is
-        2.5 oktas (approximately 31% coverage).""",
-        "unit": "m",
-    },
-    "height_AGL_at_freezing_level": {
-        "description": """Height above ground level at the 0°C isotherm (freezing
-        level).""",
-        "unit": "m",
-    },
-    "height_AGL_at_wet_bulb_freezing_level": {
-        "description": """Height above ground level at the wet bulb freezing
-        level.""",
-        "unit": "m",
-    },
-    "landsea_mask": {
-        "description": "Binary mask indicating land (1) or sea (0) surface type.",
-        "unit": "1",
-    },
-    "lightning_flash_accumulation": {
-        "description": "Accumulated count of lightning flashes in the grid square.",
-        "unit": "1",
-    },
-    "pressure_at_surface": {
-        "description": "Air pressure at the surface.",
-        "unit": "Pa",
-    },
-    "radiation_flux_in_shortwave_diffuse_downward_at_surface": {
-        "description": """Diffuse shortwave radiation at the surface from above
-        directed at the ground. In accordance with common usage in geophysical
-        disciplines "flux" implies per unit area called "flux density" in
-        physics.""",
-        "unit": "W m-2",
-    },
-    "sensible_heat_flux_at_surface": {
-        "description": """Exchange of heat between the surface and the air by motion
-        of air; also called "turbulent" heat flux. In accordance with common usage
-        in geophysical disciplines "flux" implies per unit area called "flux density"
-        in physics. Upwards is positive; negative is downward.""",
-        "unit": "W m-2",
-    },
-    "snowfall_accumulation": {
-        "description": """Implied depth of snow (as liquid water equivalent) which has
-        been deposited on the surface.""",
-        "unit": "m",
-    },
-}
-
-# Global Deterministic Variables by Collection Type
-
-GLOBAL_PRESSURE_VARIABLES = {
-    **_shared_pressure_variables,
-    **_global_only_pressure_variables,
-}
-
-GLOBAL_HEIGHT_VARIABLES = _shared_height_variables.copy()
-
-GLOBAL_SURFACE_VARIABLES = {
-    **_shared_surface_variables,
-    **_global_only_surface_variables,
-}
-
-# UK Deterministic Variables by Collection Type
-
-UK_PRESSURE_VARIABLES = _shared_pressure_variables.copy()
-
-UK_HEIGHT_VARIABLES = {
-    **_shared_height_variables,
-    **_uk_only_height_variables,
-}
-
-UK_SURFACE_VARIABLES = {
-    **_shared_surface_variables,
-    **_uk_only_surface_variables,
-}
-
-GLOBAL_BBOX = [-180.0, -90.0, 180.0, 90.0]
-GLOBAL_GEOMETRY = {
-    "type": "Polygon",
-    "coordinates": [
-        [
-            [-180.0, -90.0],
-            [180.0, -90.0],
-            [180.0, 90.0],
-            [-180.0, 90.0],
-            [-180.0, -90.0],
-        ]
-    ],
-}
-
-UK_PROJECTED_BBOX = [-1159000.0, -1037000.0, 925000.0, 903000.0]
-
-UK_PROJECTED_GEOMETRY = {
-    "type": "Polygon",
-    "coordinates": [
-        [
-            [-1159000.0, -1037000.0],
-            [925000.0, -1037000.0],
-            [925000.0, 903000.0],
-            [-1159000.0, 903000.0],
-            [-1159000.0, -1037000.0],
-        ]
-    ],
-}
-UK_PROJECTED_CRS_WKT2 = """PROJCRS["unnamed",
-    BASEGEOGCRS["unknown",
-        DATUM["unnamed",
-            ELLIPSOID["Spheroid",6378137,298.257222101004,
-                LENGTHUNIT["metre",1,
-                    ID["EPSG",9001]]]],
-        PRIMEM["Greenwich",0,
-            ANGLEUNIT["degree",0.0174532925199433,
-                ID["EPSG",9122]]]],
-    CONVERSION["unnamed",
-        METHOD["Lambert Azimuthal Equal Area",
-            ID["EPSG",9820]],
-        PARAMETER["Latitude of natural origin",54.9,
-            ANGLEUNIT["degree",0.0174532925199433],
-            ID["EPSG",8801]],
-        PARAMETER["Longitude of natural origin",-2.5,
-            ANGLEUNIT["degree",0.0174532925199433],
-            ID["EPSG",8802]],
-        PARAMETER["False easting",0,
-            LENGTHUNIT["metre",1],
-            ID["EPSG",8806]],
-        PARAMETER["False northing",0,
-            LENGTHUNIT["metre",1],
-            ID["EPSG",8807]]],
-    CS[Cartesian,2],
-        AXIS["easting",east,
-            ORDER[1],
-            LENGTHUNIT["metre",1,
-                ID["EPSG",9001]]],
-        AXIS["northing",north,
-            ORDER[2],
-            LENGTHUNIT["metre",1,
-                ID["EPSG",9001]]]]
-"""
-UK_BBOX = [-24.53378, 44.50651, 15.30325, 63.01353]
-UK_GEOMETRY = {
-    "type": "Polygon",
-    "coordinates": [
-        [
-            [-24.53378, 61.32449],
-            [-23.95137, 60.49355],
-            [-23.39090, 59.64290],
-            [-22.84133, 58.75551],
-            [-22.31336, 57.84839],
-            [-21.80157, 56.91299],
-            [-21.30591, 55.94925],
-            [-20.82626, 54.95712],
-            [-20.35864, 53.92788],
-            [-19.90707, 52.87008],
-            [-19.47126, 51.78362],
-            [-19.04768, 50.65970],
-            [-18.63653, 49.49812],
-            [-18.24076, 48.30748],
-            [-17.85727, 47.07882],
-            [-17.48606, 45.81192],
-            [-17.12711, 44.50651],
-            [-15.50583, 44.73122],
-            [-13.88583, 44.92831],
-            [-12.24343, 45.10056],
-            [-10.60501, 45.24509],
-            [-8.94674, 45.36394],
-            [-7.29535, 45.45511],
-            [-5.63965, 45.51950],
-            [-3.98111, 45.55700],
-            [-2.32122, 45.56758],
-            [-0.66150, 45.55120],
-            [0.99655, 45.50790],
-            [2.65145, 45.43774],
-            [4.30172, 45.34081],
-            [5.94593, 45.21725],
-            [7.58269, 45.06724],
-            [9.22314, 44.88952],
-            [9.51654, 46.21434],
-            [9.82045, 47.50100],
-            [10.13265, 48.74092],
-            [10.45766, 49.95204],
-            [10.79332, 51.12571],
-            [11.13959, 52.26212],
-            [11.49929, 53.37023],
-            [11.86967, 54.44137],
-            [12.25383, 55.48443],
-            [12.64853, 56.49074],
-            [13.05713, 57.46916],
-            [13.47583, 58.41101],
-            [13.91251, 59.33378],
-            [14.35898, 60.22012],
-            [14.82400, 61.08742],
-            [15.30325, 61.92703],
-            [12.87166, 62.20928],
-            [10.40047, 62.45057],
-            [7.91431, 62.64857],
-            [5.40028, 62.80445],
-            [2.86470, 62.91754],
-            [0.33393, 62.98697],
-            [-2.22432, 63.01353],
-            [-4.76367, 62.99668],
-            [-7.29680, 62.93687],
-            [-9.83629, 62.83340],
-            [-12.35569, 62.68702],
-            [-14.84859, 62.49835],
-            [-17.30905, 62.26819],
-            [-19.75015, 61.99522],
-            [-22.16609, 61.67961],
-            [-24.53378, 61.32449],
-        ]
-    ],
-}
-
-GLOBAL_DESCRIPTION = """
-The flagship Numerical Weather Prediction model developed and used at the Met Office, 
-is the Unified Model, the same model is used for both weather and climate prediction. 
-For weather forecasting the Met Office runs several configurations of the Unified Model 
-as part of its operational Numerical Weather Prediction suite. 
-
-The Global deterministic  model is a global configuration of the Met Office Unified 
-Models providing the most accurate short range deterministic forecast by any national 
-meteorological service covering a six-day period. It can produce selected hourly data 
-covering the first 48 hours at surface level and at standard pressure levels twice a 
-day. The model’s initial state is kept close to the real atmosphere using hybrid 4D-Var 
-data assimilation. Uncovering 2 years’ worth of historical data, updated regularly with 
-a 4-hour time delay. Formatted via NetCDF. 
-
-### Update Frequency
-
-Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
-hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 
-00:00, 12:00. Shortened runs (up to 66 hours): 06:00, 18:00.
-"""
-
-UK_DESCRIPTION = """The flagship Numerical Weather Prediction (NWP) model developed and 
-used at the Met Office, is the Unified Model, the same model is used for both weather 
-and climate prediction. For weather forecasting the Met Office runs several 
-configurations of the Unified Model as part of its operational Numerical Weather 
-Prediction suite.
-Uncovering 2 years’ worth of historical data, updated regularly with a 4-hour time 
-delay.
-
-The UK deterministic model is a post processed regional downscaled configuration of the 
-Unified Model, covering the UK and Ireland, with a resolution of approximately 0.018 
-degrees. The United Kingdom domain is a 1,096km x 1,408km (2km resolution grid). 
-Formatted via NetCDF.
-
-### Update Frequency
-
-Available time steps: every hour from 0 to 54 hours, every 3 hours between 57 to 144 
-hours and every 6 hours between 150 to 168 hours. Full runs (up to 168 hours): 00:00, 
-12:00. Shortened runs (up to 66 hours): 06:00, 18:00.
-"""
-
-GLOBAL_ABOUT_PDF = "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/global-nwp-asdi-datasheet.pdf"
-UK_ABOUT_PDF = "https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/uk-nwp-asdi-datasheet.pdf"
-
-HOST_PROVIDERS = {
-    "s3": Provider(name="AWS", roles=[ProviderRole.HOST]),
-    "az": Provider(name="Microsoft", roles=[ProviderRole.HOST]),
-}
-
-STORAGE_CONFIGS = {
-    "s3": {
-        "storage:schemes": {
-            "aws": {
-                "type": "aws-s3",
-                "platform": "https://{bucket}.s3.{region}.amazonaws.com",
-                "bucket": "met-office-atmospheric-model-data",
-                "region": "eu-west-2",
-                "requester_pays": False,
-            }
-        },
-        "auth:schemes": {"aws": {"type": "s3"}},
-    }
 }
