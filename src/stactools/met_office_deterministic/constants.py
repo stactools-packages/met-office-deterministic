@@ -32,10 +32,10 @@ class Model(StrEnum):
                 return shapely.geometry.mapping(
                     Polygon(
                         shell=[
-                            (-24.51, 61.32),
-                            (15.28, 61.93),
                             (-17.12, 44.52),
                             (9.21, 44.90),
+                            (15.28, 61.93),
+                            (-24.51, 61.32),
                         ]
                     )
                 )
