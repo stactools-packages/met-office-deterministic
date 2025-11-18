@@ -19,7 +19,7 @@ class Model(StrEnum):
             case Model.global_:
                 return (-180.0, -90, 180, 90)
             case Model.uk:
-                return (-24.53378, 44.50651, 15.30325, 63.01353)
+                return (-24.51, 44.52, 15.28, 61.93)
             case _:
                 raise ValueError(f"Unexpected model: {self}")
 
