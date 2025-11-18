@@ -39,7 +39,7 @@
     90
   ],
   "properties": {
-    "forecast:reference_datetime": "20250614T0000Z",
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
     "forecast:horizon": "PT0096H00M",
     "met_office_deterministic:model": "global",
     "met_office_deterministic:theme": "near-surface",

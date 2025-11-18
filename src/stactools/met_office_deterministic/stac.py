@@ -1,3 +1,4 @@
+import datetime
 from collections import defaultdict
 from typing import Sequence
 
@@ -45,7 +46,10 @@ def _create_item(item_id: str, hrefs: list[Href]) -> Item:
             "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
         ],
         properties={
-            "forecast:reference_datetime": href.reference_datetime,
+            "forecast:reference_datetime": datetime.datetime.strptime(
+                href.reference_datetime, "%Y%m%dT%H%MZ"
+            ).isoformat()
+            + "Z",
             "forecast:horizon": href.forecast_horizon,
             "met_office_deterministic:model": href.model,
             "met_office_deterministic:theme": href.theme,
