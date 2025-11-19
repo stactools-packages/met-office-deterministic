@@ -1,0 +1,34 @@
+version: 2
+updates:
+  # Update Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      dev-dependencies:
+        patterns:
+          - "codespell"
+          - "mypy"
+          - "pre-commit"
+          - "pytest"
+          - "ruff"
+          - "types-*"
+      docs-dependencies:
+        patterns:
+          - "dask"
+          - "h5netcdf"
+          - "imageio"
+          - "ipykernel"
+          - "jinja2"
+          - "matplotlib"
+          - "pyproj"
+          - "xarray"
+
+  # Update GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
