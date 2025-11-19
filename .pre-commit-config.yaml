@@ -3,7 +3,7 @@
 
 repos:
   - repo: https://github.com/tsvikas/sync-with-uv
-    rev: v0.4.0
+    rev: v0.5.0
     hooks:
       - id: sync-with-uv
   - repo: https://github.com/codespell-project/codespell
@@ -16,9 +16,12 @@ repos:
     rev: v1.18.2
     hooks:
       - id: mypy
+        additional_dependencies:
+          - types-shapely
+          - pytest
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.1
+    rev: v0.14.5
     hooks:
-      - id: ruff
-        args: [ --fix ]
+      - id: ruff-check
+        args: [--fix]
       - id: ruff-format

@@ -1,349 +1,161 @@
-import logging
-import re
+import datetime
 from collections import defaultdict
-from datetime import datetime
-from typing import Literal
+from typing import Sequence
 
-import obstore
-from obstore import store
+import shapely.geometry
 from pystac import (
     Asset,
     Collection,
-    Extent,
     Item,
-    ItemAssetDefinition,
     Link,
     MediaType,
     Provider,
     ProviderRole,
-    SpatialExtent,
-    TemporalExtent,
 )
 
-from stactools.met_office_deterministic.constants import (
-    GLOBAL_ABOUT_PDF,
-    GLOBAL_BBOX,
-    GLOBAL_DESCRIPTION,
-    GLOBAL_GEOMETRY,
-    GLOBAL_HEIGHT_VARIABLES,
-    GLOBAL_PRESSURE_VARIABLES,
-    GLOBAL_SURFACE_VARIABLES,
-    HOST_PROVIDERS,
-    STORAGE_CONFIGS,
-    UK_ABOUT_PDF,
-    UK_BBOX,
-    UK_DESCRIPTION,
-    UK_GEOMETRY,
-    UK_HEIGHT_VARIABLES,
-    UK_PRESSURE_VARIABLES,
-    UK_PROJECTED_BBOX,
-    UK_PROJECTED_CRS_WKT2,
-    UK_PROJECTED_GEOMETRY,
-    UK_SURFACE_VARIABLES,
-)
-
-logger = logging.getLogger(__name__)
+from .constants import DESCRIPTIONS, ITEM_ASSETS, KEYWORDS, TITLES, Model, Theme
+from .href import Href
 
 
-def _format_multiline_string(string: str) -> str:
-    """Format a multi-line string for use in metadata fields"""
-    return re.sub(r" +", " ", re.sub(r"(?<!\n)\n(?!\n)", " ", string))
-
-
-SCHEME = "s3"
-BUCKET = "met-office-atmospheric-model-data"
-REGION = "eu-west-2"
-
-# TODO: set up configs for other datasets
-PATH_PATTERN = r"^(?:(?P<scheme>[^:]+)://(?P<bucket>[^/]+)/)?(?P<collection>[^/]+)/(?P<reference_time>[^/]+)/(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<variable>.+?)(?:-(?P<duration>PT[\dHM]+))?\.nc$"
-
-MetOfficeCollection = Literal[
-    "met-office-global-deterministic-10km-surface",
-    "met-office-global-deterministic-10km-height",
-    "met-office-global-deterministic-10km-pressure",
-    "met-office-uk-deterministic-2km-surface",
-    "met-office-uk-deterministic-2km-height",
-    "met-office-uk-deterministic-2km-pressure",
-]
-
-
-def _get_collection_variables(
-    collection: MetOfficeCollection,
-) -> dict[str, dict[str, str]]:
-    """Get the list of valid variables for a given collection.
+def create_collection(model: Model, theme: Theme) -> Collection:
+    """Create a STAC collection for a model and theme combination.
 
     Args:
-        collection: The collection name
+        model: The Met Office model (global or UK).
+        theme: The theme (height, pressure-level, near-surface, or whole-atmosphere).
 
     Returns:
-        List of valid variable names for the collection
+        A STAC Collection object configured for the model and theme.
     """
-    if collection.startswith("met-office-global"):
-        if collection.endswith("-pressure"):
-            return GLOBAL_PRESSURE_VARIABLES
-        elif collection.endswith("-height"):
-            return GLOBAL_HEIGHT_VARIABLES
-        elif collection.endswith("-surface"):
-            return GLOBAL_SURFACE_VARIABLES
-    elif collection.startswith("met-office-uk"):
-        if collection.endswith("-pressure"):
-            return UK_PRESSURE_VARIABLES
-        elif collection.endswith("-height"):
-            return UK_HEIGHT_VARIABLES
-        elif collection.endswith("-surface"):
-            return UK_SURFACE_VARIABLES
+    collection = Collection(
+        id=model.get_collection_id(theme),
+        description=DESCRIPTIONS[model][theme],
+        title=TITLES[model][theme],
+        license="CC-BY-SA-4.0",
+        keywords=["MetOffice"] + KEYWORDS[model][theme],
+        providers=[
+            Provider(
+                url="https://www.metoffice.gov.uk/",
+                name="Met Office",
+                roles=[
+                    ProviderRole.PRODUCER,
+                    ProviderRole.LICENSOR,
+                    ProviderRole.PROCESSOR,
+                ],
+            ),
+        ],
+        extent=model.extent,
+        stac_extensions=[
+            "https://stac-extensions.github.io/storage/v1.0.0/schema.json",
+            "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        ],
+        extra_fields={
+            "storage:schemes": {
+                "aws": {
+                    "type": "aws-s3",
+                    "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+                    "bucket": "met-office-atmospheric-model-data",
+                    "region": "eu-west-2",
+                    "requester_pays": False,
+                }
+            },
+            "auth:schemes": {"aws": {"type": "s3"}},
+        },
+    )
+    collection.links = [
+        Link(
+            rel="license",
+            target="https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+            media_type="text/html",
+            title="Creative Commons Attribution-ShareAlike 4.0",
+        ),
+        # Link( rel="cite-as", target="", title="British Crown copyright
+        # 2023-2025, the Met Office, is licensed under CC BY-SA", ),
+        Link(
+            rel="describedBy",
+            target="https://www.metoffice.gov.uk/services/data/external-data-channels",
+            title="Met Office Dataset Documentation",
+        ),
+    ]
+    collection.item_assets = ITEM_ASSETS[model][theme]  # pyright: ignore[reportAttributeAccessIssue]
+    return collection
 
-    raise ValueError(f"Unknown collection: {collection}")
+
+def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
+    """Creates one or more STAC items for the given hrefs."""
+    hrefs: defaultdict[str, defaultdict[str, list[Href]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
+    for source_href in source_hrefs:
+        if isinstance(source_href, Href):
+            href = source_href
+        else:
+            href = Href.parse(source_href)
+        hrefs[href.collection_id][href.item_id].append(href)
+    items = list()
+    for items_hrefs in hrefs.values():
+        for item_id, item_hrefs in items_hrefs.items():
+            items.append(_create_item(item_id, item_hrefs))
+    return items
 
 
-def _collect_assets(
-    object_store: store.ObjectStore,
-    key_prefix: str,
-    variables: dict[str, dict[str, str]],
-    scheme: str,
-    bucket: str,
-    valid_time: str | None = None,
-) -> defaultdict[str, dict[str, Asset]]:
-    """Collect assets grouped by item_id from object store.
+def _create_item(item_id: str, hrefs: list[Href]) -> Item:
+    """Create a STAC item from a list of hrefs.
 
     Args:
-        object_store: The object store to query
-        key_prefix: Prefix for filtering keys
-        variables: List of valid variable names to include
-        scheme: Storage scheme (e.g., 's3')
-        bucket: Storage bucket name
-        valid_time: Optional valid_time string to filter results
-          (e.g., '20241022T0000Z')
+        item_id: The ID for the item.
+        hrefs: A list of Href objects to include as assets in the item.
+
+    Returns:
+        A STAC Item object with assets for each href.
     """
-    logger.info(f"checking for keys in {scheme}://{bucket}/{key_prefix}")
-
-    assets: defaultdict[str, dict[str, Asset]] = defaultdict(dict[str, Asset])
-
-    stream = obstore.list(
-        object_store,
-        prefix=key_prefix,
-        chunk_size=100,
-    )
-
-    for list_result in stream:
-        for result in list_result:
-            parsed = re.match(PATH_PATTERN, result["path"])
-            if not parsed:
-                logger.warning(f"{result['path']} did not match the expected pattern")
-                continue
-
-            if valid_time and parsed.group("valid_time") != valid_time:
-                continue
-
-            variable: str = parsed.group("variable")
-
-            # Filter by collection-specific variables
-            if variable not in variables:
-                continue
-
-            item_id = f"{parsed.group('reference_time')}-{parsed.group('valid_time')}"
-
-            extra_fields = {
-                "forecast:variable": variable,
-                "updated": result["last_modified"].isoformat(),
-            }
-
-            if duration := parsed.group("duration"):
-                extra_fields["forecast:duration"] = duration
-
-            assets[item_id][variable] = Asset(
-                href=f"{scheme}://{bucket}/{result['path']}",
-                extra_fields=extra_fields,
-                description=_format_multiline_string(
-                    variables[variable]["description"]
-                ),
-                title=variable.replace("_", " "),
-                roles=["data"],
-                media_type=MediaType.NETCDF,
-            )
-
-    if not assets:
-        msg = f"No assets found for prefix {key_prefix}"
-        if valid_time:
-            msg += f" with valid_time {valid_time}"
-
-        raise ValueError(msg)
-
-    return assets
-
-
-def _create_item_from_assets(
-    item_id: str,
-    collection: MetOfficeCollection,
-    assets: dict[str, Asset],
-    reference_time: datetime,
-    add_collection: bool = False,
-) -> Item:
-    """Create a STAC Item from a collection of assets."""
-    example_asset_href = list(assets.values())[0].href
-    parsed = re.match(PATH_PATTERN, example_asset_href)
-    if not parsed:
-        raise ValueError(f"could not parse {example_asset_href}")
-
+    assert hrefs
+    href = hrefs[0]
     item = Item(
         id=item_id,
-        datetime=datetime.strptime(parsed.group("valid_time"), "%Y%m%dT%H%MZ"),
-        bbox=GLOBAL_BBOX if "global" in collection else UK_BBOX,
-        geometry=GLOBAL_GEOMETRY if "global" in collection else UK_GEOMETRY,
-        properties={
-            "forecast:reference_datetime": reference_time.isoformat(),
-            "forecast:horizon": parsed.group("forecast_horizon"),
-        },
+        datetime=href.datetime,
+        bbox=list(href.model.bbox),
+        geometry=href.model.geometry,
         stac_extensions=[
             "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
         ],
-        assets=assets,
-        collection=collection if add_collection else None,
+        properties={
+            "forecast:reference_datetime": datetime.datetime.strptime(
+                href.reference_datetime, "%Y%m%dT%H%MZ"
+            ).isoformat()
+            + "Z",
+            "forecast:horizon": href.forecast_horizon,
+            "met_office_deterministic:model": href.model,
+            "met_office_deterministic:theme": href.theme,
+        },
+        assets=dict(_create_asset(href) for href in hrefs),
     )
-
-    if "uk" in collection:
+    if href.model == Model.uk:
         item.ext.add("proj")
-        item.ext.proj.apply(
-            geometry=UK_PROJECTED_GEOMETRY,
-            bbox=UK_PROJECTED_BBOX,
-            wkt2=UK_PROJECTED_CRS_WKT2,
+        item.ext.proj.geometry = shapely.geometry.mapping(
+            shapely.geometry.box(-1159000.0, -1037000.0, 925000.0, 903000.0)
         )
-
+        item.ext.proj.wkt2 = 'PROJCS["unnamed",GEOGCS["unknown",DATUM["unnamed",SPHEROID["Spheroid",6378137,298.257222101004]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]]],PROJECTION["Lambert_Azimuthal_Equal_Area"],PARAMETER["latitude_of_center",54.9],PARAMETER["longitude_of_center",-2.5],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]'  # noqa: E501
     return item
 
 
-def create_item(
-    collection: MetOfficeCollection,
-    reference_time: datetime,
-    valid_time: datetime,
-    scheme: str = SCHEME,
-    bucket: str = BUCKET,
-    region: str = REGION,
-    add_collection: bool = False,
-) -> Item:
-    """Create a single item"""
-    object_store = store.from_url(
-        f"{scheme}://{bucket}", region=region, skip_signature=True
-    )
+def _create_asset(href: Href) -> tuple[str, Asset]:
+    """Create a STAC asset from an href.
 
-    base_collection = collection.replace("met-office-", "", 1)
-    if base_collection.endswith(("-surface", "-height", "-pressure")):
-        base_collection = base_collection.rsplit("-", 1)[0]
+    Args:
+        href: The Href object to convert to an asset.
 
-    key_prefix = "/".join(
-        [
-            base_collection,
-            reference_time.strftime("%Y%m%dT%H%MZ"),
-        ]
-    )
-
-    variables = _get_collection_variables(collection)
-    valid_time_str = valid_time.strftime("%Y%m%dT%H%MZ")
-    assets_by_item = _collect_assets(
-        object_store, key_prefix, variables, scheme, bucket, valid_time=valid_time_str
-    )
-
-    if not assets_by_item:
-        raise ValueError(f"No assets found for prefix {key_prefix}")
-
-    if len(assets_by_item) > 1:
-        raise ValueError(f"Expected single item but found {len(assets_by_item)}")
-
-    item_id, assets = next(iter(assets_by_item.items()))
-    return _create_item_from_assets(
-        item_id, collection, assets, reference_time, add_collection
-    )
-
-
-def create_items_for_reference_time(
-    collection: MetOfficeCollection,
-    reference_time: datetime,
-    scheme: str = SCHEME,
-    bucket: str = BUCKET,
-    region: str = REGION,
-    add_collection: bool = False,
-) -> list[Item]:
-    """Create items for each forecasted timestep (valid_time) for a given reference
-    time"""
-    object_store = store.from_url(
-        f"{scheme}://{bucket}", region=region, skip_signature=True
-    )
-
-    base_collection = collection.replace("met-office-", "", 1)
-    if base_collection.endswith(("-surface", "-height", "-pressure")):
-        base_collection = base_collection.rsplit("-", 1)[0]
-
-    key_prefix = "/".join(
-        [
-            base_collection,
-            reference_time.strftime("%Y%m%dT%H%MZ"),
-        ]
-    )
-
-    variables = _get_collection_variables(collection)
-    assets_by_item = _collect_assets(
-        object_store, key_prefix, variables, scheme, bucket
-    )
-
-    return [
-        _create_item_from_assets(
-            item_id, collection, assets, reference_time, add_collection
-        )
-        for item_id, assets in assets_by_item.items()
-    ]
-
-
-def create_collection(id: MetOfficeCollection, scheme: str = SCHEME) -> Collection:
-    collection = Collection(
-        id=id,
-        description=_format_multiline_string(
-            UK_DESCRIPTION if "uk" in id else GLOBAL_DESCRIPTION
-        ),
-        extent=Extent(
-            spatial=SpatialExtent(bboxes=[GLOBAL_BBOX if "global" in id else UK_BBOX]),
-            temporal=TemporalExtent(intervals=[[None, None]]),
-        ),
-        license="CC-BY-SA-4.0",
-        providers=[
-            Provider(
-                name="Met Office",
-                url="https://www.metoffice.gov.uk/",
-                roles=[
-                    ProviderRole.LICENSOR,
-                    ProviderRole.PROCESSOR,
-                    ProviderRole.PRODUCER,
-                ],
-            ),
-            HOST_PROVIDERS[scheme],  # this won't work for https links yet
-        ],
-        stac_extensions=[
-            # "https://stac-extensions.github.io/datacube/v2.3.0/schema.json",
-        ],
-    )
-
-    variables = _get_collection_variables(id)
-
-    collection.item_assets = {
-        asset_key: ItemAssetDefinition.create(
-            title=asset_key.replace("_", " "),
-            description=_format_multiline_string(asset_info["description"]),
-            media_type=MediaType.NETCDF,
-            roles=["data"],
-        )
-        for asset_key, asset_info in variables.items()
+    Returns:
+        A tuple of (asset_key, Asset) where the key is the parameter name.
+    """
+    extra_fields = {
+        "forecast:variable": href.variable,
     }
-
-    if storage_config := STORAGE_CONFIGS.get(scheme):
-        collection.ext.add("storage")
-        collection.extra_fields.update(storage_config)
-
-    # todo: add datacube extension
-
-    collection.add_link(
-        Link(
-            rel="about",
-            media_type=MediaType.PDF,
-            target=UK_ABOUT_PDF if "uk" in id else GLOBAL_ABOUT_PDF,
-        )
+    if href.duration:
+        extra_fields["forecast:duration"] = href.duration
+    asset = ITEM_ASSETS[href.model][href.theme][href.parameter].create_asset(
+        href=href.href
     )
-    return collection
+    asset.media_type = MediaType.NETCDF  # no idea why create asset drops this
+    asset.extra_fields = extra_fields
+    return (href.parameter, asset)

@@ -1,0 +1,340 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250614T0300Z-PT0003H00M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "properties": {
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
+    "forecast:horizon": "PT0003H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "near-surface",
+    "datetime": "2025-06-14T03:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
+    },
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
+    }
+  ],
+  "assets": {
+    "fog_fraction_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-fog_fraction_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "Fog fraction at screen level",
+      "forecast:variable": "fog_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-latent_heat_flux_at_surface_mean-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly latent heat flux at surface mean",
+      "forecast:variable": "surface_upward_latent_heat_flux",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-precipitation_accumulation-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly precipitation accumulation",
+      "forecast:variable": "lwe_thickness_of_precipitation_amount",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-precipitation_rate.nc",
+      "type": "application/netcdf",
+      "title": "Precipitation rate",
+      "forecast:variable": "lwe_precipitation_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_mean_sea_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-pressure_at_mean_sea_level.nc",
+      "type": "application/netcdf",
+      "title": "Pressure at mean sea level",
+      "forecast:variable": "air_pressure_at_sea_level",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_longwave_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-radiation_flux_in_longwave_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "Radiation flux in longwave downward at surface",
+      "forecast:variable": "surface_downwelling_longwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_direct_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "Radiation flux in shortwave direct downward at surface",
+      "forecast:variable": "surface_direct_downwelling_shortwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_total_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-radiation_flux_in_shortwave_total_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "Radiation flux in shortwave total downward at surface",
+      "forecast:variable": "surface_downwelling_shortwave_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_uv_downward_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-radiation_flux_in_uv_downward_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "Radiation flux in uv downward at surface",
+      "forecast:variable": "surface_downwelling_ultraviolet_flux_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-rainfall_accumulation-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly rainfall accumulation",
+      "forecast:variable": "thickness_of_rainfall_amount",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-rainfall_rate.nc",
+      "type": "application/netcdf",
+      "title": "Rainfall rate",
+      "forecast:variable": "rainfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-rainfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "title": "Rainfall rate from convection",
+      "forecast:variable": "convective_rainfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-rainfall_rate_from_convection_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly rainfall rate from convection max",
+      "forecast:variable": "convective_rainfall_rate",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-relative_humidity_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "Relative humidity at screen level",
+      "forecast:variable": "relative_humidity",
+      "roles": [
+        "data"
+      ]
+    },
+    "snow_depth_water_equivalent": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-snow_depth_water_equivalent.nc",
+      "type": "application/netcdf",
+      "title": "Snow depth water equivalent",
+      "forecast:variable": "lwe_thickness_of_surface_snow_amount",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-snowfall_rate.nc",
+      "type": "application/netcdf",
+      "title": "Snowfall rate",
+      "forecast:variable": "lwe_snowfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-snowfall_rate_from_convection.nc",
+      "type": "application/netcdf",
+      "title": "Snowfall rate from convection",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-snowfall_rate_from_convection_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly snowfall rate from convection max",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-snowfall_rate_from_convection_mean-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly snowfall rate from convection mean",
+      "forecast:variable": "lwe_convective_snowfall_rate",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-temperature_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "Temperature at screen level",
+      "forecast:variable": "air_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-temperature_at_screen_level_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly temperature at screen level max",
+      "forecast:variable": "air_temperature",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-temperature_at_screen_level_min-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly temperature at screen level min",
+      "forecast:variable": "air_temperature",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-temperature_at_surface.nc",
+      "type": "application/netcdf",
+      "title": "Temperature at surface",
+      "forecast:variable": "surface_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_of_dew_point_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-temperature_of_dew_point_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "Dew point temperature at screen level",
+      "forecast:variable": "dew_point_temperature",
+      "roles": [
+        "data"
+      ]
+    },
+    "visibility_at_screen_level": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-visibility_at_screen_level.nc",
+      "type": "application/netcdf",
+      "title": "Visibility at screen level",
+      "forecast:variable": "visibility_in_air",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-wind_direction_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "Wind direction at 10m",
+      "forecast:variable": "wind_from_direction",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-wind_gust_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "Wind gust at 10m",
+      "forecast:variable": "wind_speed_of_gust",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max-PT01H": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-wind_gust_at_10m_max-PT01H.nc",
+      "type": "application/netcdf",
+      "title": "Hourly wind gust at 10m max",
+      "forecast:variable": "wind_speed_of_gust",
+      "forecast:duration": "PT01H",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_at_10m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250614T0300Z-PT0003H00M-wind_speed_at_10m.nc",
+      "type": "application/netcdf",
+      "title": "Wind speed at 10m",
+      "forecast:variable": "wind_speed",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-near-surface"
+}

@@ -1,0 +1,196 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+  ],
+  "id": "20250616T0100Z-PT0049H00M",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "properties": {
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
+    "forecast:horizon": "PT0049H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "whole-atmosphere",
+    "datetime": "2025-06-16T01:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Whole Atmosphere"
+    },
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Whole Atmosphere"
+    }
+  ],
+  "assets": {
+    "CAPE_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CAPE_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "title": "Convective Available Potential Energy mixed layer lowest 500m",
+      "forecast:variable": "atmosphere_convective_available_potential_energy",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CAPE_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "title": "Convective Available Potential Energy most unstable below 500hPa",
+      "forecast:variable": "atmosphere_convective_available_potential_energy",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CAPE_surface.nc",
+      "type": "application/netcdf",
+      "title": "Convective Available Potential Energy with respect to surface",
+      "forecast:variable": "atmosphere_convective_available_potential_energy_wrt_surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_mixed_layer_lowest_500m": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CIN_mixed_layer_lowest_500m.nc",
+      "type": "application/netcdf",
+      "title": "Convective Inhibition mixed layer lowest 500m",
+      "forecast:variable": "atmosphere_convective_inhibition",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_most_unstable_below_500hPa": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CIN_most_unstable_below_500hPa.nc",
+      "type": "application/netcdf",
+      "title": "Convective Inhibition most unstable below 500hPa",
+      "forecast:variable": "atmosphere_convective_inhibition",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN_surface": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-CIN_surface.nc",
+      "type": "application/netcdf",
+      "title": "Convective Inhibition with respect to surface",
+      "forecast:variable": "atmosphere_convective_inhibition_wrt_surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_below_1000ft_ASL": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_below_1000ft_ASL.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount below 1000ft Above Sea Level",
+      "forecast:variable": "cloud_area_fraction_assuming_only_consider_surface_to_1000_feet_asl",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_high_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_of_high_cloud.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount of high cloud",
+      "forecast:variable": "high_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_low_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_of_low_cloud.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount of low cloud",
+      "forecast:variable": "low_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_medium_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_of_medium_cloud.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount of medium cloud",
+      "forecast:variable": "medium_type_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_of_total_cloud.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount of total cloud",
+      "forecast:variable": "cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "cloud_amount_of_total_convective_cloud": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-cloud_amount_of_total_convective_cloud.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount of total convective cloud",
+      "forecast:variable": "convective_cloud_area_fraction",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-pressure_at_tropopause.nc",
+      "type": "application/netcdf",
+      "title": "Pressure at tropopause",
+      "forecast:variable": "tropopause_air_pressure",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_tropopause": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250616T0100Z-PT0049H00M-temperature_at_tropopause.nc",
+      "type": "application/netcdf",
+      "title": "Temperature at tropopause",
+      "forecast:variable": "tropopause_air_temperature",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-whole-atmosphere"
+}

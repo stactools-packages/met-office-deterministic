@@ -1,0 +1,861 @@
+{
+  "type": "Collection",
+  "id": "met-office-global-deterministic-near-surface",
+  "stac_version": "1.1.0",
+  "description": "The Met Office Global Deterministic Near Surface dataset provides a composite of weather parameters generated for the near-surface atmospheric layer.",
+  "links": [
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "type": "text/html",
+      "title": "Creative Commons Attribution-ShareAlike 4.0"
+    },
+    {
+      "rel": "describedBy",
+      "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
+      "title": "Met Office Dataset Documentation"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0000Z-PT0000H00M/20250614T0000Z-PT0000H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0100Z-PT0001H00M/20250614T0100Z-PT0001H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0200Z-PT0002H00M/20250614T0200Z-PT0002H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0300Z-PT0003H00M/20250614T0300Z-PT0003H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0400Z-PT0004H00M/20250614T0400Z-PT0004H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0500Z-PT0005H00M/20250614T0500Z-PT0005H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0600Z-PT0006H00M/20250614T0600Z-PT0006H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0700Z-PT0007H00M/20250614T0700Z-PT0007H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0800Z-PT0008H00M/20250614T0800Z-PT0008H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T0900Z-PT0009H00M/20250614T0900Z-PT0009H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1000Z-PT0010H00M/20250614T1000Z-PT0010H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1100Z-PT0011H00M/20250614T1100Z-PT0011H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1200Z-PT0012H00M/20250614T1200Z-PT0012H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1300Z-PT0013H00M/20250614T1300Z-PT0013H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1400Z-PT0014H00M/20250614T1400Z-PT0014H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1500Z-PT0015H00M/20250614T1500Z-PT0015H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1600Z-PT0016H00M/20250614T1600Z-PT0016H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1700Z-PT0017H00M/20250614T1700Z-PT0017H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1800Z-PT0018H00M/20250614T1800Z-PT0018H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T1900Z-PT0019H00M/20250614T1900Z-PT0019H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T2000Z-PT0020H00M/20250614T2000Z-PT0020H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T2100Z-PT0021H00M/20250614T2100Z-PT0021H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T2200Z-PT0022H00M/20250614T2200Z-PT0022H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250614T2300Z-PT0023H00M/20250614T2300Z-PT0023H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0000Z-PT0024H00M/20250615T0000Z-PT0024H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0100Z-PT0025H00M/20250615T0100Z-PT0025H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0200Z-PT0026H00M/20250615T0200Z-PT0026H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0300Z-PT0027H00M/20250615T0300Z-PT0027H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0400Z-PT0028H00M/20250615T0400Z-PT0028H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0500Z-PT0029H00M/20250615T0500Z-PT0029H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0600Z-PT0030H00M/20250615T0600Z-PT0030H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0700Z-PT0031H00M/20250615T0700Z-PT0031H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0800Z-PT0032H00M/20250615T0800Z-PT0032H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T0900Z-PT0033H00M/20250615T0900Z-PT0033H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1000Z-PT0034H00M/20250615T1000Z-PT0034H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1100Z-PT0035H00M/20250615T1100Z-PT0035H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1200Z-PT0036H00M/20250615T1200Z-PT0036H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1300Z-PT0037H00M/20250615T1300Z-PT0037H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1400Z-PT0038H00M/20250615T1400Z-PT0038H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1500Z-PT0039H00M/20250615T1500Z-PT0039H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1600Z-PT0040H00M/20250615T1600Z-PT0040H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1700Z-PT0041H00M/20250615T1700Z-PT0041H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1800Z-PT0042H00M/20250615T1800Z-PT0042H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T1900Z-PT0043H00M/20250615T1900Z-PT0043H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T2000Z-PT0044H00M/20250615T2000Z-PT0044H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T2100Z-PT0045H00M/20250615T2100Z-PT0045H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T2200Z-PT0046H00M/20250615T2200Z-PT0046H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250615T2300Z-PT0047H00M/20250615T2300Z-PT0047H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0000Z-PT0048H00M/20250616T0000Z-PT0048H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0100Z-PT0049H00M/20250616T0100Z-PT0049H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0200Z-PT0050H00M/20250616T0200Z-PT0050H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0300Z-PT0051H00M/20250616T0300Z-PT0051H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0400Z-PT0052H00M/20250616T0400Z-PT0052H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0500Z-PT0053H00M/20250616T0500Z-PT0053H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0600Z-PT0054H00M/20250616T0600Z-PT0054H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T0900Z-PT0057H00M/20250616T0900Z-PT0057H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1200Z-PT0060H00M/20250616T1200Z-PT0060H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1500Z-PT0063H00M/20250616T1500Z-PT0063H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T1800Z-PT0066H00M/20250616T1800Z-PT0066H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250616T2100Z-PT0069H00M/20250616T2100Z-PT0069H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0000Z-PT0072H00M/20250617T0000Z-PT0072H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0300Z-PT0075H00M/20250617T0300Z-PT0075H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0600Z-PT0078H00M/20250617T0600Z-PT0078H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T0900Z-PT0081H00M/20250617T0900Z-PT0081H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1200Z-PT0084H00M/20250617T1200Z-PT0084H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1500Z-PT0087H00M/20250617T1500Z-PT0087H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T1800Z-PT0090H00M/20250617T1800Z-PT0090H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250617T2100Z-PT0093H00M/20250617T2100Z-PT0093H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0000Z-PT0096H00M/20250618T0000Z-PT0096H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0300Z-PT0099H00M/20250618T0300Z-PT0099H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0600Z-PT0102H00M/20250618T0600Z-PT0102H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T0900Z-PT0105H00M/20250618T0900Z-PT0105H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1200Z-PT0108H00M/20250618T1200Z-PT0108H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1500Z-PT0111H00M/20250618T1500Z-PT0111H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T1800Z-PT0114H00M/20250618T1800Z-PT0114H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250618T2100Z-PT0117H00M/20250618T2100Z-PT0117H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0000Z-PT0120H00M/20250619T0000Z-PT0120H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0300Z-PT0123H00M/20250619T0300Z-PT0123H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0600Z-PT0126H00M/20250619T0600Z-PT0126H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T0900Z-PT0129H00M/20250619T0900Z-PT0129H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1200Z-PT0132H00M/20250619T1200Z-PT0132H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1500Z-PT0135H00M/20250619T1500Z-PT0135H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T1800Z-PT0138H00M/20250619T1800Z-PT0138H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250619T2100Z-PT0141H00M/20250619T2100Z-PT0141H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T0000Z-PT0144H00M/20250620T0000Z-PT0144H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T0600Z-PT0150H00M/20250620T0600Z-PT0150H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T1200Z-PT0156H00M/20250620T1200Z-PT0156H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250620T1800Z-PT0162H00M/20250620T1800Z-PT0162H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "item",
+      "href": "./20250621T0000Z-PT0168H00M/20250621T0000Z-PT0168H00M.json",
+      "type": "application/geo+json"
+    },
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/storage/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/authentication/v1.1.0/schema.json"
+  ],
+  "storage:schemes": {
+    "aws": {
+      "type": "aws-s3",
+      "platform": "https://{bucket}.s3.{region}.amazonaws.com",
+      "bucket": "met-office-atmospheric-model-data",
+      "region": "eu-west-2",
+      "requester_pays": false
+    }
+  },
+  "auth:schemes": {
+    "aws": {
+      "type": "s3"
+    }
+  },
+  "item_assets": {
+    "fog_fraction_at_screen_level": {
+      "media_type": "application/netcdf",
+      "title": "Fog fraction at screen level",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly latent heat flux at surface mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly latent heat flux at surface mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "latent_heat_flux_at_surface_mean-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly latent heat flux at surface mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly precipitation accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly precipitation accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_accumulation-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly precipitation accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "precipitation_rate": {
+      "media_type": "application/netcdf",
+      "title": "Precipitation rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "pressure_at_mean_sea_level": {
+      "media_type": "application/netcdf",
+      "title": "Pressure at mean sea level",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_longwave_downward_at_surface": {
+      "media_type": "application/netcdf",
+      "title": "Radiation flux in longwave downward at surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_direct_downward_at_surface": {
+      "media_type": "application/netcdf",
+      "title": "Radiation flux in shortwave direct downward at surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_shortwave_total_downward_at_surface": {
+      "media_type": "application/netcdf",
+      "title": "Radiation flux in shortwave total downward at surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "radiation_flux_in_uv_downward_at_surface": {
+      "media_type": "application/netcdf",
+      "title": "Radiation flux in uv downward at surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly rainfall accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly rainfall accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_accumulation-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly rainfall accumulation",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate": {
+      "media_type": "application/netcdf",
+      "title": "Rainfall rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection": {
+      "media_type": "application/netcdf",
+      "title": "Rainfall rate from convection",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly rainfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly rainfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "rainfall_rate_from_convection_max-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly rainfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "relative_humidity_at_screen_level": {
+      "media_type": "application/netcdf",
+      "title": "Relative humidity at screen level",
+      "roles": [
+        "data"
+      ]
+    },
+    "snow_depth_water_equivalent": {
+      "media_type": "application/netcdf",
+      "title": "Snow depth water equivalent",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate": {
+      "media_type": "application/netcdf",
+      "title": "Snowfall rate",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection": {
+      "media_type": "application/netcdf",
+      "title": "Snowfall rate from convection",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly snowfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly snowfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_max-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly snowfall rate from convection max",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly snowfall rate from convection mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly snowfall rate from convection mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "snowfall_rate_from_convection_mean-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly snowfall rate from convection mean",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level": {
+      "media_type": "application/netcdf",
+      "title": "Temperature at screen level",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly temperature at screen level max",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly temperature at screen level max",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_max-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly temperature at screen level max",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly temperature at screen level min",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly temperature at screen level min",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_screen_level_min-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly temperature at screen level min",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_at_surface": {
+      "media_type": "application/netcdf",
+      "title": "Temperature at surface",
+      "roles": [
+        "data"
+      ]
+    },
+    "temperature_of_dew_point_at_screen_level": {
+      "media_type": "application/netcdf",
+      "title": "Dew point temperature at screen level",
+      "roles": [
+        "data"
+      ]
+    },
+    "visibility_at_screen_level": {
+      "media_type": "application/netcdf",
+      "title": "Visibility at screen level",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_direction_at_10m": {
+      "media_type": "application/netcdf",
+      "title": "Wind direction at 10m",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m": {
+      "media_type": "application/netcdf",
+      "title": "Wind gust at 10m",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max-PT01H": {
+      "media_type": "application/netcdf",
+      "title": "Hourly wind gust at 10m max",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max-PT03H": {
+      "media_type": "application/netcdf",
+      "title": "Three hourly wind gust at 10m max",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_gust_at_10m_max-PT06H": {
+      "media_type": "application/netcdf",
+      "title": "Six hourly wind gust at 10m max",
+      "roles": [
+        "data"
+      ]
+    },
+    "wind_speed_at_10m": {
+      "media_type": "application/netcdf",
+      "title": "Wind speed at 10m",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "title": "Met Office Global Deterministic Near Surface",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180.0,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2023-01-01T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-SA-4.0",
+  "keywords": [
+    "MetOffice",
+    "Global",
+    "Cloud"
+  ],
+  "providers": [
+    {
+      "name": "Met Office",
+      "roles": [
+        "producer",
+        "licensor",
+        "processor"
+      ],
+      "url": "https://www.metoffice.gov.uk/"
+    }
+  ]
+}

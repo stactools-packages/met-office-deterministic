@@ -2,7 +2,7 @@
   "type": "Catalog",
   "id": "met-office-deterministic",
   "stac_version": "1.1.0",
-  "description": "Met Office Deterministic prediction models",
+  "description": "Met Office Deterministic atmospheric model data",
   "links": [
     {
       "rel": "root",
@@ -11,33 +11,51 @@
     },
     {
       "rel": "child",
-      "href": "./met-office-global-deterministic-10km-surface/collection.json",
-      "type": "application/json"
+      "href": "./met-office-global-deterministic-whole-atmosphere/collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Whole Atmosphere"
     },
     {
       "rel": "child",
-      "href": "./met-office-global-deterministic-10km-height/collection.json",
-      "type": "application/json"
+      "href": "./met-office-global-deterministic-height/collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
     },
     {
       "rel": "child",
-      "href": "./met-office-global-deterministic-10km-pressure/collection.json",
-      "type": "application/json"
+      "href": "./met-office-global-deterministic-near-surface/collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Near Surface"
     },
     {
       "rel": "child",
-      "href": "./met-office-uk-deterministic-2km-surface/collection.json",
-      "type": "application/json"
+      "href": "./met-office-global-deterministic-pressure-level/collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Pressure Level"
     },
     {
       "rel": "child",
-      "href": "./met-office-uk-deterministic-2km-height/collection.json",
-      "type": "application/json"
+      "href": "./met-office-uk-deterministic-whole-atmosphere/collection.json",
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Whole Atmosphere"
     },
     {
       "rel": "child",
-      "href": "./met-office-uk-deterministic-2km-pressure/collection.json",
-      "type": "application/json"
+      "href": "./met-office-uk-deterministic-height/collection.json",
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Height Level"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-near-surface/collection.json",
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Near Surface"
+    },
+    {
+      "rel": "child",
+      "href": "./met-office-uk-deterministic-pressure-level/collection.json",
+      "type": "application/json",
+      "title": "Met Office UK Deterministic Pressure Level"
     }
   ]
 }
