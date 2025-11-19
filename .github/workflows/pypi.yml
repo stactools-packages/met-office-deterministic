@@ -16,6 +16,8 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           version: "0.9.*"
+      - name: Create virtual environment
+        run: uv venv
       - name: Install dependencies
         run: uv pip install build
       - name: Build package
