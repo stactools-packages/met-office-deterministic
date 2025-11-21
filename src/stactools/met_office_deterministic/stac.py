@@ -131,6 +131,9 @@ def _create_item(item_id: str, hrefs: list[Href]) -> Item:
         assets=dict(_create_asset(href) for href in hrefs),
     )
     if href.model == Model.uk:
+        # https://github.com/stactools-packages/met-office-deterministic/issues/13
+        item.assets.pop("wet_bulb_potential_temperature_on_pressure_levels", None)
+
         item.ext.add("proj")
         item.ext.proj.geometry = shapely.geometry.mapping(
             shapely.geometry.box(-1159000.0, -1037000.0, 925000.0, 903000.0)
