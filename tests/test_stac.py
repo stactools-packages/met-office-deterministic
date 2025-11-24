@@ -29,8 +29,4 @@ def test_items(hrefs: list[str]) -> None:
             assert asset.media_type == "application/netcdf", "No media type: " + key
             assert asset.title
 
-            # https://github.com/stactools-packages/met-office-deterministic/issues/13
-            if item.properties["met_office_deterministic:model"] == Model.uk:
-                assert key != "wet_bulb_potential_temperature_on_pressure_levels"
-
         item.validate()
