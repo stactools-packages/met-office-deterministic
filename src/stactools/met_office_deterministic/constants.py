@@ -1,11 +1,22 @@
 from __future__ import annotations
 
 import datetime
+import importlib.metadata
 from enum import StrEnum
 from typing import Any
 
 import shapely.geometry
-from pystac import Extent, ItemAssetDefinition, SpatialExtent, TemporalExtent
+from pystac import Extent, SpatialExtent, TemporalExtent
+
+pystac_version = list(int(s) for s in importlib.metadata.version("pystac").split("."))
+
+assert len(pystac_version) == 3
+if pystac_version[0] >= 1 and pystac_version[1] >= 12:
+    from pystac import (
+        ItemAssetDefinition,  # pyright: ignore[reportAttributeAccessIssue]
+    )
+else:
+    from .item_assets import ItemAssetDefinition
 
 
 class Model(StrEnum):

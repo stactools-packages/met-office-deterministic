@@ -8,7 +8,6 @@ from pystac import (
     Collection,
     Item,
     Link,
-    MediaType,
     Provider,
     ProviderRole,
 )
@@ -159,6 +158,6 @@ def _create_asset(href: Href) -> tuple[str, Asset]:
     asset = ITEM_ASSETS[href.model][href.theme][href.parameter].create_asset(
         href=href.href
     )
-    asset.media_type = MediaType.NETCDF  # no idea why create asset drops this
+    asset.media_type = "application/netcdf"  # no idea why create asset drops this
     asset.extra_fields = extra_fields
     return (href.parameter, asset)
