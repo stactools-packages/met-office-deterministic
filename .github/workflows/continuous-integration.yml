@@ -20,8 +20,6 @@ jobs:
         with:
           version: "0.9.*"
           python-version: ${{ matrix.python-version }}
-      - name: Sync
-        run: uv sync
       - name: Lint
         run: uv run pre-commit run --all-files
       - name: Test
@@ -35,7 +33,5 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           version: "0.9.*"
-      - name: Sync
-        run: uv sync --resolution lowest-direct
       - name: Test
-        run: uv run pytest
+        run: uv run --resolution lowest-direct pytest
