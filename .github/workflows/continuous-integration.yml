@@ -18,15 +18,20 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.*" 
-
-      - name: Set up python
-        run: uv python install ${{ matrix.python-version }}
-
-      - name: Install package
-        run: uv sync -p ${{ matrix.python-version }}
-
-      - name: Execute linters and test suites
-        run: |
-          uv run -p ${{ matrix.python-version }} pre-commit run --all-files
-          uv run -p ${{ matrix.python-version }} pytest
+          version: "0.9.*"
+          python-version: ${{ matrix.python-version }}
+      - name: Lint
+        run: uv run pre-commit run --all-files
+      - name: Test
+        run: uv run pytest
+  min-versions:
+    name: min-versions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.*"
+      - name: Test
+        run: uv run --resolution lowest-direct pytest

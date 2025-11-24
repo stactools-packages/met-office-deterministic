@@ -1,7 +1,6 @@
 import datetime
 
 import pytest
-from pystac import MediaType
 
 from stactools.met_office_deterministic import stac
 from stactools.met_office_deterministic.constants import Model, Theme
@@ -27,7 +26,7 @@ def test_items(hrefs: list[str]) -> None:
 
         for key, asset in item.assets.items():
             assert asset.roles == ["data"]
-            assert asset.media_type == MediaType.NETCDF, "No media type: " + key
+            assert asset.media_type == "application/netcdf", "No media type: " + key
             assert asset.title
 
             # https://github.com/stactools-packages/met-office-deterministic/issues/13
