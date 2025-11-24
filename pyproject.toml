@@ -1,6 +1,6 @@
 [project]
 name = "stactools-met-office-deterministic"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python package for generating STAC metadata for the Met Office Deterministic Numerical Weather Prediction model"
 readme = "README.md"
 authors = [
