@@ -347,6 +347,7 @@ class Theme(StrEnum):
                 | "wind_direction_on_pressure_levels"
                 | "wind_vertical_velocity_on_pressure_levels"
                 | "relative_humidity_on_pressure_levels"
+                | "geopotential_height_on_pressure_levels"
             ):
                 return Theme.pressure_level
 

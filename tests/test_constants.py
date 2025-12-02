@@ -84,6 +84,7 @@ from stactools.met_office_deterministic.constants import Theme
                 "wind_direction_on_pressure_levels",
                 "wind_vertical_velocity_on_pressure_levels",
                 "relative_humidity_on_pressure_levels",
+                "geopotential_height_on_pressure_levels",
             ),
             Theme.pressure_level,
         ),
