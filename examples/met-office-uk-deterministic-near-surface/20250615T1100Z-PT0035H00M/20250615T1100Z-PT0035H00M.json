@@ -739,6 +739,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-hail_fall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly hail fall accumulation",
+      "description": "Implied depth of the layer of liquid water equivalent (LWE) hail produced by the model precipitation scheme and deposited on the surface in the previous hour.",
       "forecast:variable": "lwe_thickness_of_graupel_and_hail_fall_amount",
       "forecast:duration": "PT01H",
       "roles": [
@@ -749,6 +750,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-hail_fall_rate.nc",
       "type": "application/netcdf",
       "title": "Hail fall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) hail (as a depth) has been produced by the model precipitation scheme and deposited on the surface.",
       "forecast:variable": "lwe_graupel_and_hail_fall_rate",
       "roles": [
         "data"
@@ -758,6 +760,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-landsea_mask.nc",
       "type": "application/netcdf",
       "title": "Land binary mask",
+      "description": "Binary indicator of whether a point is considered land (value = 1) or sea (value = 0). This is useful to identify the coastline and characterise points for correct interpretation of forecast data by users.",
       "forecast:variable": "land_binary_mask",
       "roles": [
         "data"
@@ -795,6 +798,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-pressure_at_surface.nc",
       "type": "application/netcdf",
       "title": "Pressure at surface",
+      "description": "Air pressure at the surface (lower boundary of the atmosphere).",
       "forecast:variable": "surface_air_pressure",
       "roles": [
         "data"
@@ -813,6 +817,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-radiation_flux_in_shortwave_diffuse_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in shortwave diffuse downward at surface",
+      "description": "Diffuse component of shortwave radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_diffusive_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -877,6 +882,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-sensible_heat_flux_at_surface.nc",
       "type": "application/netcdf",
       "title": "Sensible heat flux at surface",
+      "description": "Exchange of heat between the surface and the air by motion of air, also called turbulent heat flux.",
       "forecast:variable": "surface_upward_sensible_heat_flux",
       "roles": [
         "data"
@@ -895,6 +901,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T1100Z-PT0035H00M-snowfall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly snowfall accumulation",
+      "description": "Implied depth of the (LWE) snow (as a depth) produced by the model precipitation scheme and deposited on the surface in the previous hour. This excludes the snow produced by the model convection scheme.",
       "forecast:variable": "lwe_thickness_of_snowfall_amount",
       "forecast:duration": "PT01H",
       "roles": [

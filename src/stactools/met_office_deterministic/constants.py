@@ -437,6 +437,16 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Fog fraction at screen level",
+                    "description": (
+                        "Here fog means a visibility of 1000 m or lower. The reduction "
+                        "in visibility is caused by water droplets or minute ice "
+                        "crystals forming close to the surface. This quantity "
+                        "represents the fraction of horizontal grid square occupied by "
+                        "fog. An alternative interpretation is that this represents "
+                        "the fractional probability of fog being present at any "
+                        "location in the grid square."
+                    ),
+                    "unit": "1",
                     "roles": ["data"],
                 }
             ),
@@ -465,6 +475,15 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly precipitation accumulation",
+                    "description": (
+                        "Implied depth of the layer of liquid water which has been "
+                        "deposited on the surface in the previous hour. This includes "
+                        "rain, snow and hail, with the ice phase precipitation being "
+                        "considered as a liquid water equivalent (LWE) value. It "
+                        "includes the contribution from the model convection scheme if "
+                        "this is invoked."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -472,6 +491,15 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Three hourly precipitation accumulation",
+                    "description": (
+                        "Implied depth of the layer of liquid water which has been "
+                        "deposited on the surface in the previous 3 hours. This "
+                        "includes rain, snow and hail, with the ice phase "
+                        "precipitation being considered as a liquid water equivalent "
+                        "(LWE) value. It includes the contribution from the model "
+                        "convection scheme if this is invoked."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -486,6 +514,15 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Precipitation rate",
+                    "description": (
+                        "Instantaneous rate at which liquid water (as a depth) was "
+                        "being deposited on the surface. This includes rain, snow and "
+                        "hail with the ice phase precipitation being considered as a "
+                        "liquid water equivalent (LWE) value. It includes the "
+                        "contribution from the model convection scheme if this is "
+                        "invoked."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -493,6 +530,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Pressure at mean sea level",
+                    "description": (
+                        "Air pressure at mean sea level which is close to the geoid "
+                        "in sea areas. Air pressure at sea level is the quantity often "
+                        "abbreviated as MSLP or PMSL."
+                    ),
+                    "unit": "Pa",
                     "roles": ["data"],
                 }
             ),
@@ -500,6 +543,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in longwave downward at surface",
+                    "description": (
+                        "Longwave radiation at the surface from above directed at the "
+                        "ground."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -507,6 +555,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave direct downward at surface",
+                    "description": (
+                        "Direct component of shortwave radiation at the surface from "
+                        "above directed at the ground."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -514,6 +567,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave total downward at surface",
+                    "description": (
+                        "Total shortwave radiation at the surface from above directed "
+                        "at the ground."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -521,6 +579,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in uv downward at surface",
+                    "description": (
+                        "Ultraviolet radiation at the surface from above directed at "
+                        "the ground."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -528,6 +591,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly rainfall accumulation",
+                    "description": (
+                        "Implied depth of the rain produced by the model precipitation "
+                        "scheme which has been deposited on the surface in the "
+                        "previous hour. This excludes the rain produced by the model "
+                        "convection scheme."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -535,6 +605,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Three hourly rainfall accumulation",
+                    "description": (
+                        "Implied depth of the rain produced by the model precipitation "
+                        "scheme which has been deposited on the surface in the "
+                        "previous 3 hours. This excludes the rain produced by the "
+                        "model convection scheme."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -549,6 +626,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Rainfall rate",
+                    "description": (
+                        "Instantaneous rate at which rain (as a depth) was being "
+                        "produced by the model precipitation scheme and deposited on "
+                        "the surface. This excludes the rain produced by the model "
+                        "convection scheme."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -584,6 +668,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Relative humidity at screen level",
+                    "description": (
+                        "Fractional relative humidity (ratio of the partial pressure "
+                        "of water vapour to the equilibrium vapour pressure of water) "
+                        "at screen level (1.5m above the surface.)"
+                    ),
+                    "unit": "1",
                     "roles": ["data"],
                 }
             ),
@@ -591,6 +681,14 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Snow depth water equivalent",
+                    "description": (
+                        "Liquid water equivalent (LWE) depth of the snow lying on the "
+                        "surface (ground). Typically water is 10 times as dense as "
+                        "snow, so multiplying by 10 gives an approximate depth of the "
+                        "snow, although wet snow can be significantly denser and "
+                        "powder snow much less dense."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -598,6 +696,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Snowfall rate",
+                    "description": (
+                        "Instantaneous rate at which liquid water equivalent (LWE) "
+                        "snow (as a depth) was produced by the model precipitation "
+                        "scheme and deposited on the surface. This excludes the snow "
+                        "produced by the model convection scheme."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -654,6 +759,10 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Temperature at screen level",
+                    "description": (
+                        "Instantaneous air temperature at screen level (1.5m)."
+                    ),
+                    "unit": "K",
                     "roles": ["data"],
                 }
             ),
@@ -661,6 +770,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly temperature at screen level max",
+                    "description": (
+                        "Maximum instantaneous air temperature at screen level (1.5m) "
+                        "in the previous hour."
+                    ),
+                    "unit": "K",
                     "roles": ["data"],
                 }
             ),
@@ -682,6 +796,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly temperature at screen level min",
+                    "description": (
+                        "Minimum instantaneous air temperature at screen level (1.5m) "
+                        "in the previous hour."
+                    ),
+                    "unit": "K",
                     "roles": ["data"],
                 }
             ),
@@ -703,6 +822,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Temperature at surface",
+                    "description": (
+                        "Temperature at the surface interface between the air and the "
+                        "ground."
+                    ),
+                    "unit": "K",
                     "roles": ["data"],
                 }
             ),
@@ -710,6 +834,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Dew point temperature at screen level",
+                    "description": (
+                        "Instantaneous dew point temperature (temperature at which a "
+                        "parcel of air reaches saturation upon being cooled at "
+                        "constant pressure and specific humidity) at screen level "
+                        "(1.5m)."
+                    ),
+                    "unit": "K",
                     "roles": ["data"],
                 }
             ),
@@ -717,6 +848,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Visibility at screen level",
+                    "description": (
+                        "Horizontal distance at which something can be seen "
+                        "horizontally from screen level (1.5m)."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -724,6 +860,15 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Wind direction at 10m",
+                    "description": (
+                        "Wind at 10m above the surface is defined as a "
+                        "two-dimensional (horizontal) air velocity vector with no "
+                        "vertical component. In meteorological reports the direction "
+                        "of the wind vector is given as the direction from which it is "
+                        "blowing. Note: This with wind speed at 10m replaces x wind at "
+                        "10m and y wind at 10m."
+                    ),
+                    "unit": "degrees",
                     "roles": ["data"],
                 }
             ),
@@ -731,6 +876,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Wind gust at 10m",
+                    "description": (
+                        "Diagnosed instantaneous wind gust at 10m. This can be "
+                        "considered as the extreme rather than steady wind speed that "
+                        "might be experienced at this specific time."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -738,6 +889,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly wind gust at 10m max",
+                    "description": (
+                        "Maximum diagnosed instantaneous wind gust at 10m in the "
+                        "previous hour. This can be considered as the extreme wind "
+                        "speed that might be experienced in this period."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -745,6 +902,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Three hourly wind gust at 10m max",
+                    "description": (
+                        "Maximum diagnosed instantaneous wind gust at 10m in the "
+                        "previous 3 hours. This can be considered as the extreme wind "
+                        "speed that might be experienced in this period."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -759,6 +922,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Wind speed at 10m",
+                    "description": (
+                        "Wind at 10m above the surface is defined as a "
+                        "two-dimensional (horizontal) air velocity vector with no "
+                        "vertical component. The speed is the magnitude of velocity."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -958,6 +1127,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly hail fall accumulation",
+                    "description": (
+                        "Implied depth of the layer of liquid water equivalent (LWE) "
+                        "hail produced by the model precipitation scheme and deposited "
+                        "on the surface in the previous hour."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -965,6 +1140,12 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hail fall rate",
+                    "description": (
+                        "Instantaneous rate at which liquid water equivalent (LWE) "
+                        "hail (as a depth) has been produced by the model "
+                        "precipitation scheme and deposited on the surface."
+                    ),
+                    "unit": "m/s",
                     "roles": ["data"],
                 }
             ),
@@ -972,6 +1153,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Land binary mask",
+                    "description": (
+                        "Binary indicator of whether a point is considered land "
+                        "(value = 1) or sea (value = 0). This is useful to identify "
+                        "the coastline and characterise points for correct "
+                        "interpretation of forecast data by users."
+                    ),
+                    "unit": "1",
                     "roles": ["data"],
                 }
             ),
@@ -1007,6 +1195,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Pressure at surface",
+                    "description": (
+                        "Air pressure at the surface (lower boundary of the "
+                        "atmosphere)."
+                    ),
+                    "unit": "Pa",
                     "roles": ["data"],
                 }
             ),
@@ -1021,6 +1214,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Radiation flux in shortwave diffuse downward at surface",
+                    "description": (
+                        "Diffuse component of shortwave radiation at the surface from "
+                        "above directed at the ground."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -1077,6 +1275,11 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Sensible heat flux at surface",
+                    "description": (
+                        "Exchange of heat between the surface and the air by motion of "
+                        "air, also called turbulent heat flux."
+                    ),
+                    "unit": "W/m2",
                     "roles": ["data"],
                 }
             ),
@@ -1091,6 +1294,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Hourly snowfall accumulation",
+                    "description": (
+                        "Implied depth of the (LWE) snow (as a depth) produced by the "
+                        "model precipitation scheme and deposited on the surface in "
+                        "the previous hour. This excludes the snow produced by the "
+                        "model convection scheme."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
@@ -1098,6 +1308,13 @@ ITEM_ASSETS = {
                 {
                     "media_type": "application/netcdf",
                     "title": "Three hourly snowfall accumulation",
+                    "description": (
+                        "Implied depth of the (LWE) snow (as a depth) produced by the "
+                        "model precipitation scheme and deposited on the surface in "
+                        "the previous 3 hours. This excludes the snow produced by the "
+                        "model convection scheme."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),

@@ -730,6 +730,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T1230Z-PT0012H30M-hail_fall_rate.nc",
       "type": "application/netcdf",
       "title": "Hail fall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) hail (as a depth) has been produced by the model precipitation scheme and deposited on the surface.",
       "forecast:variable": "lwe_graupel_and_hail_fall_rate",
       "roles": [
         "data"

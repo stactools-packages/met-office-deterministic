@@ -11,7 +11,7 @@
       "title": "Creative Commons Attribution-ShareAlike 4.0"
     },
     {
-      "rel": "describedBy",
+      "rel": "describedby",
       "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
       "title": "Met Office Dataset Documentation"
     },
@@ -1140,6 +1140,8 @@
     "hail_fall_accumulation-PT01H": {
       "media_type": "application/netcdf",
       "title": "Hourly hail fall accumulation",
+      "description": "Implied depth of the layer of liquid water equivalent (LWE) hail produced by the model precipitation scheme and deposited on the surface in the previous hour.",
+      "unit": "m",
       "roles": [
         "data"
       ]
@@ -1147,6 +1149,8 @@
     "hail_fall_rate": {
       "media_type": "application/netcdf",
       "title": "Hail fall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) hail (as a depth) has been produced by the model precipitation scheme and deposited on the surface.",
+      "unit": "m/s",
       "roles": [
         "data"
       ]
@@ -1154,6 +1158,8 @@
     "landsea_mask": {
       "media_type": "application/netcdf",
       "title": "Land binary mask",
+      "description": "Binary indicator of whether a point is considered land (value = 1) or sea (value = 0). This is useful to identify the coastline and characterise points for correct interpretation of forecast data by users.",
+      "unit": "1",
       "roles": [
         "data"
       ]
@@ -1189,6 +1195,8 @@
     "pressure_at_surface": {
       "media_type": "application/netcdf",
       "title": "Pressure at surface",
+      "description": "Air pressure at the surface (lower boundary of the atmosphere).",
+      "unit": "Pa",
       "roles": [
         "data"
       ]
@@ -1203,6 +1211,8 @@
     "radiation_flux_in_shortwave_diffuse_downward_at_surface": {
       "media_type": "application/netcdf",
       "title": "Radiation flux in shortwave diffuse downward at surface",
+      "description": "Diffuse component of shortwave radiation at the surface from above directed at the ground.",
+      "unit": "W/m2",
       "roles": [
         "data"
       ]
@@ -1259,6 +1269,8 @@
     "sensible_heat_flux_at_surface": {
       "media_type": "application/netcdf",
       "title": "Sensible heat flux at surface",
+      "description": "Exchange of heat between the surface and the air by motion of air, also called turbulent heat flux.",
+      "unit": "W/m2",
       "roles": [
         "data"
       ]
@@ -1273,6 +1285,8 @@
     "snowfall_accumulation-PT01H": {
       "media_type": "application/netcdf",
       "title": "Hourly snowfall accumulation",
+      "description": "Implied depth of the (LWE) snow (as a depth) produced by the model precipitation scheme and deposited on the surface in the previous hour. This excludes the snow produced by the model convection scheme.",
+      "unit": "m",
       "roles": [
         "data"
       ]
@@ -1280,6 +1294,8 @@
     "snowfall_accumulation-PT03H": {
       "media_type": "application/netcdf",
       "title": "Three hourly snowfall accumulation",
+      "description": "Implied depth of the (LWE) snow (as a depth) produced by the model precipitation scheme and deposited on the surface in the previous 3 hours. This excludes the snow produced by the model convection scheme.",
+      "unit": "m",
       "roles": [
         "data"
       ]
