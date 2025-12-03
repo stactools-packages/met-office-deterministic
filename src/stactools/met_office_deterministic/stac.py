@@ -68,10 +68,8 @@ def create_collection(model: Model, theme: Theme) -> Collection:
             media_type="text/html",
             title="Creative Commons Attribution-ShareAlike 4.0",
         ),
-        # Link( rel="cite-as", target="", title="British Crown copyright
-        # 2023-2025, the Met Office, is licensed under CC BY-SA", ),
         Link(
-            rel="describedBy",
+            rel="describedby",
             target="https://www.metoffice.gov.uk/services/data/external-data-channels",
             title="Met Office Dataset Documentation",
         ),
