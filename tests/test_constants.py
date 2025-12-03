@@ -51,6 +51,7 @@ from stactools.met_office_deterministic.constants import Theme
                 "snowfall_rate_from_convection_max-PT06H",
                 "hail_fall_rate",
                 "hail_fall_accumulation-PT01H",
+                "height_of_orography",
                 "temperature_at_screen_level",
                 "temperature_at_surface",
                 "temperature_at_screen_level_max-PT01H",

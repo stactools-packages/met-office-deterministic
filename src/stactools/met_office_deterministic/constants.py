@@ -316,6 +316,7 @@ class Theme(StrEnum):
                 | "snowfall_rate_from_convection_max-PT06H"
                 | "hail_fall_rate"
                 | "hail_fall_accumulation-PT01H"
+                | "height_of_orography"
                 | "temperature_at_screen_level"
                 | "temperature_at_surface"
                 | "temperature_at_screen_level_max-PT01H"
@@ -1146,6 +1147,21 @@ ITEM_ASSETS = {
                         "precipitation scheme and deposited on the surface."
                     ),
                     "unit": "m/s",
+                    "roles": ["data"],
+                }
+            ),
+            "height_of_orography ": ItemAssetDefinition(
+                {
+                    "media_type": "application/netcdf",
+                    "title": "Height of orography",
+                    "description": (
+                        "Altitude or (geometric) height above the geoid of the "
+                        "surface (ground). It is worth remembering that "
+                        "orographic height can be negative, particularly in some "
+                        "of the inland sea areas (e.g. Caspian Sea at -27m and "
+                        "Dead Sea at -430m)."
+                    ),
+                    "unit": "m",
                     "roles": ["data"],
                 }
             ),
