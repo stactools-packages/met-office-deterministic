@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+"""Extracts item assets from the planetary-computer-tasks dataset template"""
+
+import json
+import sys
+from pathlib import Path
+
+if len(sys.argv) != 2:
+    print("Usage: scripts/planetary-computer-update <path>")
+    print(
+        "<path> should be the path to a local clone of the planetary-computer-tasks "
+        "repository"
+    )
+    sys.exit(1)
+
+source = Path(sys.argv[1]) / "datasets" / "met-office" / "collection"
+destination_root = (
+    Path(__file__).parents[1] / "src" / "stactools" / "met_office_deterministic"
+)
+item_assets_destination = destination_root / "item_assets"
+
+for path in source.iterdir():
+    parts = path.name.split("-")
+    model = parts[2]
+    theme = "-".join(parts[4:-1])
+    with open(path / "template.json", "r") as f:
+        template = json.load(f)
+    with open(item_assets_destination / f"{model}-{theme}.json", "w") as f:
+        json.dump(template["item_assets"], f, indent=2)

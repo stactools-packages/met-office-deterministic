@@ -319,36 +319,6 @@
       "type": "s3"
     }
   },
-  "item_assets": {
-    "cloud_amount_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Cloud amount on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "temperature_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Temperature on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "wind_direction_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Wind direction on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "wind_speed_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Wind speed on height levels",
-      "roles": [
-        "data"
-      ]
-    }
-  },
   "title": "Met Office UK Deterministic Height Level",
   "extent": {
     "spatial": {

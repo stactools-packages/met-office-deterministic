@@ -740,6 +740,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250616T0315Z-PT0051H15M-precipitation_rate.nc",
       "type": "application/netcdf",
       "title": "Precipitation rate",
+      "description": "Instantaneous rate at which liquid water (as a depth) was being deposited on the surface. This includes rain, snow and hail with the ice phase precipitation being considered as a liquid water equivalent (LWE)  value. It includes the contribution from the model convection scheme if this is invoked.",
       "forecast:variable": "lwe_precipitation_rate",
       "roles": [
         "data"
@@ -749,6 +750,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250616T0315Z-PT0051H15M-rainfall_rate.nc",
       "type": "application/netcdf",
       "title": "Rainfall rate",
+      "description": "Instantaneous rate at which rain (as a depth) was being produced by the model precipitation scheme and deposited on the surface. This excludes the rain produced by the model convection scheme.",
       "forecast:variable": "rainfall_rate",
       "roles": [
         "data"
@@ -758,6 +760,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250616T0315Z-PT0051H15M-snowfall_rate.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the  model convection scheme.",
       "forecast:variable": "lwe_snowfall_rate",
       "roles": [
         "data"

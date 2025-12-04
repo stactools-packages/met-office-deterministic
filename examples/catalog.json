@@ -29,7 +29,7 @@
     },
     {
       "rel": "child",
-      "href": "./met-office-global-deterministic-pressure-level/collection.json",
+      "href": "./met-office-global-deterministic-pressure/collection.json",
       "type": "application/json",
       "title": "Met Office Global Deterministic Pressure Level"
     },
@@ -53,7 +53,7 @@
     },
     {
       "rel": "child",
-      "href": "./met-office-uk-deterministic-pressure-level/collection.json",
+      "href": "./met-office-uk-deterministic-pressure/collection.json",
       "type": "application/json",
       "title": "Met Office UK Deterministic Pressure Level"
     }

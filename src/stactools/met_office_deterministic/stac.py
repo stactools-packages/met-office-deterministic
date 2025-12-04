@@ -1,6 +1,8 @@
 import datetime
+import importlib.resources
+import json
 from collections import defaultdict
-from typing import Sequence
+from typing import Any, Sequence
 
 import shapely.geometry
 from pystac import (
@@ -12,7 +14,7 @@ from pystac import (
     ProviderRole,
 )
 
-from .constants import DESCRIPTIONS, ITEM_ASSETS, KEYWORDS, TITLES, Model, Theme
+from .constants import DESCRIPTIONS, KEYWORDS, TITLES, Model, Theme
 from .href import Href
 
 
@@ -74,7 +76,6 @@ def create_collection(model: Model, theme: Theme) -> Collection:
             title="Met Office Dataset Documentation",
         ),
     ]
-    collection.item_assets = ITEM_ASSETS[model][theme]  # pyright: ignore[reportAttributeAccessIssue]
     return collection
 
 
@@ -137,22 +138,23 @@ def _create_item(item_id: str, hrefs: list[Href]) -> Item:
 
 
 def _create_asset(href: Href) -> tuple[str, Asset]:
-    """Create a STAC asset from an href.
-
-    Args:
-        href: The Href object to convert to an asset.
-
-    Returns:
-        A tuple of (asset_key, Asset) where the key is the parameter name.
-    """
     extra_fields = {
         "forecast:variable": href.variable,
     }
     if href.duration:
         extra_fields["forecast:duration"] = href.duration
-    asset = ITEM_ASSETS[href.model][href.theme][href.parameter].create_asset(
-        href=href.href
-    )
-    asset.media_type = "application/netcdf"  # no idea why create asset drops this
+    item_assets = _get_item_assets(href.model, href.theme)
+    asset_dict = item_assets[href.parameter]
+    asset_dict["href"] = str(href)
+    asset = Asset.from_dict(asset_dict)
     asset.extra_fields = extra_fields
     return (href.parameter, asset)
+
+
+def _get_item_assets(model: Model, theme: Theme) -> dict[str, dict[str, Any]]:
+    file_name = f"{model.value}-{theme.value}.json"
+    item_assets_path = importlib.resources.files(
+        "stactools.met_office_deterministic.item_assets"
+    ).joinpath(file_name)
+    with item_assets_path.open() as f:
+        return json.load(f)

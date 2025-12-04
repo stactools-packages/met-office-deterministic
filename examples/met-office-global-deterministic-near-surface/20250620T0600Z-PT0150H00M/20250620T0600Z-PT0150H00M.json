@@ -69,7 +69,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-fog_fraction_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Fog fraction at screen level",
-      "description": "Here fog means a visibility of 1000 m or lower. The reduction in visibility is caused by water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
+      "description": "Here fog means a visibility of 1000 m or lower. The reduction in visibility is caused water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
       "forecast:variable": "fog_area_fraction",
       "roles": [
         "data"
@@ -79,6 +79,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-latent_heat_flux_at_surface_mean-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly latent heat flux at surface mean",
+      "description": "The latent heat flux, averaged over a model time step, at the surface.",
       "forecast:variable": "surface_upward_latent_heat_flux",
       "forecast:duration": "PT06H",
       "roles": [
@@ -89,6 +90,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-precipitation_accumulation-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly precipitation accumulation",
+      "description": "Implied depth of the layer of liquid water which has been deposited on the surface in the previous 6 hours. This includes rain, snow and hail, with the ice phase precipitation being considered as a liquid water equivalent (LWE) value. It includes the contribution from the model convection scheme if this is invoked.",
       "forecast:variable": "lwe_thickness_of_precipitation_amount",
       "forecast:duration": "PT06H",
       "roles": [
@@ -149,7 +151,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-radiation_flux_in_uv_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in uv downward at surface",
-      "description": "Ultraviolet radiation at the surface from above directed at the ground.",
+      "description": "Ultaviolet radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_downwelling_ultraviolet_flux_in_air",
       "roles": [
         "data"
@@ -159,6 +161,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-rainfall_accumulation-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly rainfall accumulation",
+      "description": "Implied depth of the rain produced by the model precipitation scheme which has been deposited on the surface in the previous 6 hours. This excludes the rain produced by the model convection scheme.",
       "forecast:variable": "thickness_of_rainfall_amount",
       "forecast:duration": "PT06H",
       "roles": [
@@ -179,6 +182,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-rainfall_rate_from_convection.nc",
       "type": "application/netcdf",
       "title": "Rainfall rate from convection",
+      "description": "Instantaneous rate at which rain (as a depth) was produced by the model convection scheme and deposited on the surface. The rainfall rate can be added to this to get the total rainfall rate.",
       "forecast:variable": "convective_rainfall_rate",
       "roles": [
         "data"
@@ -188,6 +192,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-rainfall_rate_from_convection_max-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly rainfall rate from convection max",
+      "description": "Maximum instantaneous rate at which rain (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous 6 hours.",
       "forecast:variable": "convective_rainfall_rate",
       "forecast:duration": "PT06H",
       "roles": [
@@ -218,7 +223,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-snowfall_rate.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate",
-      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the model convection scheme.",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the the model convection scheme.",
       "forecast:variable": "lwe_snowfall_rate",
       "roles": [
         "data"
@@ -228,6 +233,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-snowfall_rate_from_convection.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate from convection",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface. The snowfall rate can be added to this to get the total snowfall rate.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "roles": [
         "data"
@@ -237,6 +243,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-snowfall_rate_from_convection_max-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly snowfall rate from convection max",
+      "description": "Maximum instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous 6 hours.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "forecast:duration": "PT06H",
       "roles": [
@@ -247,6 +254,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-snowfall_rate_from_convection_mean-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly snowfall rate from convection mean",
+      "description": "Mean rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous 6 hours.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "forecast:duration": "PT06H",
       "roles": [
@@ -267,6 +275,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-temperature_at_screen_level_max-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly temperature at screen level max",
+      "description": "Maximum instantaneous air temperature at screen level (1.5m) in the previous 6 hours.",
       "forecast:variable": "air_temperature",
       "forecast:duration": "PT06H",
       "roles": [
@@ -277,6 +286,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-temperature_at_screen_level_min-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly temperature at screen level min",
+      "description": "Minimum instantaneous air temperature at screen level (1.5m) in the previous 6 hours.",
       "forecast:variable": "air_temperature",
       "forecast:duration": "PT06H",
       "roles": [
@@ -337,6 +347,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250620T0600Z-PT0150H00M-wind_gust_at_10m_max-PT06H.nc",
       "type": "application/netcdf",
       "title": "Six hourly wind gust at 10m max",
+      "description": "Maximum diagnosed instantaneous wind gust at 10m in the previous 6 hours. This can be considered as the extreme wind speed that might be experienced in this period.",
       "forecast:variable": "wind_speed_of_gust",
       "forecast:duration": "PT06H",
       "roles": [

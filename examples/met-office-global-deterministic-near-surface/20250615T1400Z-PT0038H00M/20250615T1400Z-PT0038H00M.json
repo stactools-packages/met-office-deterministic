@@ -69,7 +69,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-fog_fraction_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Fog fraction at screen level",
-      "description": "Here fog means a visibility of 1000 m or lower. The reduction in visibility is caused by water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
+      "description": "Here fog means a visibility of 1000 m or lower. The reduction in visibility is caused water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
       "forecast:variable": "fog_area_fraction",
       "roles": [
         "data"
@@ -79,6 +79,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-latent_heat_flux_at_surface_mean-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly latent heat flux at surface mean",
+      "description": "The latent heat flux, averaged over a model time step, at the surface.",
       "forecast:variable": "surface_upward_latent_heat_flux",
       "forecast:duration": "PT01H",
       "roles": [
@@ -171,6 +172,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-rainfall_rate_from_convection.nc",
       "type": "application/netcdf",
       "title": "Rainfall rate from convection",
+      "description": "Instantaneous rate at which rain (as a depth) was produced by the model convection scheme and deposited on the surface. The rainfall rate can be added to this to get the total rainfall rate.",
       "forecast:variable": "convective_rainfall_rate",
       "roles": [
         "data"
@@ -180,6 +182,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-rainfall_rate_from_convection_max-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly rainfall rate from convection max",
+      "description": "Maximum instantaneous rate at which rain (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous hour.",
       "forecast:variable": "convective_rainfall_rate",
       "forecast:duration": "PT01H",
       "roles": [
@@ -210,7 +213,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-snowfall_rate.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate",
-      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the model convection scheme.",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the the model convection scheme.",
       "forecast:variable": "lwe_snowfall_rate",
       "roles": [
         "data"
@@ -220,6 +223,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-snowfall_rate_from_convection.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate from convection",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface. The snowfall rate can be added to this to get the total snowfall rate.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "roles": [
         "data"
@@ -229,6 +233,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-snowfall_rate_from_convection_max-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly snowfall rate from convection max",
+      "description": "Maximum instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous hour.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "forecast:duration": "PT01H",
       "roles": [
@@ -239,6 +244,7 @@
       "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250615T1400Z-PT0038H00M-snowfall_rate_from_convection_mean-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly snowfall rate from convection mean",
+      "description": "Mean rate at which liquid water equivalent (LWE) snow (as a depth) has been produced by the model convection scheme and deposited on the surface in the previous hour.",
       "forecast:variable": "lwe_convective_snowfall_rate",
       "forecast:duration": "PT01H",
       "roles": [

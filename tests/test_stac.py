@@ -51,8 +51,7 @@ def test_items(items: list[Item]) -> None:
 
 def should_have_descriptions(item: Item) -> bool:
     # Temporary helper function while we wait for more descriptions from the met office
-    return item.properties["met_office_deterministic:model"] in [
-        Model.global_
-    ] and item.properties["met_office_deterministic:theme"] in [
+    model = item.properties["met_office_deterministic:model"]
+    return model == Model.uk or item.properties["met_office_deterministic:theme"] in [
         Theme.near_surface,
     ]
