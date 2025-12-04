@@ -730,6 +730,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T0800Z-PT0032H00M-cloud_amount_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "Cloud amount on height levels",
+      "description": "Fraction of horizontal grid square occupied by cloud in layers centred on height levels.",
       "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
       "roles": [
         "data"
@@ -739,6 +740,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T0800Z-PT0032H00M-temperature_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "Temperature on height levels",
+      "description": "Air temperature on height levels.",
       "forecast:variable": "air_temperature",
       "roles": [
         "data"
@@ -748,6 +750,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T0800Z-PT0032H00M-wind_direction_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "Wind direction on height levels",
+      "description": "Wind direction on height levels is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing.",
       "forecast:variable": "wind_from_direction",
       "roles": [
         "data"
@@ -757,6 +760,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250615T0800Z-PT0032H00M-wind_speed_on_height_levels.nc",
       "type": "application/netcdf",
       "title": "Wind speed on height levels",
+      "description": "Wind speed on height levels is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. The speed is the magnitude of velocity.",
       "forecast:variable": "wind_speed",
       "roles": [
         "data"

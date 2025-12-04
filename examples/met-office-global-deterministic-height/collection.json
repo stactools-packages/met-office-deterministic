@@ -11,7 +11,7 @@
       "title": "Creative Commons Attribution-ShareAlike 4.0"
     },
     {
-      "rel": "describedBy",
+      "rel": "describedby",
       "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
       "title": "Met Office Dataset Documentation"
     },
@@ -487,15 +487,6 @@
   "auth:schemes": {
     "aws": {
       "type": "s3"
-    }
-  },
-  "item_assets": {
-    "cloud_amount_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Cloud amount on height levels",
-      "roles": [
-        "data"
-      ]
     }
   },
   "title": "Met Office Global Deterministic Height Level",

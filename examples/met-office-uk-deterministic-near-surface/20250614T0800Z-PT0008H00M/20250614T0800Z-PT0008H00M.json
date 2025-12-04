@@ -730,6 +730,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-fog_fraction_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Fog fraction at screen level",
+      "description": "Here fog means a visibility of 1000 m or lower. The reduction in visibility is caused by  water droplets or minute ice crystals forming close to the surface. This quantity represents the fraction of horizontal  grid square occupied by fog. An alternative interpretation is that this represents the fractional probability of fog being present at any location in the grid square.",
       "forecast:variable": "fog_area_fraction",
       "roles": [
         "data"
@@ -739,6 +740,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-hail_fall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly hail fall accumulation",
+      "description": "Implied depth of the layer of liquid water equivalent (LWE) hail produced by the model precipitation scheme and deposited on the surface in the previous hour.",
       "forecast:variable": "lwe_thickness_of_graupel_and_hail_fall_amount",
       "forecast:duration": "PT01H",
       "roles": [
@@ -749,6 +751,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-hail_fall_rate.nc",
       "type": "application/netcdf",
       "title": "Hail fall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) hail (as a depth) has been produced by the model precipitation scheme and deposited on the surface.",
       "forecast:variable": "lwe_graupel_and_hail_fall_rate",
       "roles": [
         "data"
@@ -758,6 +761,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-landsea_mask.nc",
       "type": "application/netcdf",
       "title": "Land binary mask",
+      "description": "Binary indicator of whether a  point is considered land (value = 1) or sea (value = 0). This is useful to identify the coastline and characterise points for correct interpretation of forecast data by users.",
       "forecast:variable": "land_binary_mask",
       "roles": [
         "data"
@@ -767,6 +771,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-precipitation_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly precipitation accumulation",
+      "description": "Implied depth of the layer of liquid water which has been deposited on the surface in the previous hour. This includes rain, snow and hail, with the ice phase precipitation being considered as a liquid water equivalent (LWE) value. It includes the contribution from the model convection scheme if this is invoked.",
       "forecast:variable": "lwe_thickness_of_precipitation_amount",
       "forecast:duration": "PT01H",
       "roles": [
@@ -777,6 +782,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-precipitation_rate.nc",
       "type": "application/netcdf",
       "title": "Precipitation rate",
+      "description": "Instantaneous rate at which liquid water (as a depth) was being deposited on the surface. This includes rain, snow and hail with the ice phase precipitation being considered as a liquid water equivalent (LWE)  value. It includes the contribution from the model convection scheme if this is invoked.",
       "forecast:variable": "lwe_precipitation_rate",
       "roles": [
         "data"
@@ -786,6 +792,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-pressure_at_mean_sea_level.nc",
       "type": "application/netcdf",
       "title": "Pressure at mean sea level",
+      "description": "Air pressure at mean sea level which is close to the geoid in sea areas. Air pressure at sea level is the quantity often abbreviated as MSLP or PMSL.",
       "forecast:variable": "air_pressure_at_sea_level",
       "roles": [
         "data"
@@ -795,6 +802,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-pressure_at_surface.nc",
       "type": "application/netcdf",
       "title": "Pressure at surface",
+      "description": "Air pressure at the surface (lower boundary of the atmosphere).",
       "forecast:variable": "surface_air_pressure",
       "roles": [
         "data"
@@ -804,6 +812,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-radiation_flux_in_longwave_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in longwave downward at surface",
+      "description": "Longwave radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_downwelling_longwave_flux_in_air",
       "roles": [
         "data"
@@ -813,6 +822,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-radiation_flux_in_shortwave_diffuse_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in shortwave diffuse downward at surface",
+      "description": "Diffuse component of shortwave radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_diffusive_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -822,6 +832,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-radiation_flux_in_shortwave_direct_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in shortwave direct downward at surface",
+      "description": "Direct component of shortwave radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_direct_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -831,6 +842,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-radiation_flux_in_shortwave_total_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in shortwave total downward at surface",
+      "description": "Total shortwave radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_downwelling_shortwave_flux_in_air",
       "roles": [
         "data"
@@ -840,6 +852,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-radiation_flux_in_uv_downward_at_surface.nc",
       "type": "application/netcdf",
       "title": "Radiation flux in uv downward at surface",
+      "description": "Ultraviolet  radiation at the surface from above directed at the ground.",
       "forecast:variable": "surface_downwelling_ultraviolet_flux_in_air",
       "roles": [
         "data"
@@ -849,6 +862,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-rainfall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly rainfall accumulation",
+      "description": "Implied depth of the rain produced by the model precipitation scheme which has been deposited on the surface in the previous hour. This excludes the rain produced by the model convection scheme.",
       "forecast:variable": "thickness_of_rainfall_amount",
       "forecast:duration": "PT01H",
       "roles": [
@@ -859,6 +873,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-rainfall_rate.nc",
       "type": "application/netcdf",
       "title": "Rainfall rate",
+      "description": "Instantaneous rate at which rain (as a depth) was being produced by the model precipitation scheme and deposited on the surface. This excludes the rain produced by the model convection scheme.",
       "forecast:variable": "rainfall_rate",
       "roles": [
         "data"
@@ -868,6 +883,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-relative_humidity_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Relative humidity at screen level",
+      "description": "Fractional relative humidity (ratio of the partial pressure of water vapour to the equilibrium vapour pressure of water) at screen level (1.5m above the surface.)",
       "forecast:variable": "relative_humidity",
       "roles": [
         "data"
@@ -877,6 +893,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-sensible_heat_flux_at_surface.nc",
       "type": "application/netcdf",
       "title": "Sensible heat flux at surface",
+      "description": "Exchange of heat between the surface and the air by motion of air, also called turbulent heat flux.",
       "forecast:variable": "surface_upward_sensible_heat_flux",
       "roles": [
         "data"
@@ -886,6 +903,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-snow_depth_water_equivalent.nc",
       "type": "application/netcdf",
       "title": "Snow depth water equivalent",
+      "description": "Liquid water equivalent ( LWE) depth of the snow lying on the surface (ground). Typically water is 10 times as dense as snow, so multiplying by 10 gives an approximate depth of the snow, although wet snow can be significantly denser and powder snow much less dense.",
       "forecast:variable": "lwe_thickness_of_surface_snow_amount",
       "roles": [
         "data"
@@ -895,6 +913,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-snowfall_accumulation-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly snowfall accumulation",
+      "description": "Implied depth of the (LWE) snow (as a depth) produced by the model precipitation scheme and deposited on the surface in the previous hour. This excludes the snow produced by the model  convection scheme. ",
       "forecast:variable": "lwe_thickness_of_snowfall_amount",
       "forecast:duration": "PT01H",
       "roles": [
@@ -905,6 +924,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-snowfall_rate.nc",
       "type": "application/netcdf",
       "title": "Snowfall rate",
+      "description": "Instantaneous rate at which liquid water equivalent (LWE) snow (as a depth) was produced by the model precipitation scheme and deposited on the surface. This excludes the snow produced by the  model convection scheme.",
       "forecast:variable": "lwe_snowfall_rate",
       "roles": [
         "data"
@@ -914,6 +934,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-temperature_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Temperature at screen level",
+      "description": "Instantaneous air temperature at screen level (1.5m).",
       "forecast:variable": "air_temperature",
       "roles": [
         "data"
@@ -923,6 +944,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-temperature_at_screen_level_max-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly temperature at screen level max",
+      "description": "Maximum instantaneous air temperature at screen level (1.5m) in the previous hour.",
       "forecast:variable": "air_temperature",
       "forecast:duration": "PT01H",
       "roles": [
@@ -933,6 +955,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-temperature_at_screen_level_min-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly temperature at screen level min",
+      "description": "Minimum instantaneous air temperature at screen level (1.5m) in the previous hour.",
       "forecast:variable": "air_temperature",
       "forecast:duration": "PT01H",
       "roles": [
@@ -943,6 +966,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-temperature_at_surface.nc",
       "type": "application/netcdf",
       "title": "Temperature at surface",
+      "description": "Temperature at the surface interface between the air and the ground.",
       "forecast:variable": "surface_temperature",
       "roles": [
         "data"
@@ -952,6 +976,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-temperature_of_dew_point_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Dew point temperature at screen level",
+      "description": "Instantaneous dew point temperature (temperature at which a parcel of air reaches saturation upon being cooled at constant pressure and specific humidity) at screen level (1.5m).",
       "forecast:variable": "dew_point_temperature",
       "roles": [
         "data"
@@ -961,6 +986,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-visibility_at_screen_level.nc",
       "type": "application/netcdf",
       "title": "Visibility at screen level",
+      "description": "Horizontal distance at which something can be seen horizontally from screen level (1.5m).",
       "forecast:variable": "visibility_in_air",
       "roles": [
         "data"
@@ -970,6 +996,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-wind_direction_at_10m.nc",
       "type": "application/netcdf",
       "title": "Wind direction at 10m",
+      "description": "Wind at 10m above the surface is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. In meteorological reports the direction of the wind vector is given as the direction from which it is blowing. Note: This with wind speed at 10m replaces x wind at 10m and y wind at 10m.",
       "forecast:variable": "wind_from_direction",
       "roles": [
         "data"
@@ -979,6 +1006,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-wind_gust_at_10m.nc",
       "type": "application/netcdf",
       "title": "Wind gust at 10m",
+      "description": "Diagnosed instantaneous wind gust at 10m. This can be considered as the extreme rather than steady wind speed that might be experienced at this specific time.",
       "forecast:variable": "wind_speed_of_gust",
       "roles": [
         "data"
@@ -988,6 +1016,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-wind_gust_at_10m_max-PT01H.nc",
       "type": "application/netcdf",
       "title": "Hourly wind gust at 10m max",
+      "description": "Maximum diagnosed instantaneous wind gust at 10m in the previous hour. This can be considered as the extreme wind speed that might be experienced in this period. ",
       "forecast:variable": "wind_speed_of_gust",
       "forecast:duration": "PT01H",
       "roles": [
@@ -998,6 +1027,7 @@
       "href": "s3://met-office-atmospheric-model-data/uk-deterministic-2km/20250614T0000Z/20250614T0800Z-PT0008H00M-wind_speed_at_10m.nc",
       "type": "application/netcdf",
       "title": "Wind speed at 10m",
+      "description": "Wind at 10m above the surface is defined as a two-dimensional (horizontal) air velocity vector with no vertical component. The speed is the magnitude of velocity.",
       "forecast:variable": "wind_speed",
       "roles": [
         "data"

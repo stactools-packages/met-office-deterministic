@@ -11,7 +11,7 @@
       "title": "Creative Commons Attribution-ShareAlike 4.0"
     },
     {
-      "rel": "describedBy",
+      "rel": "describedby",
       "href": "https://www.metoffice.gov.uk/services/data/external-data-channels",
       "title": "Met Office Dataset Documentation"
     },
@@ -317,36 +317,6 @@
   "auth:schemes": {
     "aws": {
       "type": "s3"
-    }
-  },
-  "item_assets": {
-    "cloud_amount_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Cloud amount on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "temperature_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Temperature on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "wind_direction_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Wind direction on height levels",
-      "roles": [
-        "data"
-      ]
-    },
-    "wind_speed_on_height_levels": {
-      "media_type": "application/netcdf",
-      "title": "Wind speed on height levels",
-      "roles": [
-        "data"
-      ]
     }
   },
   "title": "Met Office UK Deterministic Height Level",
