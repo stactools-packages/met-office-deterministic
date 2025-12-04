@@ -2,7 +2,7 @@ import datetime
 import importlib.resources
 import json
 from collections import defaultdict
-from typing import Any, Sequence
+from typing import Any, Sequence, cast
 
 import shapely.geometry
 from pystac import (
@@ -157,4 +157,4 @@ def _get_item_assets(model: Model, theme: Theme) -> dict[str, dict[str, Any]]:
         "stactools.met_office_deterministic.item_assets"
     ).joinpath(file_name)
     with item_assets_path.open() as f:
-        return json.load(f)
+        return cast(dict[str, dict[str, Any]], json.load(f))
