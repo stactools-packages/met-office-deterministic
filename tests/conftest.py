@@ -1,6 +1,10 @@
 from pathlib import Path
 
 import pytest
+from pystac import Item
+from pytest import FixtureRequest
+
+from stactools.met_office_deterministic import stac
 
 
 @pytest.fixture
@@ -9,7 +13,7 @@ def fixtures() -> Path:
 
 
 @pytest.fixture(params=["global", "uk"])
-def hrefs(fixtures: Path, request: pytest.FixtureRequest) -> list[str]:
+def hrefs(fixtures: Path, request: FixtureRequest) -> list[str]:
     hrefs = list()
     match request.param:
         case "global":
@@ -24,3 +28,8 @@ def hrefs(fixtures: Path, request: pytest.FixtureRequest) -> list[str]:
         for line in f:
             hrefs.append(prefix + line.split()[3])
     return hrefs
+
+
+@pytest.fixture
+def items(hrefs: list[str]) -> list[Item]:
+    return stac.create_items(hrefs)

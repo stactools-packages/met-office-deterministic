@@ -1,6 +1,7 @@
 import datetime
 
 import pytest
+from pystac import Item
 
 from stactools.met_office_deterministic import stac
 from stactools.met_office_deterministic.constants import Model, Theme
@@ -31,8 +32,7 @@ def test_collection(model: Model, theme: Theme) -> None:
     collection.validate()
 
 
-def test_items(hrefs: list[str]) -> None:
-    items = stac.create_items(hrefs)
+def test_items(items: list[Item]) -> None:
     for item in items:
         datetime.datetime.strptime(
             item.properties["forecast:reference_datetime"], "%Y-%m-%dT%H:%M:%SZ"
@@ -43,4 +43,16 @@ def test_items(hrefs: list[str]) -> None:
             assert asset.media_type == "application/netcdf", "No media type: " + key
             assert asset.title
 
+            if should_have_descriptions(item):
+                assert asset.description
+
         item.validate()
+
+
+def should_have_descriptions(item: Item) -> bool:
+    # Temporary helper function while we wait for more descriptions from the met office
+    return item.properties["met_office_deterministic:model"] in [
+        Model.global_
+    ] and item.properties["met_office_deterministic:theme"] in [
+        Theme.near_surface,
+    ]
