@@ -79,7 +79,11 @@ def create_collection(model: Model, theme: Theme) -> Collection:
     return collection
 
 
-def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
+def create_items(
+    source_hrefs: Sequence[str | Href],
+    model: Model | None = None,
+    theme: Theme | None = None,
+) -> list[Item]:
     """Creates one or more STAC items for the given hrefs."""
     hrefs: defaultdict[str, defaultdict[str, list[Href]]] = defaultdict(
         lambda: defaultdict(list)
@@ -88,7 +92,7 @@ def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
         if isinstance(source_href, Href):
             href = source_href
         else:
-            href = Href.parse(source_href)
+            href = Href.parse(source_href, model=model, theme=theme)
         hrefs[href.collection_id][href.item_id].append(href)
     items = list()
     for items_hrefs in hrefs.values():
@@ -97,7 +101,10 @@ def create_items(source_hrefs: Sequence[str | Href]) -> list[Item]:
     return items
 
 
-def _create_item(item_id: str, hrefs: list[Href]) -> Item:
+def _create_item(
+    item_id: str,
+    hrefs: list[Href],
+) -> Item:
     """Create a STAC item from a list of hrefs.
 
     Args:

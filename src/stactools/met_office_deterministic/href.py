@@ -6,8 +6,8 @@ from dataclasses import dataclass
 
 from .constants import Model, Theme
 
-HREF_REGEX = re.compile(
-    r"^(?:(?P<scheme>[^:]+)://(?P<bucket>[^/]+)/)?(?P<collection>[^/]+)/(?P<reference_datetime>[^/]+)/(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc$"
+FILE_NAME_REGEX = re.compile(
+    r"(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc"
 )
 
 
@@ -22,37 +22,54 @@ class Href:
     forecast_horizon: str
 
     @classmethod
-    def parse(cls, href: str) -> Href:
-        """Parse a UK Met Office href into an Href object.
+    def parse(
+        cls, href: str, model: Model | None = None, theme: Theme | None = None
+    ) -> Href:
+        """Parse a Met Office deterministic forecast href into an Href object.
+
+        Parses hrefs in the format:
+        [scheme://bucket/]collection/reference_datetime/valid_time-forecast_horizon-parameter.nc
+
+        The model and theme are automatically extracted from the collection name and
+        parameter, but can be overridden with the optional parameters.
 
         Args:
-            href: The href string to parse.
+            href: The href string to parse. Can be a full S3 URL or a relative path.
+            model: Optional model to override automatic detection. If None, inferred
+                from the collection name (global-deterministic-10km or
+                uk-deterministic-2km).
+            theme: Optional theme to override automatic detection. If None, inferred
+                from the parameter name.
 
         Returns:
-            An Href object containing parsed components.
+            An Href object containing parsed components including model, theme,
+            parameter, reference_datetime, valid_time, and forecast_horizon.
 
         Raises:
-            ValueError: If the href format is invalid or contains an unknown collection.
+            ValueError: If the href format is invalid, contains an unknown collection,
+                or contains an unknown parameter (when theme inference is required).
         """
-        matched = HREF_REGEX.match(href)
-        if not matched:
-            raise ValueError(f"Invalid UK Met Office href: {href}")
-        matched_dict = matched.groupdict()
-        match collection := matched_dict["collection"]:
-            case "global-deterministic-10km":
-                model = Model.global_
-            case "uk-deterministic-2km":
-                model = Model.uk
-            case _:
-                raise ValueError(f"Invalid collection: {collection}")
+        parts = href.split("/")
+        if model is None:
+            match collection := parts[-3]:
+                case "global-deterministic-10km":
+                    model = Model.global_
+                case "uk-deterministic-2km":
+                    model = Model.uk
+                case _:
+                    raise ValueError(f"Invalid collection: {collection}")
+        matched_dict = FILE_NAME_REGEX.match(parts[-1])
+        if matched_dict is None:
+            raise ValueError(f"Invalid file name: {href}")
         parameter = matched_dict["parameter"]
-        theme = Theme.from_parameter(parameter)
+        if theme is None:
+            theme = Theme.from_parameter(parameter)
         return Href(
             href=href,
             model=model,
             theme=theme,
             parameter=parameter,
-            reference_datetime=matched_dict["reference_datetime"],
+            reference_datetime=parts[-2],
             valid_time=matched_dict["valid_time"],
             forecast_horizon=matched_dict["forecast_horizon"],
         )
