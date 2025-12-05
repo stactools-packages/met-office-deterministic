@@ -49,6 +49,36 @@ def test_items(items: list[Item]) -> None:
         item.validate()
 
 
+def test_forcing_the_items(items: list[Item]) -> None:
+    for item in items:
+        datetime.datetime.strptime(
+            item.properties["forecast:reference_datetime"], "%Y-%m-%dT%H:%M:%SZ"
+        )
+
+        for key, asset in item.assets.items():
+            assert asset.roles == ["data"]
+            assert asset.media_type == "application/netcdf", "No media type: " + key
+            assert asset.title
+
+            if should_have_descriptions(item):
+                assert asset.description
+
+        item.validate()
+
+
+def test_forcing_the_collection() -> None:
+    items = stac.create_items(
+        [
+            "https://ukmoeuwest.blob.core.windows.net/staging/global/height/20251202T0600Z/20251203T2100Z-PT0039H00M-cloud_amount_on_height_levels.nc"
+        ],
+        model=Model.global_,
+        theme=Theme.height,
+    )
+    for item in items:
+        assert item.properties["met_office_deterministic:model"] == Model.global_
+        assert item.properties["met_office_deterministic:theme"] == Theme.height
+
+
 def should_have_descriptions(item: Item) -> bool:
     # Temporary helper function while we wait for more descriptions from the met office
     model = item.properties["met_office_deterministic:model"]
