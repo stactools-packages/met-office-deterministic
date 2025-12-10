@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Bug Fixes
 
-* add projection information to gloabl items ([#30](https://github.com/stactools-packages/met-office-deterministic/issues/30)) ([3a8b3a2](https://github.com/stactools-packages/met-office-deterministic/commit/3a8b3a233b826897498668780ac4394f27065aaf)), closes [#29](https://github.com/stactools-packages/met-office-deterministic/issues/29)
+* add projection information to global items ([#30](https://github.com/stactools-packages/met-office-deterministic/issues/30)) ([3a8b3a2](https://github.com/stactools-packages/met-office-deterministic/commit/3a8b3a233b826897498668780ac4394f27065aaf)), closes [#29](https://github.com/stactools-packages/met-office-deterministic/issues/29)
 
 ## [0.3.0](https://github.com/stactools-packages/met-office-deterministic/compare/v0.2.0...v0.3.0) (2025-12-05)
 
