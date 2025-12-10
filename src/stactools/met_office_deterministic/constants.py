@@ -13,6 +13,18 @@ class Model(StrEnum):
     uk = "uk"
 
     @property
+    def proj_wkt2(self) -> str:
+        """Returns the WKT2 coordinate reference system."""
+
+        match self:
+            case Model.global_:
+                return 'GEOGCS["unknown",DATUM["unnamed",SPHEROID["Sphere",6371229,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST]]'  # noqa: E501
+            case Model.uk:
+                return 'PROJCS["unnamed",GEOGCS["unknown",DATUM["unnamed",SPHEROID["Spheroid",6378137,298.257222101004]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]]],PROJECTION["Lambert_Azimuthal_Equal_Area"],PARAMETER["latitude_of_center",54.9],PARAMETER["longitude_of_center",-2.5],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]'  # noqa: E501
+            case _:
+                raise ValueError(f"Unexpected model: {self}")
+
+    @property
     def bbox(self) -> tuple[float, float, float, float]:
         """Get the bounding box for the model.
 

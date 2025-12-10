@@ -135,12 +135,12 @@ def _create_item(
         },
         assets=dict(_create_asset(href) for href in hrefs),
     )
+    item.ext.add("proj")
+    item.ext.proj.wkt2 = href.model.proj_wkt2
     if href.model == Model.uk:
-        item.ext.add("proj")
         item.ext.proj.geometry = shapely.geometry.mapping(
             shapely.geometry.box(-1159000.0, -1037000.0, 925000.0, 903000.0)
         )
-        item.ext.proj.wkt2 = 'PROJCS["unnamed",GEOGCS["unknown",DATUM["unnamed",SPHEROID["Spheroid",6378137,298.257222101004]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]]],PROJECTION["Lambert_Azimuthal_Equal_Area"],PARAMETER["latitude_of_center",54.9],PARAMETER["longitude_of_center",-2.5],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]'  # noqa: E501
     return item
 
 

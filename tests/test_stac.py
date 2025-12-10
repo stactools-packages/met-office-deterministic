@@ -46,6 +46,8 @@ def test_items(items: list[Item]) -> None:
             if should_have_descriptions(item):
                 assert asset.description
 
+        assert item.ext.has("proj")
+
         item.validate()
 
 

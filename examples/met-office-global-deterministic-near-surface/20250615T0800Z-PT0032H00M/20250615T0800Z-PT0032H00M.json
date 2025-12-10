@@ -2,7 +2,8 @@
   "type": "Feature",
   "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
   ],
   "id": "20250615T0800Z-PT0032H00M",
   "geometry": {
@@ -43,6 +44,7 @@
     "forecast:horizon": "PT0032H00M",
     "met_office_deterministic:model": "global",
     "met_office_deterministic:theme": "near-surface",
+    "proj:wkt2": "GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Sphere\",6371229,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
     "datetime": "2025-06-15T08:00:00Z"
   },
   "links": [
