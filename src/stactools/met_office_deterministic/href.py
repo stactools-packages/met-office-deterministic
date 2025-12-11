@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from .constants import Model, Theme
 
 FILE_NAME_REGEX = re.compile(
-    r"(?P<valid_time>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc"
+    r"(?P<reference_datetime>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc"
 )
 
 
@@ -18,7 +18,6 @@ class Href:
     theme: Theme
     parameter: str
     reference_datetime: str
-    valid_time: str
     forecast_horizon: str
 
     @classmethod
@@ -28,7 +27,7 @@ class Href:
         """Parse a Met Office deterministic forecast href into an Href object.
 
         Parses hrefs in the format:
-        [scheme://bucket/]collection/reference_datetime/valid_time-forecast_horizon-parameter.nc
+        [scheme://bucket/]collection/reference_datetime/reference_datetime-forecast_horizon-parameter.nc
 
         The model and theme are automatically extracted from the collection name and
         parameter, but can be overridden with the optional parameters.
@@ -70,7 +69,6 @@ class Href:
             theme=theme,
             parameter=parameter,
             reference_datetime=parts[-2],
-            valid_time=matched_dict["valid_time"],
             forecast_horizon=matched_dict["forecast_horizon"],
         )
 
@@ -90,7 +88,7 @@ class Href:
         Returns:
             The item ID string combining valid time and forecast horizon.
         """
-        return f"{self.valid_time}-{self.forecast_horizon}"
+        return f"{self.reference_datetime}-{self.forecast_horizon}"
 
     @property
     def datetime(self) -> datetime.datetime:
@@ -99,7 +97,7 @@ class Href:
         Returns:
             A datetime object parsed from the valid time.
         """
-        return datetime.datetime.strptime(self.valid_time, "%Y%m%dT%H%MZ")
+        return datetime.datetime.strptime(self.reference_datetime, "%Y%m%dT%H%MZ")
 
     @property
     def duration(self) -> str | None:
