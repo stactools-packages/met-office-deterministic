@@ -1,0 +1,22 @@
+/* Met Office brand colors */
+:root {
+  --mo-key-lime: #b9d532;
+  --mo-straw: #d3bc92;
+  --mo-peru-tan: #743404;
+}
+
+/* Light mode customization */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--mo-key-lime);
+  --md-primary-fg-color--light: #c9e05e;
+  --md-primary-fg-color--dark: #a0c020;
+  --md-accent-fg-color: var(--mo-peru-tan);
+}
+
+/* Dark mode customization */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--mo-key-lime);
+  --md-primary-fg-color--light: #c9e05e;
+  --md-primary-fg-color--dark: #a0c020;
+  --md-accent-fg-color: var(--mo-straw);
+}

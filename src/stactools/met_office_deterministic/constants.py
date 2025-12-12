@@ -1,3 +1,5 @@
+"""Constant values and string enums."""
+
 from __future__ import annotations
 
 import datetime
@@ -26,7 +28,7 @@ class Model(StrEnum):
 
     @property
     def bbox(self) -> tuple[float, float, float, float]:
-        """Get the bounding box for the model.
+        """Gets the bounding box for the model.
 
         Returns:
             A tuple of (min_lon, min_lat, max_lon, max_lat).
@@ -44,7 +46,7 @@ class Model(StrEnum):
 
     @property
     def geometry(self) -> dict[str, Any]:
-        """Get the GeoJSON geometry for the model coverage area.
+        """Gets the GeoJSON geometry for the model coverage area.
 
         Returns:
             A GeoJSON geometry dictionary.
@@ -233,7 +235,7 @@ class Model(StrEnum):
 
     @property
     def extent(self) -> Extent:
-        """Get the STAC extent for the model.
+        """Gets the STAC extent for the model.
 
         Returns:
             A STAC Extent object with spatial and temporal extents.
@@ -244,7 +246,7 @@ class Model(StrEnum):
         )
 
     def get_collection_id(self, theme: Theme) -> str:
-        """Generate the collection ID for a model and theme combination.
+        """Generates the collection ID for a model and theme combination.
 
         Args:
             theme: The theme to combine with this model.
@@ -263,7 +265,7 @@ class Theme(StrEnum):
 
     @classmethod
     def from_parameter(cls, parameter: str) -> Theme:
-        """Determine the theme from a parameter name.
+        """Determines the theme from a parameter name.
 
         Args:
             parameter: The parameter name to classify.
