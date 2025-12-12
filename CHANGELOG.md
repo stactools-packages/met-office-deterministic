@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.3](https://github.com/stactools-packages/met-office-deterministic/compare/v0.3.2...v0.3.3) (2025-12-12)
+
+
+### Documentation
+
+* add basic mkdocs-material and publish ([#36](https://github.com/stactools-packages/met-office-deterministic/issues/36)) ([2357b6d](https://github.com/stactools-packages/met-office-deterministic/commit/2357b6d204a7bd82fd8b4c5a16e2699fcb94156d))
+* add model schedule ([#34](https://github.com/stactools-packages/met-office-deterministic/issues/34)) ([0a7bcfc](https://github.com/stactools-packages/met-office-deterministic/commit/0a7bcfc7346a4661a3f0a1f14c9afb13ac055149))
+
 ## [0.3.2](https://github.com/stactools-packages/met-office-deterministic/compare/v0.3.1...v0.3.2) (2025-12-11)
 
 
