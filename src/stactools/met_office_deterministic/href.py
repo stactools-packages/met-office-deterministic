@@ -1,3 +1,5 @@
+"""Parse Met Office deterministic forecast hrefs into structured objects."""
+
 from __future__ import annotations
 
 import datetime
@@ -6,6 +8,8 @@ from dataclasses import dataclass
 
 from .constants import Model, Theme
 
+#: Regular expression to parse Met Office NetCDF file names.
+#: Matches pattern: reference_datetime-forecast_horizon-parameter.nc
 FILE_NAME_REGEX = re.compile(
     r"(?P<reference_datetime>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc"
 )
@@ -24,7 +28,7 @@ class Href:
     def parse(
         cls, href: str, model: Model | None = None, theme: Theme | None = None
     ) -> Href:
-        """Parse a Met Office deterministic forecast href into an Href object.
+        """Parses a Met Office deterministic forecast href into an Href object.
 
         Parses hrefs in the format:
         [scheme://bucket/]collection/reference_datetime/reference_datetime-forecast_horizon-parameter.nc
@@ -74,7 +78,7 @@ class Href:
 
     @property
     def collection_id(self) -> str:
-        """Get the STAC collection ID for this href.
+        """Gets the STAC collection ID for this href.
 
         Returns:
             The collection ID string.
@@ -83,7 +87,7 @@ class Href:
 
     @property
     def item_id(self) -> str:
-        """Get the STAC item ID for this href.
+        """Gets the STAC item ID for this href.
 
         Returns:
             The item ID string combining valid time and forecast horizon.
@@ -92,7 +96,7 @@ class Href:
 
     @property
     def datetime(self) -> datetime.datetime:
-        """Get the datetime from the valid time string.
+        """Gets the datetime from the valid time string.
 
         Returns:
             A datetime object parsed from the valid time.
@@ -101,7 +105,7 @@ class Href:
 
     @property
     def duration(self) -> str | None:
-        """Extract the duration from the parameter if present.
+        """Extracts the duration from the parameter if present.
 
         Returns:
             The duration string (ISO 8601 format) if the parameter includes one,
@@ -273,7 +277,7 @@ class Href:
                 raise ValueError(f"Unknown parameter: {self.parameter}")
 
     def __str__(self) -> str:
-        """Return the href as a string.
+        """Returns the href as a string.
 
         Returns:
             The href string.

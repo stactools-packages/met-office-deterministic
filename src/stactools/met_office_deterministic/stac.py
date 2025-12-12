@@ -1,3 +1,5 @@
+"""Creates STAC collections and items for Met Office deterministic forecast data."""
+
 import datetime
 import importlib.resources
 import json
@@ -19,7 +21,7 @@ from .href import Href
 
 
 def create_collection(model: Model, theme: Theme) -> Collection:
-    """Create a STAC collection for a model and theme combination.
+    """Creates a STAC collection for a model and theme combination.
 
     Args:
         model: The Met Office model (global or UK).
@@ -84,7 +86,21 @@ def create_items(
     model: Model | None = None,
     theme: Theme | None = None,
 ) -> list[Item]:
-    """Creates one or more STAC items for the given hrefs."""
+    """Creates one or more STAC items from a sequence of hrefs.
+
+    Groups hrefs by collection and item ID, then creates STAC items with assets
+    for each unique combination of valid time and forecast horizon.
+
+    Args:
+        source_hrefs: A sequence of href strings or Href objects pointing to
+            NetCDF forecast files.
+        model: Optional model to override automatic detection from hrefs.
+        theme: Optional theme to override automatic detection from hrefs.
+
+    Returns:
+        A list of STAC Item objects, one for each unique combination of
+        valid time and forecast horizon.
+    """
     hrefs: defaultdict[str, defaultdict[str, list[Href]]] = defaultdict(
         lambda: defaultdict(list)
     )
@@ -105,15 +121,6 @@ def _create_item(
     item_id: str,
     hrefs: list[Href],
 ) -> Item:
-    """Create a STAC item from a list of hrefs.
-
-    Args:
-        item_id: The ID for the item.
-        hrefs: A list of Href objects to include as assets in the item.
-
-    Returns:
-        A STAC Item object with assets for each href.
-    """
     assert hrefs
     href = hrefs[0]
     item = Item(
