@@ -119,7 +119,7 @@ class Href:
             return None
 
     @property
-    def variable(self) -> str:
+    def variable(self) -> str | None:
         """The CF-standard name for this parameter."""
         match self.parameter:
             case "cloud_amount_of_total_cloud":
@@ -274,7 +274,7 @@ class Href:
             case "landsea_mask":
                 return "land_binary_mask"
             case _:
-                raise ValueError(f"Unknown parameter: {self.parameter}")
+                return None
 
     def __str__(self) -> str:
         """Returns the href as a string.

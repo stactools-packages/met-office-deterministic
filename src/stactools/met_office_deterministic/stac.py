@@ -152,9 +152,9 @@ def _create_item(
 
 
 def _create_asset(href: Href) -> tuple[str, Asset]:
-    extra_fields = {
-        "forecast:variable": href.variable,
-    }
+    extra_fields = {}
+    if variable := href.variable:
+        extra_fields["forecast:variable"] = variable
     if href.duration:
         extra_fields["forecast:duration"] = href.duration
     item_assets = _get_item_assets(href.model, href.theme)
