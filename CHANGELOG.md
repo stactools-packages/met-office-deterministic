@@ -11,10 +11,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 * item ids
 
-### Bug Fixes
-
-* item ids ([0cd6f15](https://github.com/stactools-packages/met-office-deterministic/commit/0cd6f157ad4b94104e89e048d06c3a90a0b3161d))
-
 ## [0.3.3](https://github.com/stactools-packages/met-office-deterministic/compare/v0.3.2...v0.3.3) (2026-01-06)
 
 
