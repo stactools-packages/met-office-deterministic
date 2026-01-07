@@ -8,10 +8,8 @@ from dataclasses import dataclass
 
 from .constants import Model, Theme
 
-#: Regular expression to parse Met Office NetCDF file names.
-#: Matches pattern: reference_datetime-forecast_horizon-parameter.nc
-FILE_NAME_REGEX = re.compile(
-    r"(?P<reference_datetime>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc"
+PATH_REGEX = re.compile(
+    r"^.*/(?P<collection>[^/]+)/(?P<reference_datetime>[^/]+)/(?P<valid_datetime>[^-]+)-(?P<forecast_horizon>[^-]+)-(?P<parameter>.+)\.nc$"
 )
 
 
@@ -22,49 +20,25 @@ class Href:
     theme: Theme
     parameter: str
     reference_datetime: str
+    valid_datetime: str
     forecast_horizon: str
 
     @classmethod
     def parse(
         cls, href: str, model: Model | None = None, theme: Theme | None = None
     ) -> Href:
-        """Parses a Met Office deterministic forecast href into an Href object.
-
-        Parses hrefs in the format:
-        [scheme://bucket/]collection/reference_datetime/reference_datetime-forecast_horizon-parameter.nc
-
-        The model and theme are automatically extracted from the collection name and
-        parameter, but can be overridden with the optional parameters.
-
-        Args:
-            href: The href string to parse. Can be a full S3 URL or a relative path.
-            model: Optional model to override automatic detection. If None, inferred
-                from the collection name (global-deterministic-10km or
-                uk-deterministic-2km).
-            theme: Optional theme to override automatic detection. If None, inferred
-                from the parameter name.
-
-        Returns:
-            An Href object containing parsed components including model, theme,
-            parameter, reference_datetime, valid_time, and forecast_horizon.
-
-        Raises:
-            ValueError: If the href format is invalid, contains an unknown collection,
-                or contains an unknown parameter (when theme inference is required).
-        """
-        parts = href.split("/")
+        matches = PATH_REGEX.match(href)
+        if matches is None:
+            raise ValueError(f"Invalid file name: {href}")
         if model is None:
-            match collection := parts[-3]:
+            match collection := matches["collection"]:
                 case "global-deterministic-10km":
                     model = Model.global_
                 case "uk-deterministic-2km":
                     model = Model.uk
                 case _:
                     raise ValueError(f"Invalid collection: {collection}")
-        matched_dict = FILE_NAME_REGEX.match(parts[-1])
-        if matched_dict is None:
-            raise ValueError(f"Invalid file name: {href}")
-        parameter = matched_dict["parameter"]
+        parameter = matches["parameter"]
         if theme is None:
             theme = Theme.from_parameter(parameter)
         return Href(
@@ -72,8 +46,9 @@ class Href:
             model=model,
             theme=theme,
             parameter=parameter,
-            reference_datetime=parts[-2],
-            forecast_horizon=matched_dict["forecast_horizon"],
+            reference_datetime=matches["reference_datetime"],
+            valid_datetime=matches["valid_datetime"],
+            forecast_horizon=matches["forecast_horizon"],
         )
 
     @property
@@ -87,12 +62,8 @@ class Href:
 
     @property
     def item_id(self) -> str:
-        """Gets the STAC item ID for this href.
-
-        Returns:
-            The item ID string combining valid time and forecast horizon.
-        """
-        return f"{self.reference_datetime}-{self.forecast_horizon}"
+        """Gets the STAC item ID for this href."""
+        return f"{self.reference_datetime}-{self.valid_datetime}"
 
     @property
     def datetime(self) -> datetime.datetime:
@@ -101,7 +72,7 @@ class Href:
         Returns:
             A datetime object parsed from the valid time.
         """
-        return datetime.datetime.strptime(self.reference_datetime, "%Y%m%dT%H%MZ")
+        return datetime.datetime.strptime(self.valid_datetime, "%Y%m%dT%H%MZ")
 
     @property
     def duration(self) -> str | None:

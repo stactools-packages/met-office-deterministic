@@ -1,0 +1,81 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
+  ],
+  "id": "20250614T0000Z-20250619T0900Z",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          90.0
+        ],
+        [
+          -180.0,
+          -90.0
+        ],
+        [
+          180.0,
+          -90.0
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "properties": {
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
+    "forecast:horizon": "PT0129H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "height",
+    "proj:wkt2": "GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Sphere\",6371229,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+    "datetime": "2025-06-19T09:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
+    },
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Met Office Global Deterministic Height Level"
+    }
+  ],
+  "assets": {
+    "cloud_amount_on_height_levels": {
+      "href": "s3://met-office-atmospheric-model-data/global-deterministic-10km/20250614T0000Z/20250619T0900Z-PT0129H00M-cloud_amount_on_height_levels.nc",
+      "type": "application/netcdf",
+      "title": "Cloud amount on height levels",
+      "forecast:variable": "cloud_volume_fraction_in_atmosphere_layer",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "met-office-global-deterministic-height"
+}
