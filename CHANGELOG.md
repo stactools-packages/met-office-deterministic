@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.1](https://github.com/stactools-packages/met-office-deterministic/compare/v0.4.0...v0.4.1) (2026-01-23)
+
+
+### Bug Fixes
+
+* extra space in parameter name ([#43](https://github.com/stactools-packages/met-office-deterministic/issues/43)) ([0ca5bb0](https://github.com/stactools-packages/met-office-deterministic/commit/0ca5bb0318407acba724b0f10e89502ac29b9c3c))
+
 ## [0.4.0](https://github.com/stactools-packages/met-office-deterministic/compare/v0.3.3...v0.4.0) (2026-01-07)
 
 
