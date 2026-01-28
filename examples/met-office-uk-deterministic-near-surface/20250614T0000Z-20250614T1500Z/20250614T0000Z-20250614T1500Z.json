@@ -1,11 +1,42 @@
 {
   "type": "Feature",
-  "stac_version": "1.1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
-    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
-  ],
+  "stac_version": "1.0.0",
   "id": "20250614T0000Z-20250614T1500Z",
+  "properties": {
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
+    "forecast:horizon": "PT0015H00M",
+    "met_office_deterministic:model": "uk",
+    "met_office_deterministic:theme": "near-surface",
+    "proj:wkt2": "PROJCS[\"unnamed\",GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Spheroid\",6378137,298.257222101004]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Lambert_Azimuthal_Equal_Area\"],PARAMETER[\"latitude_of_center\",54.9],PARAMETER[\"longitude_of_center\",-2.5],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "proj:geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            925000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            903000.0
+          ],
+          [
+            -1159000.0,
+            -1037000.0
+          ],
+          [
+            925000.0,
+            -1037000.0
+          ]
+        ]
+      ]
+    },
+    "datetime": "2025-06-14T15:00:00Z"
+  },
   "geometry": {
     "type": "Polygon",
     "coordinates": [
@@ -665,47 +696,6 @@
       ]
     ]
   },
-  "bbox": [
-    -24.51,
-    44.52,
-    15.28,
-    61.93
-  ],
-  "properties": {
-    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
-    "forecast:horizon": "PT0015H00M",
-    "met_office_deterministic:model": "uk",
-    "met_office_deterministic:theme": "near-surface",
-    "proj:wkt2": "PROJCS[\"unnamed\",GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Spheroid\",6378137,298.257222101004]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Lambert_Azimuthal_Equal_Area\"],PARAMETER[\"latitude_of_center\",54.9],PARAMETER[\"longitude_of_center\",-2.5],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
-    "proj:geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            925000.0,
-            -1037000.0
-          ],
-          [
-            925000.0,
-            903000.0
-          ],
-          [
-            -1159000.0,
-            903000.0
-          ],
-          [
-            -1159000.0,
-            -1037000.0
-          ],
-          [
-            925000.0,
-            -1037000.0
-          ]
-        ]
-      ]
-    },
-    "datetime": "2025-06-14T15:00:00Z"
-  },
   "links": [
     {
       "rel": "collection",
@@ -1034,5 +1024,15 @@
       ]
     }
   },
+  "bbox": [
+    -24.51,
+    44.52,
+    15.28,
+    61.93
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+  ],
   "collection": "met-office-uk-deterministic-near-surface"
 }

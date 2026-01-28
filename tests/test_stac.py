@@ -87,3 +87,9 @@ def should_have_descriptions(item: Item) -> bool:
     return model == Model.uk or item.properties["met_office_deterministic:theme"] in [
         Theme.near_surface,
     ]
+
+
+def test_geopotential_height() -> None:
+    # https://github.com/stactools-packages/met-office-deterministic/issues/42
+    href = "https://ukmoeuwest.blob.core.windows.net/deterministic/global/pressure/20260128T0000Z/20260128T0100Z-PT0001H00M-geopotential_height_on_pressure_levels.nc"
+    stac.create_items([href], model=Model.global_)

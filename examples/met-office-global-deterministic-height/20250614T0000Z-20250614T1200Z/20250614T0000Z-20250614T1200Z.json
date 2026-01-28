@@ -1,11 +1,15 @@
 {
   "type": "Feature",
-  "stac_version": "1.1.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
-    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
-  ],
+  "stac_version": "1.0.0",
   "id": "20250614T0000Z-20250614T1200Z",
+  "properties": {
+    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
+    "forecast:horizon": "PT0012H00M",
+    "met_office_deterministic:model": "global",
+    "met_office_deterministic:theme": "height",
+    "proj:wkt2": "GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Sphere\",6371229,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+    "datetime": "2025-06-14T12:00:00Z"
+  },
   "geometry": {
     "type": "Polygon",
     "coordinates": [
@@ -32,20 +36,6 @@
         ]
       ]
     ]
-  },
-  "bbox": [
-    -180.0,
-    -90,
-    180,
-    90
-  ],
-  "properties": {
-    "forecast:reference_datetime": "2025-06-14T00:00:00Z",
-    "forecast:horizon": "PT0012H00M",
-    "met_office_deterministic:model": "global",
-    "met_office_deterministic:theme": "height",
-    "proj:wkt2": "GEOGCS[\"unknown\",DATUM[\"unnamed\",SPHEROID[\"Sphere\",6371229,0]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
-    "datetime": "2025-06-14T12:00:00Z"
   },
   "links": [
     {
@@ -77,5 +67,15 @@
       ]
     }
   },
+  "bbox": [
+    -180.0,
+    -90,
+    180,
+    90
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/forecast/v0.2.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+  ],
   "collection": "met-office-global-deterministic-height"
 }
