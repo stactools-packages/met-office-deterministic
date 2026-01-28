@@ -33,5 +33,12 @@
     "type": "application/netcdf",
     "title": "Wind vertical velocity on pressure levels",
     "roles": ["data"]
+  },
+  "geopotential_height_on_pressure_levels": {
+    "type": "application/netcdf",
+    "title": "Geopotential height of the pressure levels",
+    "description": "Note: from January 2026, this parameter will replace height_ASL_on_pressure_levels.",
+    "unit": "m",
+    "roles": ["data"]
   }
 }
