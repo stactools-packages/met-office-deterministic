@@ -1,7 +1,7 @@
 {
   "type": "Catalog",
   "id": "met-office-deterministic",
-  "stac_version": "1.1.0",
+  "stac_version": "1.0.0",
   "description": "Met Office Deterministic atmospheric model data",
   "links": [
     {

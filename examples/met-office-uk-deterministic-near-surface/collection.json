@@ -1,7 +1,7 @@
 {
   "type": "Collection",
   "id": "met-office-uk-deterministic-near-surface",
-  "stac_version": "1.1.0",
+  "stac_version": "1.0.0",
   "description": "The Met Office UK Deterministic Near Surface dataset provides a composite of weather parameters generated for the near-surface atmospheric layer.",
   "links": [
     {
@@ -18,1087 +18,1087 @@
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0000Z/20250614T0000Z-20250614T0000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0015Z/20250614T0000Z-20250614T0015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0030Z/20250614T0000Z-20250614T0030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0045Z/20250614T0000Z-20250614T0045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0100Z/20250614T0000Z-20250614T0100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0115Z/20250614T0000Z-20250614T0115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0130Z/20250614T0000Z-20250614T0130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0145Z/20250614T0000Z-20250614T0145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0200Z/20250614T0000Z-20250614T0200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0215Z/20250614T0000Z-20250614T0215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0230Z/20250614T0000Z-20250614T0230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0245Z/20250614T0000Z-20250614T0245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0300Z/20250614T0000Z-20250614T0300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0315Z/20250614T0000Z-20250614T0315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0330Z/20250614T0000Z-20250614T0330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0345Z/20250614T0000Z-20250614T0345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0400Z/20250614T0000Z-20250614T0400Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0415Z/20250614T0000Z-20250614T0415Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0430Z/20250614T0000Z-20250614T0430Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0445Z/20250614T0000Z-20250614T0445Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0500Z/20250614T0000Z-20250614T0500Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0515Z/20250614T0000Z-20250614T0515Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0530Z/20250614T0000Z-20250614T0530Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0545Z/20250614T0000Z-20250614T0545Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0600Z/20250614T0000Z-20250614T0600Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0615Z/20250614T0000Z-20250614T0615Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0630Z/20250614T0000Z-20250614T0630Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0645Z/20250614T0000Z-20250614T0645Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0700Z/20250614T0000Z-20250614T0700Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0715Z/20250614T0000Z-20250614T0715Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0730Z/20250614T0000Z-20250614T0730Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0745Z/20250614T0000Z-20250614T0745Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0800Z/20250614T0000Z-20250614T0800Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0815Z/20250614T0000Z-20250614T0815Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0830Z/20250614T0000Z-20250614T0830Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0845Z/20250614T0000Z-20250614T0845Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0900Z/20250614T0000Z-20250614T0900Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0915Z/20250614T0000Z-20250614T0915Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0930Z/20250614T0000Z-20250614T0930Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T0945Z/20250614T0000Z-20250614T0945Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1000Z/20250614T0000Z-20250614T1000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1015Z/20250614T0000Z-20250614T1015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1030Z/20250614T0000Z-20250614T1030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1045Z/20250614T0000Z-20250614T1045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1100Z/20250614T0000Z-20250614T1100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1115Z/20250614T0000Z-20250614T1115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1130Z/20250614T0000Z-20250614T1130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1145Z/20250614T0000Z-20250614T1145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1200Z/20250614T0000Z-20250614T1200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1215Z/20250614T0000Z-20250614T1215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1230Z/20250614T0000Z-20250614T1230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1245Z/20250614T0000Z-20250614T1245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1300Z/20250614T0000Z-20250614T1300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1315Z/20250614T0000Z-20250614T1315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1330Z/20250614T0000Z-20250614T1330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1345Z/20250614T0000Z-20250614T1345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1400Z/20250614T0000Z-20250614T1400Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1415Z/20250614T0000Z-20250614T1415Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1430Z/20250614T0000Z-20250614T1430Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1445Z/20250614T0000Z-20250614T1445Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1500Z/20250614T0000Z-20250614T1500Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1515Z/20250614T0000Z-20250614T1515Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1530Z/20250614T0000Z-20250614T1530Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1545Z/20250614T0000Z-20250614T1545Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1600Z/20250614T0000Z-20250614T1600Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1615Z/20250614T0000Z-20250614T1615Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1630Z/20250614T0000Z-20250614T1630Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1645Z/20250614T0000Z-20250614T1645Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1700Z/20250614T0000Z-20250614T1700Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1715Z/20250614T0000Z-20250614T1715Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1730Z/20250614T0000Z-20250614T1730Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1745Z/20250614T0000Z-20250614T1745Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1800Z/20250614T0000Z-20250614T1800Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1815Z/20250614T0000Z-20250614T1815Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1830Z/20250614T0000Z-20250614T1830Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1845Z/20250614T0000Z-20250614T1845Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1900Z/20250614T0000Z-20250614T1900Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1915Z/20250614T0000Z-20250614T1915Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1930Z/20250614T0000Z-20250614T1930Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T1945Z/20250614T0000Z-20250614T1945Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2000Z/20250614T0000Z-20250614T2000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2015Z/20250614T0000Z-20250614T2015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2030Z/20250614T0000Z-20250614T2030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2045Z/20250614T0000Z-20250614T2045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2100Z/20250614T0000Z-20250614T2100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2115Z/20250614T0000Z-20250614T2115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2130Z/20250614T0000Z-20250614T2130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2145Z/20250614T0000Z-20250614T2145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2200Z/20250614T0000Z-20250614T2200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2215Z/20250614T0000Z-20250614T2215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2230Z/20250614T0000Z-20250614T2230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2245Z/20250614T0000Z-20250614T2245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2300Z/20250614T0000Z-20250614T2300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2315Z/20250614T0000Z-20250614T2315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2330Z/20250614T0000Z-20250614T2330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250614T2345Z/20250614T0000Z-20250614T2345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0000Z/20250614T0000Z-20250615T0000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0015Z/20250614T0000Z-20250615T0015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0030Z/20250614T0000Z-20250615T0030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0045Z/20250614T0000Z-20250615T0045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0100Z/20250614T0000Z-20250615T0100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0115Z/20250614T0000Z-20250615T0115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0130Z/20250614T0000Z-20250615T0130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0145Z/20250614T0000Z-20250615T0145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0200Z/20250614T0000Z-20250615T0200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0215Z/20250614T0000Z-20250615T0215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0230Z/20250614T0000Z-20250615T0230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0245Z/20250614T0000Z-20250615T0245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0300Z/20250614T0000Z-20250615T0300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0315Z/20250614T0000Z-20250615T0315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0330Z/20250614T0000Z-20250615T0330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0345Z/20250614T0000Z-20250615T0345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0400Z/20250614T0000Z-20250615T0400Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0415Z/20250614T0000Z-20250615T0415Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0430Z/20250614T0000Z-20250615T0430Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0445Z/20250614T0000Z-20250615T0445Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0500Z/20250614T0000Z-20250615T0500Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0515Z/20250614T0000Z-20250615T0515Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0530Z/20250614T0000Z-20250615T0530Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0545Z/20250614T0000Z-20250615T0545Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0600Z/20250614T0000Z-20250615T0600Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0615Z/20250614T0000Z-20250615T0615Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0630Z/20250614T0000Z-20250615T0630Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0645Z/20250614T0000Z-20250615T0645Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0700Z/20250614T0000Z-20250615T0700Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0715Z/20250614T0000Z-20250615T0715Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0730Z/20250614T0000Z-20250615T0730Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0745Z/20250614T0000Z-20250615T0745Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0800Z/20250614T0000Z-20250615T0800Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0815Z/20250614T0000Z-20250615T0815Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0830Z/20250614T0000Z-20250615T0830Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0845Z/20250614T0000Z-20250615T0845Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0900Z/20250614T0000Z-20250615T0900Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0915Z/20250614T0000Z-20250615T0915Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0930Z/20250614T0000Z-20250615T0930Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T0945Z/20250614T0000Z-20250615T0945Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1000Z/20250614T0000Z-20250615T1000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1015Z/20250614T0000Z-20250615T1015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1030Z/20250614T0000Z-20250615T1030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1045Z/20250614T0000Z-20250615T1045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1100Z/20250614T0000Z-20250615T1100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1115Z/20250614T0000Z-20250615T1115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1130Z/20250614T0000Z-20250615T1130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1145Z/20250614T0000Z-20250615T1145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1200Z/20250614T0000Z-20250615T1200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1215Z/20250614T0000Z-20250615T1215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1230Z/20250614T0000Z-20250615T1230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1245Z/20250614T0000Z-20250615T1245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1300Z/20250614T0000Z-20250615T1300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1315Z/20250614T0000Z-20250615T1315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1330Z/20250614T0000Z-20250615T1330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1345Z/20250614T0000Z-20250615T1345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1400Z/20250614T0000Z-20250615T1400Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1415Z/20250614T0000Z-20250615T1415Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1430Z/20250614T0000Z-20250615T1430Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1445Z/20250614T0000Z-20250615T1445Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1500Z/20250614T0000Z-20250615T1500Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1515Z/20250614T0000Z-20250615T1515Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1530Z/20250614T0000Z-20250615T1530Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1545Z/20250614T0000Z-20250615T1545Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1600Z/20250614T0000Z-20250615T1600Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1615Z/20250614T0000Z-20250615T1615Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1630Z/20250614T0000Z-20250615T1630Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1645Z/20250614T0000Z-20250615T1645Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1700Z/20250614T0000Z-20250615T1700Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1715Z/20250614T0000Z-20250615T1715Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1730Z/20250614T0000Z-20250615T1730Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1745Z/20250614T0000Z-20250615T1745Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1800Z/20250614T0000Z-20250615T1800Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1815Z/20250614T0000Z-20250615T1815Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1830Z/20250614T0000Z-20250615T1830Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1845Z/20250614T0000Z-20250615T1845Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1900Z/20250614T0000Z-20250615T1900Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1915Z/20250614T0000Z-20250615T1915Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1930Z/20250614T0000Z-20250615T1930Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T1945Z/20250614T0000Z-20250615T1945Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2000Z/20250614T0000Z-20250615T2000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2015Z/20250614T0000Z-20250615T2015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2030Z/20250614T0000Z-20250615T2030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2045Z/20250614T0000Z-20250615T2045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2100Z/20250614T0000Z-20250615T2100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2115Z/20250614T0000Z-20250615T2115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2130Z/20250614T0000Z-20250615T2130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2145Z/20250614T0000Z-20250615T2145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2200Z/20250614T0000Z-20250615T2200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2215Z/20250614T0000Z-20250615T2215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2230Z/20250614T0000Z-20250615T2230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2245Z/20250614T0000Z-20250615T2245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2300Z/20250614T0000Z-20250615T2300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2315Z/20250614T0000Z-20250615T2315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2330Z/20250614T0000Z-20250615T2330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250615T2345Z/20250614T0000Z-20250615T2345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0000Z/20250614T0000Z-20250616T0000Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0015Z/20250614T0000Z-20250616T0015Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0030Z/20250614T0000Z-20250616T0030Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0045Z/20250614T0000Z-20250616T0045Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0100Z/20250614T0000Z-20250616T0100Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0115Z/20250614T0000Z-20250616T0115Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0130Z/20250614T0000Z-20250616T0130Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0145Z/20250614T0000Z-20250616T0145Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0200Z/20250614T0000Z-20250616T0200Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0215Z/20250614T0000Z-20250616T0215Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0230Z/20250614T0000Z-20250616T0230Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0245Z/20250614T0000Z-20250616T0245Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0300Z/20250614T0000Z-20250616T0300Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0315Z/20250614T0000Z-20250616T0315Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0330Z/20250614T0000Z-20250616T0330Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0345Z/20250614T0000Z-20250616T0345Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0400Z/20250614T0000Z-20250616T0400Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0415Z/20250614T0000Z-20250616T0415Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0430Z/20250614T0000Z-20250616T0430Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0445Z/20250614T0000Z-20250616T0445Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0500Z/20250614T0000Z-20250616T0500Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0515Z/20250614T0000Z-20250616T0515Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0530Z/20250614T0000Z-20250616T0530Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0545Z/20250614T0000Z-20250616T0545Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "item",
       "href": "./20250614T0000Z-20250616T0600Z/20250614T0000Z-20250616T0600Z.json",
-      "type": "application/geo+json"
+      "type": "application/json"
     },
     {
       "rel": "root",
