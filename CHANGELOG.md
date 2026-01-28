@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.2](https://github.com/stactools-packages/met-office-deterministic/compare/v0.4.1...v0.4.2) (2026-01-28)
+
+
+### Bug Fixes
+
+* global has geopotential_height_on_pressure_levels too ([#46](https://github.com/stactools-packages/met-office-deterministic/issues/46)) ([ac8331f](https://github.com/stactools-packages/met-office-deterministic/commit/ac8331f3a7c0b62592c409da414609e20a4083ad))
+
 ## [0.4.1](https://github.com/stactools-packages/met-office-deterministic/compare/v0.4.0...v0.4.1) (2026-01-23)
 
 
